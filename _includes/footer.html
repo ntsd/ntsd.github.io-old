@@ -269,7 +269,7 @@
 <!-- Handle Language Change -->
 <script type="text/javascript">
     // get nodes
-    var $zh = document.querySelector(".zh");
+    var $th = document.querySelector(".th");
     var $en = document.querySelector(".en");
     var $select = document.querySelector("select");
 
@@ -286,14 +286,14 @@
             $select.selectedIndex = 1;
             $en.style.display = "block";
             $en.classList.add("active");
-            $zh.style.display = "none";
-            $zh.classList.remove("active");
+            $th.style.display = "none";
+            $th.classList.remove("active");
         // zh by default
         }else{
             // not trigger onChange, otherwise cause a loop call.
             $select.selectedIndex = 0;
-            $zh.style.display = "block";
-            $zh.classList.add("active");
+            $th.style.display = "block";
+            $th.classList.add("active");
             $en.style.display = "none";
             $en.classList.remove("active");
         }
