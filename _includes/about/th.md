@@ -1,6 +1,6 @@
 
 
-> Hi ya all.
+> สวัสดีจ้า.
 
 
 Hi, I am *@ntsd* (Jirawat Boonkumnerd), A Software Engineer & A Data Scientist. I am currently Freelancer.
