@@ -48,16 +48,21 @@ header-img: "img/tag-bg.jpg"
 				  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
 				  </li> -->
 				 <div class="post-preview">
-				    <a href="{{ post.url | prepend: site.baseurl }}">
+				    <a href="{{ post.url | prepend: site.baseurl }}" style="display:inline-block;padding-right: 5px">
 				        <h2 class="post-title">
-                            {{ post.title }}
-				        </h2>
-				        {% if post.subtitle %}
-				        <h3 class="post-subtitle">
-				            {{ post.subtitle }}
-				        </h3>
-				        {% endif %}
-				    </a>
+                            {{ post.title }} 
+						</h2>
+					</a>
+					{% include category.html %}
+					
+					{% if post.subtitle %}
+						<a href="{{ post.url | prepend: site.baseurl }}">
+							<h3 class="post-subtitle">
+								{{ post.subtitle }}
+							</h3>
+						</a>
+					{% endif %}
+				    
 				    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
 				</div>
 				<hr>
