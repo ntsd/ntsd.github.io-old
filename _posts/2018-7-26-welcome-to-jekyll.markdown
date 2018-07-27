@@ -3,13 +3,12 @@ layout: post
 title:  "hello jekyll!"
 date:   2018-07-26 15:14:54
 subtitle: " \"Hello World, Hello Blog\""
+author: "ntsd"
 categories: jekyll
 catalog: true
 tags:
     - jekyll
     - general
-excerpt: 当年创建 jekyll 时默认的一篇文章，没什么意义，我也一直没删除，留个纪念吧。
-mathjax: true
 ---
 
 ## General

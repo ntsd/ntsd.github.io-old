@@ -1,16 +1,16 @@
 ---
 layout: page
 title: "Categories"
-description: "Categories of posts"
 header-img: "../img/about-bg.jpg"
-multilingual: true
+permalink: /categories/
+catalog: true
 ---
 
 
 <div class="post-container">
     <ul>
         {% for category in site.categories %}
-        <h2 id="{{category | first}}">{{category | first}}</h2>
+        <h1>{{category | first}}</h1>
             {% for posts in category  %}
                 {% for post in posts %}
                     {% if post.url %}
@@ -18,7 +18,7 @@ multilingual: true
                         <time>
                         {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
                         </time>
-                        <a class="title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                        <a class="title" href="{{ post.url | prepend: site.baseurl }}" style="margin-right: 5px">{{ post.title }}</a>
 
                         {% include tag.html %}
                     </li>

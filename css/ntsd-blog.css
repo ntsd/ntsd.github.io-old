@@ -1,0 +1,33 @@
+/* categories on post */
+.categories {
+    display: inline-block;
+    margin-bottom: -5px;
+}
+.categories a,
+.categories .category {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    /* border-radius: 999em; */
+    padding: 0 10px;
+    color: #ffffff;
+    line-height: 24px;
+    font-size: 12px;
+    text-decoration: none;
+    margin: 0 1px;
+    margin-bottom: 6px;
+}
+.categories a:hover,
+.categories .category:hover,
+.categories a:active,
+.categories .category:active {
+    color: white;
+    border-color: white;
+    background-color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+}
+@media only screen and (min-width: 768px) {
+    .categories a,
+    .categories .category {
+        margin-right: 5px;
+    }
+}

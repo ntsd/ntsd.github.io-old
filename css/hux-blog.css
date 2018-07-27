@@ -1014,6 +1014,7 @@ img::-moz-selection {
 }
 /* Hux add tags support */
 .tags {
+  display: inline-block;
   margin-bottom: -5px;
 }
 .tags a,

@@ -79,7 +79,7 @@ sidebar-avatar: /img/ba2.jpg      # use absolute URL, seeing it's used in both `
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+featured-condition-size: 0             # A tag will be featured if the size of it is more than this condition value
 
 
 
@@ -88,11 +88,33 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 
-
 # Friends
-friends: [
-    {
-        title: "Leconize",
-        href: "https://github.com/leconize"
-    }
+# friends: [
+#     {
+#         title: "Leconize",
+#         href: "https://github.com/leconize"
+#     }
+# ]
+
+# Quotes quotes will show when description or subtitle is null
+quotes: [
+    "“Choose a job that you love and you will never have to work a day in your life” – Confucius",
+    "“I have not failed. I’ve just found 10,000 ways that won’t work.” – Thomas Edison",
+    "“Never before in history has innovation offered promise of so much to so many in so short a time.” – Bill Gates",
+    "“The science of today is the technology of tomorrow.” – Edward Teller",
+    "‘I learned that focus is key, not just in running a company, but in your personal life as well.’ - Tim Cook",
+    "“Wear your failure as a badge of honor.” - Sundar Pichai",
+    "“Find that thing you are super passionate about.” - Mark Zuckerberg",
+    "“You build your own strategy. You don’t define it by what another competitor is doing.” - Ginni Rometty",
+    "“If you're passionate about something and you work hard, then I think you will be successful.” - Pierre Omidyar",
+    "“Diligence is the mother of good luck.” - Benjamin Franklin",
+    "“Whether you think you can, or think you can't you're right.” - Henry Ford",
+    "“The value of an idea lies in the using of it.” - Thomas Edison",
+    "“Make every detail perfect and limit the number of details to perfect.” - Jack Dorsey",
+    "“Don't worry about failure; you only have to be right once.” - Drew Houston",
+    "“Any time is a good time to start a company.” - Ron Conway",
+    "“Nothing works better than just improving your product.” - Joel Spolsky",
+    "“Your most unhappy customers are your greatest source of learning.” - Bill Gates",
+    "“Life is too short to hang out with people who aren’t resourceful.” - Jeff Bezos"
 ]
+
