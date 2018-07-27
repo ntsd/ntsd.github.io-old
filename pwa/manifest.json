@@ -1,7 +1,7 @@
 {
-  "name": "Hux Blog",
-  "short_name": "Hux Blog",
-  "description": "About an engineer & designer who loves web.",
+  "name": "NTSD Blog",
+  "short_name": "NTSD Blog",
+  "description": "A Software Engineer who interest in Machine Learning.",
   "icons": [{
     "src": "icons/128.png",
     "sizes": "128x128",
