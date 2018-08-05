@@ -26,9 +26,9 @@ Codingame เป็นเว็บที่มีเกมแนว Bot Programm
 - Basic Algorithms
 - OOP นิดหน่อย
 
-# Rule
-
 LEGENDS OF CODE AND MAGIC เป็นเกมนี้จะเป็นบอร์ดเกมคล้าย Hearthstone
+
+ตัวอย่างเกม https://www.codingame.com/replay/328489470
 
 มีผู้เล่นสองคนใช้ไพ่ต่อสู้กันใครเลือดหมดก่อนแพ้
 
@@ -60,8 +60,6 @@ Guard: Enemy creatures must attack creatures with Guard first.
 Lethal: Creatures with Lethal kill the creatures they deal damage to.
 Ward: Creatures with Ward ignore once the next damage they would receive from any source. The "shield" given by the Ward ability is then lost.
 ```
-
-ตัวอย่างเกม https://www.codingame.com/replay/328489470
 
 # Class
 
