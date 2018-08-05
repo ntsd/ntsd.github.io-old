@@ -4,7 +4,7 @@ title:  "Jekyll is Awesome"
 date:   2018-07-27 10:18:54
 subtitle: " \"First time Jekyll\""
 author: "ntsd"
-categories: jekyll
+categories: Jekyll
 tags:
     - jekyll
 ---

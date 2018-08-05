@@ -4,7 +4,7 @@ title:  "Welcome to my blog"
 date:   2018-07-26 15:14:54
 subtitle: " \"Everyone get in here\""
 author: "ntsd"
-categories: general
+categories: General
 tags:
     - general
 ---

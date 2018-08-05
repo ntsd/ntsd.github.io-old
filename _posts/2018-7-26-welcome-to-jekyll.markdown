@@ -4,7 +4,7 @@ title:  "hello jekyll!"
 date:   2018-07-26 15:14:54
 subtitle: " \"Hello World, Hello Blog\""
 author: "ntsd"
-categories: jekyll
+categories: Jekyll
 catalog: true
 tags:
     - jekyll
