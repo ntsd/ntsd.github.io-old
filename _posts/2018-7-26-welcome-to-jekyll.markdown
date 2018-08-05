@@ -104,3 +104,10 @@ Looking back at the birth of this blog is purely for personal interest. After an
 After experiencing the transformation of v1.0 - v1.5, this blog theme has become more complete, not only increasing the optimization of many UI layers (opinionated); at the code level, the richer configuration items also make this theme have better. Flexibility and expandability. As an open source project, I am also actively improving the documentation and solving the issue.
 
 If you happen to be here, I hope you can also enjoy this blog theme.
+
+
+
+
+
+![lisa](/img/lisa_png_by_lexmimieux-dampnyi.png)
+
