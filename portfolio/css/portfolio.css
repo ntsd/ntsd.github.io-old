@@ -1,0 +1,69 @@
+/******* Hux Branch *****/
+
+/* navbar - dark mode */
+/* .navbar-custom .nav li a,
+.navbar-custom .nav li a:hover,
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-brand:hover {color:#777;}
+.navbar-default .navbar-toggle .icon-bar {background-color:#777;} */
+
+html, body {
+  height: 100%;
+}
+html{
+	font-size: 90%;
+}
+body{
+  background: #fafafa;background: #fafafa;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+header{
+	text-align: center;
+	min-width: 100%;
+	padding: 5em 0px;
+	padding-bottom: 10em;
+	position: relative;
+  /* border-bottom: 1px solid #edeeee; */
+  background: #fafafa;
+  z-index: 1;
+}
+header h1 {
+  font-size: 70px;
+  font-weight: 700;
+  margin-top: 26px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+header p{
+	text-align: center;
+	color: #252728;
+	font-size: 16px;
+	line-height: 1.6em;
+	letter-spacing: 1px;
+	font-weight: 300;
+	margin: 1.7em;
+}
+header img{
+	width: 175px;
+}
+
+a {
+  color: #B9CFD0;
+  text-decoration: none;
+  border-bottom: 1px solid #B9CFD0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Comfortaa', cursive;
+}
+
+
+

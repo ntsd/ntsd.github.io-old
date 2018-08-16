@@ -5,12 +5,15 @@
 
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="">
-
-    {% include nav.html %}
+    {% if page.no-nav == null %}
+        {% include nav.html %}
+    {% endif %}
 
     {{ content }}
 
-    {% include footer.html %}
+    {% if page.no-footer == null %}
+        {% include footer.html %}
+    {% endif %}
 
 
 <!-- Image to hack wechat -->

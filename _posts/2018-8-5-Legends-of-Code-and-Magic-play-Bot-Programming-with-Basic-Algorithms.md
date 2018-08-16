@@ -2,7 +2,7 @@
 layout: post
 title:  "Legends of Code and Magic เล่น Bot Programming ด้วย  Basic Algorithms"
 date:   2018-08-5 12:30:54
-subtitle: "บอทเกมนี้จะเป็นบอร์ดเกมคล้าย Hearthstone"
+subtitle: "บอทเกมคล้าย Hearthstone"
 author: "ntsd"
 catalog: true
 categories: Programming GameBot
