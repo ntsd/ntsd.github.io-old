@@ -3,7 +3,7 @@
 	$(document).ready(function() {
 		setupFade();
 		setupClickToScroll();
-		// setupPostAnimation();
+		setupPostAnimation();
 		setupScrollToTop();
      enableScrollAbortion();
 
@@ -34,7 +34,7 @@
 
 
 	function setupPostAnimation() {
-		var posts = $('.post-wrapper .post');
+		var posts = $('.timeline .post-wrapper .post');
 		$(window).on('scroll resize', function() {
 
 			var currScroll = $(window).scrollTop() > $(document).scrollTop() ? $(window).scrollTop() : $(document).scrollTop(),
@@ -60,8 +60,8 @@
 
 	function setupFade() {
 
-		var posts = $('.post-wrapper .post').reverse(),
-			stemWrapper = $('.stem-wrapper'),
+		var posts = $('.timeline .post-wrapper .post').reverse(),
+			stemWrapper = $('.timeline .stem-wrapper'),
 			halfScreen = $(window).height() / 2;
 
 		$(window).on('scroll resize', function() {
@@ -106,7 +106,7 @@
 
 		var scrollSpeed = 750;
 
-		$('.post-wrapper .post .stem-overlay .icon').click(function(e) {
+		$('.timeline .post-wrapper .post .stem-overlay .icon').click(function(e) {
 			e.preventDefault();
 
 			var icon = $(this),

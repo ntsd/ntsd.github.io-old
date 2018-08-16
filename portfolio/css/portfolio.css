@@ -20,35 +20,6 @@ body{
   overflow-x: hidden;
   overflow-y: scroll;
 }
-header{
-	text-align: center;
-	min-width: 100%;
-	padding: 5em 0px;
-	padding-bottom: 10em;
-	position: relative;
-  /* border-bottom: 1px solid #edeeee; */
-  background: #fafafa;
-  z-index: 1;
-}
-header h1 {
-  font-size: 70px;
-  font-weight: 700;
-  margin-top: 26px;
-  margin-bottom: 10px;
-  line-height: 1;
-}
-header p{
-	text-align: center;
-	color: #252728;
-	font-size: 16px;
-	line-height: 1.6em;
-	letter-spacing: 1px;
-	font-weight: 300;
-	margin: 1.7em;
-}
-header img{
-	width: 175px;
-}
 
 a {
   color: #B9CFD0;
@@ -65,5 +36,68 @@ h6 {
   font-family: 'Comfortaa', cursive;
 }
 
+ul {
+  list-style: none;
+}
 
+/*----------------------------------------------------------------------------------*/
+/*  Header
+/*-----------------------------------------------------------------------------------*/
 
+.header{
+	text-align: center;
+  min-width: 100%;
+  height: 100vh;
+	position: relative;
+  /* border-bottom: 1px solid #edeeee; */
+  background: #fafafa;
+  z-index: 1;
+  /* background: url("img/home-bg.jpg") repeat scroll center center / cover; */
+}
+
+.header .header-content{
+  /* make it middle */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header .header-content h1 {
+  font-size: 70px;
+  font-weight: 700;
+  margin-top: 26px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+.header .header-content p{
+  text-align: center;
+	color: #252728;
+	font-size: 16px;
+	line-height: 1.6em;
+	letter-spacing: 1px;
+	font-weight: 300;
+	margin: 1.7em;
+}
+.header .header-content img{
+	width: 175px;
+}
+
+.header .header-content .list-social{
+  padding-left: 0;
+}
+
+.header .header-content .list-social li {
+  margin: 10px;
+  display: inline;
+}
+
+/* .header .header-content .list-social li i {
+  color: #252728;
+  font-size: 30px;
+} */
+
+.header .header-content .list-social li ion-icon {
+  color: #252728; /* color: #fff; */
+  font-size: 30px;
+}
