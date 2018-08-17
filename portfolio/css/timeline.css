@@ -1,4 +1,3 @@
-
 /*==========  Timeline  ==========*/
 
 /* html,
@@ -149,11 +148,11 @@ body {
   width: 60px;
   height: 60px;
   margin: 0px auto;
-  background: transparent url('/img/stem-mask.png') repeat-y top center;
+  background: transparent url('../images/stem-mask.png') repeat-y top center;
 }
 .timeline .single-stem-icon.scroll-to-top {
   cursor: pointer;
-  background-image: url('/img/scroll-to-top-icon-2.png');
+  background-image: url('../images/scroll-to-top-icon-2.png');
 }
 /*==========  Post wrapper ==========*/
 .timeline .post-wrapper {
@@ -204,7 +203,7 @@ body {
   right: -110px;
 }
 .timeline .post-wrapper .post.star-icon .stem-overlay .icon {
-  background-image: url('/img/star-icon.png');
+  background-image: url('../images/star-icon.png');
 }
 .timeline .post-wrapper .post.music-icon .stem-overlay .icon {
   background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/22043/music-icon.png);
@@ -236,7 +235,7 @@ body {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background: transparent url('/img/stem-mask.png') repeat-y top center;
+  background: transparent url('../images/stem-mask.png') repeat-y top center;
 }
 .timeline .post-wrapper .post .post-content {
   opacity: .3;
