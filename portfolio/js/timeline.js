@@ -26,15 +26,27 @@
 		var scrollSpeed = 750;
 		$('.trigger-scroll-to-top').click(function(e) {
 			e.preventDefault();
+
+			var post = $('#timeline .post-wrapper .timeline-post').first(),
+				postTopOffset = post.offset().top,
+				postHeight = post.height(),
+				halfScreen = $(window).height() / 2,
+				scrollTo = postTopOffset - halfScreen + (postHeight/2);
+
 			$('html, body').animate({
-				scrollTop: 0
+				scrollTop: scrollTo
 			}, scrollSpeed);
+
+			// e.preventDefault();
+			// $('html, body').animate({
+			// 	scrollTop: 0
+			// }, scrollSpeed);
 		});
 	}
 
 
 	function setupPostAnimation() {
-		var posts = $('.timeline .post-wrapper .post');
+		var posts = $('#timeline .post-wrapper .timeline-post');
 		$(window).on('scroll resize', function() {
 
 			var currScroll = $(window).scrollTop() > $(document).scrollTop() ? $(window).scrollTop() : $(document).scrollTop(),
@@ -48,9 +60,9 @@
 					postScroll = post.offset().top
 
 				if(postScroll > treshhold) {
-					post.addClass('hidden');
+					post.addClass('post-hidden');
 				} else {
-					post.removeClass('hidden');
+					post.removeClass('post-hidden');
 				}
 
 			});
@@ -60,8 +72,8 @@
 
 	function setupFade() {
 
-		var posts = $('.timeline .post-wrapper .post').reverse(),
-			stemWrapper = $('.timeline .stem-wrapper'),
+		var posts = $('#timeline .post-wrapper .timeline-post').reverse(),
+			stemWrapper = $('#timeline .stem-wrapper'),
 			halfScreen = $(window).height() / 2;
 
 		$(window).on('scroll resize', function() {
@@ -71,19 +83,19 @@
 				var currScroll = $(window).scrollTop() > $(document).scrollTop() ? $(window).scrollTop() : $(document).scrollTop(),
 					scrollSplit = currScroll + halfScreen;
 
-				posts.removeClass('active').each(function() {
+				posts.removeClass('post-active').each(function() {
 
 					var post = $(this),
 						postOffset = post.offset().top;
 
 					if(scrollSplit > postOffset) {
 
-						// Add active class to fade in
-						post.addClass('active')
+						// Add post-active class to fade in
+						post.addClass('post-active')
 
 						// Get post color
 						var color = post.data('stem-color') ? post.data('stem-color') : null,
-							allColors = 'color-green color-yellow color-white'
+							allColors = 'color-green color-yellow color-white color-purple color-pink color-red'
 
 						stemWrapper.removeClass(allColors);
 
@@ -106,11 +118,11 @@
 
 		var scrollSpeed = 750;
 
-		$('.timeline .post-wrapper .post .stem-overlay .icon').click(function(e) {
+		$('#timeline .post-wrapper .timeline-post .stem-overlay .icon').click(function(e) {
 			e.preventDefault();
 
 			var icon = $(this),
-				post = icon.closest('.post'),
+				post = icon.closest('.timeline-post'),
 				postTopOffset = post.offset().top,
 				postHeight = post.height(),
 				halfScreen = $(window).height() / 2,

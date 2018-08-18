@@ -1,5 +1,11 @@
-/******* Hux Branch *****/
 
+/* @font-face {
+  font-family: "HelvetiaMedium";
+  src: url(../fonts/helveticaneue-medium.ttf);
+  font-weight: medium;
+} */
+
+/******* Hux Nav *****/
 /* navbar - dark mode */
 /* .navbar-custom .nav li a,
 .navbar-custom .nav li a:hover,
@@ -21,10 +27,14 @@ body{
   overflow-y: scroll;
 }
 
+/*----------------------------------------------------------------------------------*/
+/*  Main Component
+/*-----------------------------------------------------------------------------------*/
+
 a {
   color: #B9CFD0;
-  text-decoration: none;
-  border-bottom: 1px solid #B9CFD0;
+  text-decoration: none !important; 
+  /* border-bottom: 1px solid #B9CFD0; */
 }
 
 h1,
@@ -40,22 +50,44 @@ ul {
   list-style: none;
 }
 
+.list-social{
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.list-social li {
+  margin: 10px;
+  display: inline;
+}
+
+/* .list-social li i {
+  color: #252728;
+  font-size: 30px;
+} */
+
+.list-social li ion-icon {
+  color: #252728; /* color: #fff; */
+  font-size: 30px;
+}
+
 /*----------------------------------------------------------------------------------*/
 /*  Header
 /*-----------------------------------------------------------------------------------*/
 
-.header{
+#header{
 	text-align: center;
-  min-width: 100%;
+  width: 100vw;
   height: 100vh;
 	position: relative;
   /* border-bottom: 1px solid #edeeee; */
-  background: #fafafa;
+  /* background: #ffffff; */
+  background: #ffe8e8;
+  /* background: #fafafa; */
   z-index: 1;
   /* background: url("img/home-bg.jpg") repeat scroll center center / cover; */
 }
 
-.header .header-content{
+#header .header-content{
   /* make it middle */
   position: absolute;
   top: 50%;
@@ -63,14 +95,15 @@ ul {
   transform: translate(-50%, -50%);
 }
 
-.header .header-content h1 {
+/* #header .header-content h1 {
   font-size: 70px;
   font-weight: 700;
   margin-top: 26px;
   margin-bottom: 10px;
   line-height: 1;
-}
-.header .header-content p{
+} */
+
+#header .header-content p{
   text-align: center;
 	color: #252728;
 	font-size: 16px;
@@ -79,25 +112,183 @@ ul {
 	font-weight: 300;
 	margin: 1.7em;
 }
-.header .header-content img{
+#header .header-content img{
 	width: 175px;
 }
 
-.header .header-content .list-social{
-  padding-left: 0;
+/*----------------------------------------------------------------------------------*/
+/*  About
+/*-----------------------------------------------------------------------------------*/
+
+#about{
+	text-align: left;
+  width: 100vw;
+  /* height: 100vh; */
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
+  padding: 7em 0;
+  clear: both;
 }
 
-.header .header-content .list-social li {
-  margin: 10px;
-  display: inline;
+#about span{
+  font-family: "Space Mono";
+  font-weight: 400;
 }
 
-/* .header .header-content .list-social li i {
-  color: #252728;
-  font-size: 30px;
+#about p, #about h1, #about h2, #about h3, #about h4, #about h5, #about h6, #about figure {
+  font-family: "Space Mono", Arial, serif;
+  font-weight: 400;
+  color: #000;
+  margin: 0 0 20px 0;
+}
+
+#about p {
+  margin-bottom: 30px;
+}
+
+#about .header{
+  margin-bottom: 20px;
+}
+
+#about .header h2{
+	font-size: 40px;
+	font-family: "Space Mono", "Arial", sans-serif;
+  /* font-family: "Helvetica Neue", "Arial", sans-serif;
+	font-size: 22px; */
+	font-weight: medium;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#about .info {
+  margin-top: 10px;
+  padding: 0;
+  width: 90%;
+  float: left;
+}
+@media screen and (max-width: 768px) {
+  #about {
+    padding: 3em 0;
+  }
+  #about .info {
+    margin-bottom: 3em;
+  }
+}
+#about .info li {
+  width: 100%;
+  float: left;
+  list-style: none;
+  padding: 10px 0;
+}
+#about .info li:first-child {
+  padding-top: 0;
+}
+#about .info li .first-block {
+  width: 40%;
+  display: inline-block;
+  float: left;
+  color: #000;
+  font-weight: bold;
+}
+#about .info li .second-block {
+  width: 60%;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/*----------------------------------------------------------------------------------*/
+/*  Project
+/*-----------------------------------------------------------------------------------*/
+
+#project {
+	text-align: center;
+  width: 100vw;
+  /* min-height: 1200px; */
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
+  display:table;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 30px;
+}
+
+#project h2.secondtitle{
+	margin-top: 100px;
+	margin-bottom: 100px;
+	font-size: 40px;
+	font-family: "Helvetica Neue", "Arial", sans-serif;
+	line-height: 1;
+	letter-spacing: -0.4px;
+}
+
+#project h2.secondtitle span{
+	color: #CBCFD3;
+}
+
+/* project-post */
+
+#project  .project-post h2{
+	font-family: "Helvetica Neue", "Arial", sans-serif;
+	
+	font-size: 22px;
+	font-weight: medium;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#project  .project-post p.description{
+	font-size: 18px;
+	width: 80%;
+	margin: auto;
+	line-height: 1.6;
+	font-weight: medium;
+	color: #707070;
+	text-align: center;
+}
+
+#project  .project-post .post-image{
+  background-position: center;
+  background-repeat: no-repeat;
+	background-color: #20C6B7;
+	background-size: 100%;
+}
+
+/* #project  .project-post .taskhuntersapp{
+	background: url("../images/taskhuntersapp_cover_home.png") center center no-repeat;
+	background-color: #20C6B7;
+	background-size: 100%;
+}
+
+#project  .project-post .spedity{
+	background: url("../images/spedity_cover_home.png") center center no-repeat;
+	background-color: #19A4FD;
+	background-size: 100%;
 } */
 
-.header .header-content .list-social li ion-icon {
-  color: #252728; /* color: #fff; */
-  font-size: 30px;
+#project  .project-post .work{
+  height: 460px;
+  /* height: 640px; */
+	margin-bottom: 30px;
+}
+
+#project  .project-post{
+	margin-bottom: 80px;
+}
+
+#project  .project-post a .work,
+#project  .project-post a h2,
+#project  .project-post a p.description{
+	transition: all 0.3s;
+}
+
+#project  .project-post a:hover .work{
+	transform: scale(0.98);
+	background-size: 104%;
+}
+
+#project  .project-post a:hover h2,
+#project  .project-post a:hover p.description{
+	transform: translateY(-10px);
 }

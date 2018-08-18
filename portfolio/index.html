@@ -5,24 +5,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Portfolio | NTSD</title>
 
-    <!-- Libraries CSS Files -->
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
     
-
+    <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="css/portfolio.css" />
     <link rel="stylesheet" type="text/css" href="css/timeline.css" />
 
-
     <!-- jQuery -->
-    <!-- <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script> -->
-    <script src="lib/jquery-3.3.1.min.js"></script>
+    <script src="lib/jquery-3.3.1.min.js"></script> <!-- <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script> -->
 
+    <!-- Scripts -->
     <script src="js/timeline.js"></script>
 
     <!-- Ionicons -->
     <script src="https://unpkg.com/ionicons@4.3.0/dist/ionicons.js"></script>
-
     <!-- Modernizr JS -->
     <script src="lib/modernizr.custom.js"></script>
 </head>
@@ -30,149 +29,247 @@
 <body>
     <div class="container" style="margin:0;padding:0;width:100%;">
         
-        <div id="header" class="header">
+        <section id="header" class="header">
             <div class="header-content">
                 <h2>ntsd</h2>
                 <img width="175" height="175" style="border-radius:50%;" src="https://avatars0.githubusercontent.com/u/8283616?s=460&v=4">
-                <h2>Jirawat Boonkumned</h2>
-                <h3>Software Developer</h3>
+                <h3>Jirawat Boonkumned</h3>
+                <h4>Software Developer</h4>
                 <ul class="list-social">
                     <li><a href="https://www.linkedin.com/in/jirawat-boonkumnerd-815832114"><ion-icon name="logo-linkedin"></ion-icon></a></li>
                     <li><a href="https://github.com/ntsd"><ion-icon name="logo-github"></ion-icon></a></li>
                     <li><a href="http://ntsd.github.io"><ion-icon name="home"></ion-icon></a></li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <div id="about" class="about">
-                        
-        </div>
+        <section id="about" class="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center header">
+                        <h2>About Me</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <ul class="info">
+                            <li><span class="first-block">Full Name:</span><span class="second-block">Jirawat Boonkumnerd</span></li>
+                            <li><span class="first-block">Phone:</span><span class="second-block">(+66) 95 772 4196</span></li>
+                            <li><span class="first-block">Email:</span><span class="second-block">jo06942@gmail.com</span></li>
+                            <li><span class="first-block">Website:</span><span class="second-block">ntsd.github.io</span></li>
+                            <li><span class="first-block">Location:</span><span class="second-block">Bangkok, Thailand</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <h2>Hello!</h2>
+                        <p>I am a Software Developer from Thailand who loves programming and problem-solving. I like to learn new things every day. I mostly spend the time with a computer. My life is like code, eat, sleep and repeat. Sometimes I think I'm too obsessed, haha.</p>
+                        <p>I'm a generalist with programming skills such as full-stack development, data structures, image processing, machine learning, web scraping etc. I am interested in machine learning because of the world nowadays is Big Data Generation. So It's good to learn data science skills.</p>
+                        <ul class="list-social">
+                            <li><a href="https://www.linkedin.com/in/jirawat-boonkumnerd-815832114"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                            <li><a href="https://github.com/ntsd"><ion-icon name="logo-github"></ion-icon></a></li>
+                            <li><a href="http://ntsd.github.io"><ion-icon name="home"></ion-icon></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div id="timeline" class="timeline">
+        <section id="project" class="project">
+            <h2 class="secondtitle herotitle">My Projects<br><span>— made with passion</span></h2>
+            <div class="row lista-lavori">
+                <div class="col-12 col-md-4 project-post">
+                    <a href=""> 
+                    <div class="work post-image"></div>
+                    <div>
+                        <h2>Lorem Ipsum</h2>
+                        <p class="description">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-4 project-post">
+                    <a href="">
+                    <div class="work post-image"></div>
+                    <div>
+                        <h2>Lorem Ipsum</h2>
+                        <p class="description">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-4 project-post">
+                    <a href="">    
+                    <div class="work post-image"></div>
+                    <div>
+                        <h2>Lorem Ipsum</h2>
+                        <p class="description">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <a class="freccia" href="#list"></a>
+        </section>
+
+        <section id="timeline" class="timeline">
 
             <div class="stem-wrapper">
                 <div class="stem"></div>
                 <div class="stem-background"></div>
             </div>
 
-            <header class="section header">
+            <header class="timeline-section header">
                 <div class="section-inner">
-
                     <div class="master-head">
-                        <h1 class="page-title">Colored Stem</h1>
-                        <p class="page-description">Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently
-                            than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react
-                            the exact same way to water.</p>
-                        <p class="scroll-button" onClick="$('.post-wrapper .post:first-child .stem-overlay .icon').click();">Ready to go for a ride?</p>
+                        <h1 class="page-title">Activities</h1>
+                        <p class="page-description">
+                            In a few years after I start programming.
+                            I do an activity or competition most of it is an International competition or online contest.
+                        </p>
+                        <!-- <p class="scroll-button" onClick="$('.post-wrapper .post:first-child .stem-overlay .icon').click();">Ready to go for a ride?</p> -->
                     </div>
-
                 </div>
             </header>
-            <!-- header -->
 
-            <div class="section main-content">
+            <div class="timeline-section main-content">
                 <div class="section-inner">
 
                     <div class="stem-padding"></div>
 
                     <div class="post-wrapper">
 
-                        <article class="post star-icon">
+                        <article class="timeline-post star-icon">
                             <div class="stem-overlay">
                                 <div class="icon"></div>
                                 <div class="stem-mask"></div>
                             </div>
-
                             <div class="post-content">
-                                <p class="meta">Written yesterday at 8:56 pm</p>
-                                <h2 class="post-title">This is my post title</h2>
+                                <p class="post-meta">2018</p>
+                                <h2 class="post-title">Kaggle TalkingData AdTracking Fraud Detection Challenge</h2>
                                 <div class="entry-content">
-                                    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses
-                                        differently than mine. You don't get sick, I do. That's also clear. But for some
-                                        reason, you and I react the exact same way to water. We swallow it too fast, we choke.
-                                        We get some in our lungs, we drown. However unreal it may seem, we are connected,
-                                        you and I. We're on the same curve, just on opposite ends.</p>
+                                    <p>A data Science challenge to predict user will download an app after clicking a mobile app advertisement.
+                                       This is first time I handle large dataset train set is 240M and test 19M rows.
+                                       I use a single LGBM model with 18 features get score 0.9802 and rank is 727/3,967</p>
                                 </div>
+                                <!-- https://www.kaggle.com/c/talkingdata-adtracking-fraud-detection -->
                             </div>
                         </article>
 
-                        <article class="post star-icon" data-stem-color="green">
+                        <article class="timeline-post star-icon" data-stem-color="green">
                             <div class="stem-overlay">
                                 <div class="icon"></div>
                                 <div class="stem-mask"></div>
                             </div>
-
                             <div class="post-content">
-                                <p class="meta">Written yesterday at 8:56 pm</p>
-                                <h2 class="post-title">This is my post title</h2>
+                                <p class="post-meta">2018</p>
+                                <h2 class="post-title">Google Code Jam 2018 Round 1A</h2>
                                 <div class="entry-content">
-                                    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses
-                                        differently than mine. You don't get sick, I do. That's also clear. But for some
-                                        reason, you and I react the exact same way to water. We swallow it too fast, we choke.
-                                        We get some in our lungs, we drown. However unreal it may seem, we are connected,
-                                        you and I. We're on the same curve, just on opposite ends.</p>
+                                    <p>Google Code Jam is one of hardest competitive programming contest in the world.
+                                         but I haven't fo that far. I passed qualification with rank 5606/24584 but haven't continue in next round because so busy on the senior project.
+                                         It's so hard. need to practice more for next year.</p>
                                 </div>
+                                <!-- https://codejam.withgoogle.com/2018/challenges -->
                             </div>
                         </article>
 
-                        <article class="post star-icon" data-stem-color="yellow">
+                        <article class="timeline-post star-icon" data-stem-color="yellow">
                             <div class="stem-overlay">
                                 <div class="icon"></div>
                                 <div class="stem-mask"></div>
                             </div>
-
                             <div class="post-content">
-                                <p class="meta">Written yesterday at 8:56 pm</p>
-                                <h2 class="post-title">This is my post title</h2>
+                                <p class="post-meta">2018</p>
+                                <h2 class="post-title">Codingame Code Royale AI Contest</h2>
                                 <div class="entry-content">
-                                    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses
-                                        differently than mine. You don't get sick, I do. That's also clear. But for some
-                                        reason, you and I react the exact same way to water. We swallow it too fast, we choke.
-                                        We get some in our lungs, we drown. However unreal it may seem, we are connected,
-                                        you and I. We're on the same curve, just on opposite ends.</p>
+                                    <p>bot programming contest to build structures and train troops in order to destroy the enemy.
+                                       I write the bot with only 250 lines in Python and get rank 185/2120</p>
                                 </div>
+                                <!-- https://www.codingame.com/multiplayer/bot-programming/code-royale -->
                             </div>
                         </article>
 
-                        <article class="post star-icon">
+                        <article class="timeline-post star-icon">
                             <div class="stem-overlay">
                                 <div class="icon"></div>
                                 <div class="stem-mask"></div>
                             </div>
-
                             <div class="post-content">
-                                <p class="meta">Written yesterday at 8:56 pm</p>
-                                <h2 class="post-title">This is my post title</h2>
+                                <p class="post-meta">2018</p>
+                                <h2 class="post-title">Kaggle Toxic Comment Classification Challenge</h2>
                                 <div class="entry-content">
-                                    <p>Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses
-                                        differently than mine. You don't get sick, I do. That's also clear. But for some
-                                        reason, you and I react the exact same way to water. We swallow it too fast, we choke.
-                                        We get some in our lungs, we drown. However unreal it may seem, we are connected,
-                                        you and I. We're on the same curve, just on opposite ends.</p>
+                                    <p>A Kaggle challenge to predicts a probability of each type of toxicity for each comment.
+                                        I do blend of many models with public kernel and own models and it become overfitting.
+                                        rank is 1019/4,551 with score 0.9861.
+                                    </p>
                                 </div>
+                                <!-- https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge -->
                             </div>
                         </article>
+
+                        <article class="timeline-post star-icon" data-stem-color="purple">
+                                <div class="stem-overlay">
+                                    <div class="icon"></div>
+                                    <div class="stem-mask"></div>
+                                </div>
+                                <div class="post-content">
+                                    <p class="post-meta">2018</p>
+                                    <h2 class="post-title">Hackerrank Week of Code 36 Contest</h2>
+                                    <div class="entry-content">
+                                        <p>A competitive programming contest of Hackerrank. I get rank 743/12748 and silver medal. :)
+                                        </p>
+                                    </div>
+                                    <!-- https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge -->
+                                </div>
+                            </article>
+
+                        <article class="timeline-post star-icon" data-stem-color="pink">
+                                <div class="stem-overlay">
+                                    <div class="icon"></div>
+                                    <div class="stem-mask"></div>
+                                </div>
+                                <div class="post-content">
+                                    <p class="post-meta">2016</p>
+                                    <h2 class="post-title">Codingame The Accountant AI Contest</h2>
+                                    <div class="entry-content">
+                                        <p>Bot programming contest take out the armed forces in search of incriminating data.
+                                                I write the bot with only 66 lines in Python and get rank 708/6214.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="timeline-post star-icon" data-stem-color="red">
+                                    <div class="stem-overlay">
+                                        <div class="icon"></div>
+                                        <div class="stem-mask"></div>
+                                    </div>
+                                    <div class="post-content">
+                                        <p class="post-meta">2015</p>
+                                        <h2 class="post-title">Teaching assistant Problem Solving at KMITL</h2>
+                                        <div class="entry-content">
+                                            <p>I become Teaching assistant about introduction to Problem Solving with Python language.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
                     </div>
-                    <!-- post-wrapper -->
 
                     <div class="single-stem-icon scroll-to-top trigger-scroll-to-top"></div>
-
                 </div>
-                <!-- section-inner -->
             </div>
-            <!-- main-content -->
 
-            <footer class="footer section">
-                <div class="section-inner">
-                    
+            <div class="timeline-footer timeline-section">
+                <div class="section-inner">  
                     <div class="good-bye">
                         <p>That's all!</p>
-                        <p>Psst. You can click the icons to scroll to each post. Click the last one to scroll back up.</p>
+                        <p>Thank you for read</p>
+                        <p>.</p>
+                        <p>.</p>
                     </div>
-                    <!-- section-inner -->
-            </footer>
-            <!-- footer -->
-        </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+
+        </section>
 </body>
 
 </html>
