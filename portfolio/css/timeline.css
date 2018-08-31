@@ -24,7 +24,7 @@ body {
 
 /*==========  Sections  ==========*/
 #timeline {
-  background: #fafafa;
+  background: #ffffff;
 }
 
 #timeline .header {
@@ -71,7 +71,7 @@ body {
   clear: both;
 }
 #timeline .timeline-footer {
-  background: #fafafa;
+  background: #ffffff;
   padding: 70px 0px 150px 0px;
   position: relative;
   z-index: 1;
@@ -144,11 +144,11 @@ body {
   width: 60px;
   height: 60px;
   margin: 0px auto;
-  background: transparent url('../images/stem-mask.png') repeat-y top center;
+  background: transparent url('../images/stem-mask-ffffff.png') repeat-y top center;
 }
 #timeline .single-stem-icon.scroll-to-top {
   cursor: pointer;
-  background-image: url('../images/scroll-to-top-icon-2.png');
+  background-image: url('../images/scroll-to-top-icon-ffffff.png');
 }
 /*==========  Post wrapper ==========*/
 #timeline .post-wrapper {
@@ -199,7 +199,7 @@ body {
   right: -110px;
 }
 #timeline .post-wrapper .timeline-post.star-icon .stem-overlay .icon {
-  background-image: url('../images/star-icon.png');
+  background-image: url('../images/star-icon-ffffff.png');
 }
 #timeline .post-wrapper .timeline-post.music-icon .stem-overlay .icon {
   background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/22043/music-icon.png);
@@ -231,7 +231,7 @@ body {
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background: transparent url('../images/stem-mask.png') repeat-y top center;
+  background: transparent url('../images/stem-mask-ffffff.png') repeat-y top center;
 }
 #timeline .post-wrapper .timeline-post .post-content {
   opacity: .3;
