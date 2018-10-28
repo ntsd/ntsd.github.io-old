@@ -308,25 +308,20 @@ ul {
   position: relative;
   z-index: 1;
   color: #ffffff;
-  background: #3f4041;
-  margin-top: 0;
-  margin-bottom: 0;
+  background: #202020;
   display: table;
 }
 
 #footer .footer-top {
-  background: #3f4041;
   position: relative;
   z-index: 1;
-  margin-top: 0;
-  margin-bottom: 0;
+  height: 30vh;
 }
 
 #footer .footer-bottom {
   background: #000000;
   position: relative;
   z-index: 1;
-  height: 100px;
-  margin-top: 0;
-  margin-bottom: 0;
+  height: 10vh;
+  padding-top: 3vh;
 }

@@ -311,3 +311,10 @@ body {
 #timeline .clearfix:after {
   clear: both;
 }
+
+#timeline .timeline-footer {	
+  background: #ffffff;	
+  padding: 35px 0px 75px 0px;	
+  position: relative;	
+  z-index: 1;	
+}
