@@ -31,7 +31,7 @@ body {
   text-align: center;
   position: relative;
   z-index: 1;
-  background: rgb(102, 179, 190);
+  background: #292a2c;;
   width: 100%;
   /* background-image: linear-gradient(to bottom, #6fc7d4 0%, #39ACBD 100%); */
 }
@@ -70,23 +70,7 @@ body {
 #timeline .main-content .post-wrapper:after {
   clear: both;
 }
-#timeline .timeline-footer {
-  background: #ffffff;
-  padding: 70px 0px 150px 0px;
-  position: relative;
-  z-index: 1;
-}
-#timeline .timeline-footer .good-bye {
-  text-align: center;
-  font-size: 18px;
-  line-height: 36px;
-}
-#timeline .timeline-footer .good-bye p {
-  display: block;
-  margin: 0px auto 30px auto;
-  max-width: 300px;
-  clear: both;
-}
+
 #timeline .timeline-section .section-inner {
   margin: 0px auto;
   width: 1024px;
@@ -114,13 +98,22 @@ body {
   background: #FFF;
 }
 #timeline .stem-wrapper.color-purple .stem-background {
-  background: rgb(172, 80, 190);
+  background: rgb(146, 80, 190);
+}
+#timeline .stem-wrapper.color-blue .stem-background {
+  background: rgb(80, 150, 190);
 }
 #timeline .stem-wrapper.color-pink .stem-background {
   background: rgb(214, 93, 164);
 }
 #timeline .stem-wrapper.color-red .stem-background {
   background: rgb(240, 99, 99);
+}
+#timeline .stem-wrapper.color-grey .stem-background {
+  background: rgb(100, 100, 100);
+}
+#timeline .stem-wrapper.color-black .stem-background {
+  background: #292a2c;
 }
 #timeline .stem-wrapper .stem,
 .stem-wrapper .stem-background {
@@ -130,11 +123,12 @@ body {
   width: 60px;
 }
 #timeline .stem-wrapper .stem {
-  background: #1e4f56;
+  background: #707070;
+  /* background: #1e4f56; */
   height: 100%;
 }
 #timeline .stem-wrapper .stem-background {
-  background: rgb(102, 179, 190);
+  background: #292a2c;
   /* background: #39ACBD; */
   height: 50%;
   transition-duration: 0.5s;
@@ -240,7 +234,9 @@ body {
   transform: none;
 }
 #timeline .post-wrapper .timeline-post .post-content .post-meta {
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(255, 0, 0, 1);
+  /* color: rgba(0, 0, 0, 0.3); */
+  font-size: 0.9rem;
   margin: 0px 0px 15px 0px;
   letter-spacing: 1px;
   opacity: 0;

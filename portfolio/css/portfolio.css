@@ -43,7 +43,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Comfortaa', cursive;
+  font-family: "Space Mono", Arial, serif;
+  /* font-family: 'Comfortaa', cursive; */
 }
 
 ul {
@@ -60,14 +61,16 @@ ul {
   display: inline;
 }
 
-/* .list-social li i {
+.list-social li ion-icon {
   color: #252728;
   font-size: 30px;
-} */
+}
 
-.list-social li ion-icon {
-  color: #252728; /* color: #fff; */
-  font-size: 30px;
+.main-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding:0;
+  width:100%;
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -80,11 +83,11 @@ ul {
   height: 100vh;
 	position: relative;
   /* border-bottom: 1px solid #edeeee; */
-  /* background: #ffffff; */
-  background: #ffe8e8;
-  /* background: #fafafa; */
+  /* background: #3f4041; */
+  background: #292a2c;
   z-index: 1;
   /* background: url("img/home-bg.jpg") repeat scroll center center / cover; */
+  color: #ffffff;
 }
 
 #header .header-content{
@@ -105,8 +108,7 @@ ul {
 
 #header .header-content p{
   text-align: center;
-	color: #252728;
-	font-size: 16px;
+	/* color: #252728; */
 	line-height: 1.6em;
 	letter-spacing: 1px;
 	font-weight: 300;
@@ -116,6 +118,10 @@ ul {
 	width: 175px;
 }
 
+#header .list-social li ion-icon{
+  color: #ffffff;
+}
+
 /*----------------------------------------------------------------------------------*/
 /*  About
 /*-----------------------------------------------------------------------------------*/
@@ -123,12 +129,13 @@ ul {
 #about{
 	text-align: left;
   width: 100vw;
-  /* height: 100vh; */
+  min-height: 100vh;
   background: #ffffff;
   position: relative;
   z-index: 1;
   padding: 7em 0;
   clear: both;
+  font-size: 3.0vh;
 }
 
 #about span{
@@ -244,14 +251,14 @@ ul {
 	margin: auto;
 	line-height: 1.6;
 	font-weight: medium;
-	color: #707070;
+	color: #505050;
 	text-align: center;
 }
 
 #project  .project-post .post-image{
   background-position: center;
   background-repeat: no-repeat;
-	background-color: #20C6B7;
+	background-color: #292a2c;
 	background-size: 100%;
 }
 
@@ -291,4 +298,35 @@ ul {
 #project  .project-post a:hover h2,
 #project  .project-post a:hover p.description{
 	transform: translateY(-10px);
+}
+
+/* footer */
+#footer {
+	text-align: center;
+  width: 100vw;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  background: #3f4041;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: table;
+}
+
+#footer .footer-top {
+  background: #3f4041;
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#footer .footer-bottom {
+  background: #000000;
+  position: relative;
+  z-index: 1;
+  height: 100px;
+  margin-top: 0;
+  margin-bottom: 0;
 }

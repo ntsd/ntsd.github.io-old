@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <div class="container" style="margin:0;padding:0;width:100%;">
+    <div class="main-container">
         
         <section id="header" class="header">
             <div class="header-content">
@@ -51,19 +51,19 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-5">
                         <ul class="info">
-                            <li><span class="first-block">Full Name:</span><span class="second-block">Jirawat Boonkumnerd</span></li>
-                            <li><span class="first-block">Phone:</span><span class="second-block">(+66) 95 772 4196</span></li>
+                            <li><span class="first-block">Name:</span><span class="second-block">Jirawat Boonkumnerd</span></li>
+                            <!-- <li><span class="first-block">Phone:</span><span class="second-block">(+66) 95 772 4196</span></li> -->
                             <li><span class="first-block">Email:</span><span class="second-block">jo06942@gmail.com</span></li>
                             <li><span class="first-block">Website:</span><span class="second-block">ntsd.github.io</span></li>
                             <li><span class="first-block">Location:</span><span class="second-block">Bangkok, Thailand</span></li>
                         </ul>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <h2>Hello!</h2>
-                        <p>I am a Software Developer from Thailand who loves programming and problem-solving. I like to learn new things every day. I mostly spend the time with a computer. My life is like code, eat, sleep and repeat. Sometimes I think I'm too obsessed, haha.</p>
-                        <p>I'm a generalist with programming skills such as full-stack development, data structures, image processing, machine learning, web scraping etc. I am interested in machine learning because of the world nowadays is Big Data Generation. So It's good to learn data science skills.</p>
+                        <p>I am a Software Developer from Thailand who loves programming and problem-solving. I like to learn new things every day. I mostly spend the time with a computer. My life is code, eat, sleep and repeat.</p>
+                        <p>I have a generalist with programming skills such as full-stack development, data structures, image processing, machine learning, web scraping etc.</p>
                         <ul class="list-social">
                             <li><a href="https://www.linkedin.com/in/jirawat-boonkumnerd-815832114"><ion-icon name="logo-linkedin"></ion-icon></a></li>
                             <li><a href="https://github.com/ntsd"><ion-icon name="logo-github"></ion-icon></a></li>
@@ -75,8 +75,10 @@
         </section>
 
         <section id="project" class="project">
-            <h2 class="secondtitle herotitle">My Projects<br><span>— made with passion</span></h2>
-            <div class="row lista-lavori">
+            <h2 class="secondtitle herotitle">My Projects<br>
+                <!-- <span>— made with passion</span> -->
+            </h2>
+            <div class="row project-container">
                 <div class="col-12 col-md-4 project-post">
                     <a href=""> 
                     <div class="work post-image"></div>
@@ -104,6 +106,15 @@
                     </div>
                     </a>
                 </div>
+                <div class="col-12 col-md-4 project-post">
+                    <a href=""> 
+                    <div class="work post-image"></div>
+                    <div>
+                        <h2>Lorem Ipsum</h2>
+                        <p class="description">is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </div>
+                    </a>
+                </div>
             </div>
             <a class="freccia" href="#list"></a>
         </section>
@@ -121,7 +132,7 @@
                         <h1 class="page-title">Activities</h1>
                         <p class="page-description">
                             In a few years after I start programming.
-                            I do an activity or competition most of it is an International competition or online contest.
+                            I do a lot of activities and competitions.
                         </p>
                         <!-- <p class="scroll-button" onClick="$('.post-wrapper .post:first-child .stem-overlay .icon').click();">Ready to go for a ride?</p> -->
                     </div>
@@ -162,8 +173,7 @@
                                 <h2 class="post-title">Google Code Jam 2018 Round 1A</h2>
                                 <div class="entry-content">
                                     <p>Google Code Jam is one of hardest competitive programming contest in the world.
-                                         but I haven't fo that far. I passed qualification with rank 5606/24584 but haven't continue in next round because so busy on the senior project.
-                                         It's so hard. need to practice more for next year.</p>
+                                         but I haven't go that far. I passed qualification with rank 5606/24584 but haven't continue in next round. need to practice more for next year.</p>
                                 </div>
                                 <!-- https://codejam.withgoogle.com/2018/challenges -->
                             </div>
@@ -185,7 +195,7 @@
                             </div>
                         </article>
 
-                        <article class="timeline-post star-icon">
+                        <article class="timeline-post star-icon" data-stem-color="blue">
                             <div class="stem-overlay">
                                 <div class="icon"></div>
                                 <div class="stem-mask"></div>
@@ -254,21 +264,15 @@
                     <div class="single-stem-icon scroll-to-top trigger-scroll-to-top"></div>
                 </div>
             </div>
-
-            <div class="timeline-footer timeline-section">
-                <div class="section-inner">  
-                    <div class="good-bye">
-                        <p>That's all!</p>
-                        <p>Thank you for read</p>
-                        <p>.</p>
-                        <p>.</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
-        <section>
+        <section id="footer" class="footer">
+            <div class="footer-top">
+                <h2>Thank for read</h2>
+            </div>
+            <div class="footer-bottom">
 
+            </div>
         </section>
 </body>
 
