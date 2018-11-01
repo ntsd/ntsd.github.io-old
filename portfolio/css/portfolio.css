@@ -323,13 +323,13 @@ ul {
   height: 30px
 }
 
-#skills .skills-list .content h4 {
+#skills .skills-list .content h3 {
   font-weight: 700;
   font-size: 2vh;
   margin: 20px 0
 }
 
-@media(max-width:991px) {
+@media(max-width:750px) {
   #skills .skills-list .content {
     word-wrap: break-word;
     font-family: monospace;
