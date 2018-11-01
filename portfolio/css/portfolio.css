@@ -219,7 +219,11 @@ ul {
   display:table;
   margin-top: 0;
   margin-bottom: 0;
-  padding: 30px;
+  padding: 15vh;
+}
+
+#experience .content-row {
+  padding-top: 3vh
 }
 
 /*----------------------------------------------------------------------------------*/
@@ -334,6 +338,7 @@ ul {
   position: relative;
   z-index: 1;
   height: 30vh;
+  padding-top: 10vh;
 }
 
 #footer .footer-bottom {
