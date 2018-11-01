@@ -73,6 +73,14 @@ ul {
   width:100%;
 }
 
+.m-auto {
+  margin: auto !important
+}
+
+.text-center {
+  text-align: center !important
+}
+
 /*----------------------------------------------------------------------------------*/
 /*  Header
 /*-----------------------------------------------------------------------------------*/
@@ -135,7 +143,7 @@ ul {
   z-index: 1;
   padding: 7em 0;
   clear: both;
-  font-size: 3.0vh;
+  font-size: 2.5vh;
 }
 
 #about span{
@@ -219,11 +227,113 @@ ul {
   display:table;
   margin-top: 0;
   margin-bottom: 0;
-  padding: 15vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
 
-#experience .content-row {
-  padding-top: 3vh
+#experience .experience-title {
+
+}
+
+#experience .experience-content-row {
+  padding-top: 3vh;
+  padding-bottom: 5vh;
+  text-align: left;
+}
+
+/*----------------------------------------------------------------------------------*/
+/*  Skills
+/*-----------------------------------------------------------------------------------*/
+
+#skills {
+  /* text-align: center; */
+  width: 100vw;
+  /* min-height: 100vh; */
+  background: #202020;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  display:table;
+  margin-top: 0;
+  padding-bottom: 120px;
+}
+
+#skills .title h2 {
+  font-size: 35px;
+  font-weight: 300
+}
+
+#skills .title hr {
+  width: 100px;
+  border-top: 5px solid rgb(250, 250, 250);
+  margin-bottom: 50px;
+}
+
+/* #skills .skills-list {
+  position: relative;
+  margin-top: 50px
+} */
+
+#skills .skills-list::before {
+  content: "";
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  z-index: -1;
+  border-bottom: dotted 3px #ffffff
+}
+
+#skills .skills-list li {
+  width: 25%;
+  float: left
+}
+
+#skills .skills-list li .dot {
+  width: 35px;
+  height: 35px;
+  display: block;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 35px
+}
+
+#skills .skills-list .content {
+  background: rgb(255, 255, 255);
+  margin: 10px;
+  padding: 10px 40px 40px;
+  border-radius: 15px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  position: relative;
+  min-height: 132px;
+  /* word-wrap: break-word; */
+}
+
+#skills .skills-list .content::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 0;
+  right: 0;
+  background: url(/images/arrow.png) no-repeat center;
+  background-size: contain;
+  height: 30px
+}
+
+#skills .skills-list .content h4 {
+  font-weight: 700;
+  font-size: 2vh;
+  margin: 20px 0
+}
+
+@media(max-width:991px) {
+  #skills .skills-list .content {
+    word-wrap: break-word;
+    font-family: monospace;
+  }
 }
 
 /*----------------------------------------------------------------------------------*/
