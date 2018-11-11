@@ -81,6 +81,16 @@ ul {
   text-align: center !important
 }
 
+/* Animated  */
+.has-animation {
+  opacity: 0
+}
+
+.animated {
+  opacity: 1 !important;
+  visibility: visible !important
+}
+
 /*----------------------------------------------------------------------------------*/
 /*  Header
 /*-----------------------------------------------------------------------------------*/
@@ -258,7 +268,7 @@ ul {
   padding-bottom: 120px;
 }
 
-#skills .title h2 {
+#skills .title h1 {
   font-size: 35px;
   font-weight: 300
 }
@@ -269,71 +279,27 @@ ul {
   margin-bottom: 50px;
 }
 
-/* #skills .skills-list {
-  position: relative;
-  margin-top: 50px
-} */
-
-#skills .skills-list::before {
-  content: "";
-  position: absolute;
-  top: 150px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  z-index: -1;
-  border-bottom: dotted 3px #ffffff
+#skills .skills-list {
+  /* border-bottom: dotted 6px #ffffff; */
 }
 
 #skills .skills-list li {
-  width: 25%;
-  float: left
-}
-
-#skills .skills-list li .dot {
-  width: 35px;
-  height: 35px;
-  display: block;
-  background: rgb(255, 255, 255);
-  border-radius: 50%;
-  margin: auto;
-  margin-bottom: 35px
+  max-width: 90vw;
 }
 
 #skills .skills-list .content {
   background: rgb(255, 255, 255);
-  margin: 10px;
-  padding: 10px 40px 40px;
+  margin-left: 1vh;
+  margin-right: 1vh;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
   border-radius: 15px;
-  color: rgb(0, 0, 0);
+  color: rgb(2, 0, 0);
   text-align: center;
-  position: relative;
-  min-height: 132px;
-  /* word-wrap: break-word; */
-}
-
-#skills .skills-list .content::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 0;
-  right: 0;
-  background: url(/images/arrow.png) no-repeat center;
-  background-size: contain;
-  height: 30px
-}
-
-#skills .skills-list .content h3 {
-  font-weight: 700;
-  font-size: 2vh;
-  margin: 20px 0
-}
-
-@media(max-width:750px) {
-  #skills .skills-list .content {
-    word-wrap: break-word;
-    font-family: monospace;
-  }
+  height: 15vh;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
 }
 
 /*----------------------------------------------------------------------------------*/

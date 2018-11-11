@@ -17,6 +17,9 @@
     <!-- jQuery -->
     <script src="lib/jquery-3.3.1.min.js"></script> <!-- <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script> -->
 
+    <!-- Waypoint -->
+    <script src="lib/jquery.waypoints.min.js"></script>
+
     <!-- Scripts -->
     <script src="js/timeline.js"></script>
 
@@ -24,6 +27,9 @@
     <script src="https://unpkg.com/ionicons@4.3.0/dist/ionicons.js"></script>
     <!-- Modernizr JS -->
     <script src="lib/modernizr.custom.js"></script>
+
+    <!-- animated -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 </head>
 
 <body>
@@ -43,16 +49,16 @@
             </div>
         </section>
 
-        <section id="about" class="about">
+        <section id="about" class="about trigger-animation">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center header">
-                        <h2>About Me</h2>
+                        <h2 class="has-animation" data-delay="0">About Me</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-5">
-                        <ul class="info">
+                        <ul class="info has-animation" data-delay="0">
                             <li><span class="first-block">Name:</span><span class="second-block">Jirawat Boonkumnerd</span></li>
                             <!-- <li><span class="first-block">Phone:</span><span class="second-block">(+66) 95 772 4196</span></li> -->
                             <li><span class="first-block">Email:</span><span class="second-block">jo06942@gmail.com</span></li>
@@ -61,7 +67,7 @@
                             <li><span class="first-block">Resume:</span><span class="second-block"><a href="Resume-dev.pdf">Click Me!</a></span></li>
                         </ul>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-7 has-animation" data-delay="300">
                         <h2>Hello!</h2>
                         <p>I am a Software Developer from Thailand who loves programming and problem-solving. I like to learn new things every day. I mostly spend the time with a computer. My life is code, eat, sleep and repeat.</p>
                         <p>I have a generalist skills such as full-stack development, image processing, machine learning, web scraping, etc.</p>
@@ -74,6 +80,8 @@
                 </div>
             </div>
         </section>
+        
+        <div class="trigger-animation">
 
         <section id="experience" class="experience">
             <div class="container">
@@ -108,28 +116,24 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" align="center">
                 <ul class="list-unstyled skills-list">
-                    <li class="has-animation" data-animation="flipInY">
-                        <span class="dot"></span>
+                    <li class="col-md-3 col-sm-6 has-animation" data-animation="flipInY">
                         <div class="content">
                             <h3>Problem Solving</h3>
                         </div>
                     </li>
-                    <li class="has-animation" data-animation="flipInY" data-delay="200">
-                        <span class="dot"></span>
+                    <li class="col-md-3 col-sm-6 has-animation" data-animation="flipInY" data-delay="200">
                         <div class="content">
-                            <h3>Front-end Developement</h3>
+                            <h3>Front-End Development</h3>
                         </div>
                     </li>
-                    <li class="has-animation" data-animation="flipInY" data-delay="400">
-                        <span class="dot"></span>
+                    <li class="col-md-3 col-sm-6 has-animation" data-animation="flipInY" data-delay="400">
                         <div class="content">
-                            <h3>Back-end Developement</h3>
+                            <h3>Back-End Development</h3>
                         </div>
                     </li>
-                    <li class="has-animation" data-animation="flipInY" data-delay="600">
-                        <span class="dot"></span>
+                    <li class="col-md-3 col-sm-6 has-animation" data-animation="flipInY" data-delay="600">
                         <div class="content">
                             <h3>Data Science</h3>
                         </div>
@@ -139,6 +143,8 @@
             </div>
         </div>
         </section>
+
+        </div>
 
         <section id="project" class="project">
             <h2 class="secondtitle herotitle">My Projects<br>
@@ -345,5 +351,7 @@
             </div>
         </section>
 </body>
+
+<script src="js/customs.js"></script>
 
 </html>
