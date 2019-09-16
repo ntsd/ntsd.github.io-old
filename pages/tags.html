@@ -23,20 +23,13 @@ permalink: /tags/
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- 标签云 -->
+            <!-- Tags List -->
 			<div id='tag_cloud' class="tags">
 				{% for tag in site.tags %}
 				<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
 				{% endfor %}
 			</div>
-
-            <!--<blockquote class="tag-comments">
-                标签命名规范：
-                    <li>行业观察、职位、公司优先使用中文</li>
-                    <li>外国产品、术语优先使用英文</li>
-            </blockquote>-->
-
-            <!-- 标签列表 -->
+            <!-- Topic on tags -->
 			{% for tag in site.tags %}
 			<div class="one-tag-list">
 			  	<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
@@ -64,7 +57,6 @@ permalink: /tags/
 				{% endfor %}
 			</div>
 			{% endfor %}
-
 		</div>
 	</div>
 </div>

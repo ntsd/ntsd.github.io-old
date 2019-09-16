@@ -5,7 +5,7 @@ date:   2018-08-5 12:30:54
 subtitle: "บอทเกมคล้าย Hearthstone"
 author: "ntsd"
 catalog: true
-categories: Programming GameBot
+categories: Programming
 header-img: "../img/in-post/LegendsofCodeandMagic.png"
 tags:
     - codingame
