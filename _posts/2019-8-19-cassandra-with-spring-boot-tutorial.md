@@ -7,9 +7,9 @@ author: "ntsd"
 catalog: true
 categories:
     - Programming
-    - Database
 header-img: "../img/in-post/LegendsofCodeandMagic.png"
 tags:
+    - programming
     - database
     - cassandra
 published: false

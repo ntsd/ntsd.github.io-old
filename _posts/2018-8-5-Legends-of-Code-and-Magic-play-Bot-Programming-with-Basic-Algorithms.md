@@ -8,7 +8,6 @@ catalog: true
 categories: Programming
 header-img: "../img/in-post/LegendsofCodeandMagic.png"
 tags:
-    - codingame
     - game bot
     - programming
 ---

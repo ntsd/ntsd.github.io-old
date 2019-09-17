@@ -1,10 +1,10 @@
 # Site settings
 title: NTSD Blog
 SEOTitle: NTSD Blog | Jirawat Boonkumnerd
-header-img: img/home-bg.jpg
+header-img: img/post-bg-os-metro.jpg
 email: jo06942@gmail.com
 description: "A Software Engineer \n who interesting in Machine Learning"
-keyword: "ntsd, Software Engineer, Machine Learning, Bot, Programming, Python, JavaScript, C#"
+keyword: "ntsd, Software Engineer, Machine Learning, Bot, Programming, Python, JavaScript, Java"
 url: "https://ntsd.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -13,14 +13,12 @@ future: true
 
 # SNS settings
 RSS: false
-# weibo_username:     huxpro
-# zhihu_username:     huxpro
+# weibo_username:
+# zhihu_username:
 github_username:    ntsd
-# twitter_username:   huxpro
+# twitter_username:
 # facebook_username:  jo.ntsd
 linkedin_username:  jirawat-boonkumnerd-815832114
-
-
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
@@ -29,18 +27,12 @@ permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
-# If you have timezone issue (e.g. #68) in China, uncomment to use this:
-#timezone: CN  
-
-
 
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
 # make sure you have this gem installed
 # `$ gem install jekyll-paginate`
 plugins: [jekyll-paginate]
-
-
 
 # Markdown settings
 # replace redcarpet to kramdown,
@@ -50,15 +42,11 @@ markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
 
-
-
 # Disqus settings
 disqus_username: "ntsd-github-io"
 
 # Netease settings
 netease_comment: false
-
-
 
 # Analytics settings
 # Baidu Analytics 
@@ -68,31 +56,24 @@ netease_comment: false
 ga_track_id: 'UA-29710747-1'            # Format: UA-xxxxxx-xx
 ga_domain: ntsd.github.io
 
-
-
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "A Software Engineer \n who interesting in Machine Learning"
 sidebar-avatar: /img/ba2.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
-
-
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
 featured-condition-size: 0             # A tag will be featured if the size of it is more than this condition value
-
-
 
 # Progressive Web Apps
 chrome-tab-theme-color: "#000000"
 service-worker: true
 
-
 # Friends
 # friends: [
 #     {
-#         title: "Leconize",
-#         href: "https://github.com/leconize"
+#         title: "",
+#         href: ""
 #     }
 # ]
 
