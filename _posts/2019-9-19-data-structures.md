@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Basic Data Structure tutorial for beginner"
+title:  "Data Structure สำหรับเด็ก"
 date:   2019-09-19 12:30:54
-subtitle: "learn Data Structure in a simple way"
+subtitle: "เรียน Data Structure in a simple way"
 author: "ntsd"
 catalog: true
 categories:
