@@ -14,5 +14,4 @@ tags:
 published: false
 ---
 
-### What is Data Structure?
-
+### What is Data Structure"?"
