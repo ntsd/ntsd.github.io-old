@@ -10,26 +10,26 @@
   }
 }
 .sidebar-container {
-  color: #bfbfbf;
+  color: #585858;
   font-size: 14px;
 }
 .sidebar-container h5 {
-  color: #cccccc;
+  color: #404040;
   padding-bottom: 1em;
 }
 .sidebar-container h5 a {
-  color: #cccccc !important;
+  color: #404040 !important;
   text-decoration: none;
 }
 .sidebar-container a {
-  color: #bfbfbf !important;
+  color: #585858 !important;
 }
 .sidebar-container a:hover,
 .sidebar-container a:active {
   color: #0085a1 !important;
 }
 .sidebar-container .tags a {
-  border-color: #bfbfbf;
+  border-color: #585858;
 }
 .sidebar-container .tags a:hover,
 .sidebar-container .tags a:active {
