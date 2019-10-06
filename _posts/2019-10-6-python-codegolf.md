@@ -2,24 +2,24 @@
 layout: post
 title:  "Python Code Golf 101"
 date:   2019-10-6 12:30:54
-subtitle: "tricks for golf in Python "
+subtitle: "An simple tricks for code golf in Python "
 author: "ntsd"
 catalog: true
 categories:
     - Programming
-header-img: "../img/in-post/post-bg-data-strucute.jpg"
+header-img: "../img/in-post/post-code-golf.jpg"
 tags:
     - programming
     - python
     - code golf
-published: false
+published: true
 ---
 
-## Python Codegolf
+## Python Code golf
 
 ### Operator
 
-- And operator
+#### And operator
 
 ``` Python
 if a and b:
@@ -31,7 +31,7 @@ if(i,j)==(4,4):
 if i==j==4:
 ```
 
-- Increment or decrement 1 step
+#### Increment or decrement 1 step
 
 ``` Python
 c/(n-1)
@@ -41,7 +41,7 @@ c/(n+1)
 c/-~n
 ```
 
-- While n!=1
+#### While n!=1
 
 ``` Python
 while n!=1:
@@ -51,14 +51,14 @@ while~-n:
 
 ### Type
 
-- Convert integer to string
+#### Convert integer to string
 
 ``` Python
 str(n)
 `n`
 ```
 
-- Join list of string or integer
+#### Join list of string or integer
 
 ``` Python
 L=['a', 'b', 'c']
@@ -71,14 +71,14 @@ L=[1, 2, 3]
 
 ### Iterable
 
-- List of range
+#### List of range
 
 ``` Python
 L=list(range(10))
 *L,=range(10)
 ```
 
-- Get last and frist element from a list
+#### Get last and frist element from a list
 
 ``` Python
 e=L[-1]
@@ -88,7 +88,7 @@ e=(L)[0]
 e,*_=L
 ```
 
-- Append and Extend to list
+#### Append and Extend to list
 
 ``` Python
 L.append(e)  
@@ -98,7 +98,7 @@ L.extend(e)
 L+=e
 ```
 
-- For in range
+#### For in range
 
 ``` Python
 for i in range(x):pass
@@ -118,20 +118,20 @@ for _ in r*-~x:pass
 exec'pass;'*x
 ```
 
-- Check element in iterable
+#### Check element in iterable
 
 ``` Python
 if e in S
 if{e}&S
 ```
 
-- Reverse List
+#### Reverse List
 
 ``` Python
 L[::-1]
 ```
 
-- Check negative integer in list
+#### Check negative integer in list
 
 ``` Python
 min(L)<0
@@ -140,7 +140,7 @@ min(L)<0
 
 ### Iterator & Iterator
 
-- Unpack generator
+#### Unpack generator
 
 ``` Python
 set(G)
@@ -157,10 +157,14 @@ T=*G,
 
 ### Others
 
-- Import when use once
+#### Import when use once
 
 ``` Python
 import itertools
 itertools.groupby()
 __import__("itertools").groupby()
 ```
+
+### Reference
+
+- [https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python](https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python)

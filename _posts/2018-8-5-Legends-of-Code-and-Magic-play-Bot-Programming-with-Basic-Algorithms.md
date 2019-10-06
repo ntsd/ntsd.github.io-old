@@ -6,7 +6,7 @@ subtitle: "บอทเกมคล้าย Hearthstone"
 author: "ntsd"
 catalog: true
 categories: Programming
-header-img: "../img/in-post/LegendsofCodeandMagic.png"
+header-img: "../img/in-post/post-legends-of-code-and-magic.png"
 tags:
     - game bot
     - programming
