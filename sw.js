@@ -18,11 +18,13 @@ const PRECACHE_LIST = [
   "./js/jquery.min.js",
   "./js/bootstrap.min.js",
   "./js/hux-blog.min.js",
+  "./js/ntsd-blog.min.js",
   "./js/snackbar.js",
   "./img/icon_wechat.png",
   "./img/home-bg.jpg",
   "./img/404-bg.jpg",
   "./css/hux-blog.min.css",
+  "./css/ntsd-blog.min.css",
   "./css/syntax.css",
   "./css/bootstrap.min.css"
   // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
