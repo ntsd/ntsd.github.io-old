@@ -31,7 +31,7 @@ if(i,j)==(4,4):
 if i==j==4:
 ```
 
-#### Increment or decrement 1 step
+#### Increment or decrement 1 in statement
 
 ``` Python
 c/(n-1)
@@ -39,6 +39,12 @@ c/~-n
 
 c/(n+1)
 c/-~n
+
+while n-1:
+while~-n:
+
+or n+1
+or-~n
 ```
 
 #### While n!=1
@@ -67,6 +73,12 @@ L=['a', 'b', 'c']
 
 L=[1, 2, 3]
 `L`[1::3]
+```
+
+#### 2 String same lenght or 1 lenght diff
+
+``` Python
+'ftarlusee'[C::2]
 ```
 
 ### Iterable
@@ -118,6 +130,26 @@ for _ in r*-~x:pass
 exec'pass;'*x
 ```
 
+#### Multiple numerical loops
+
+``` Python
+for i in range(m):
+ for j in range(n):
+  do_stuff(i,j)
+
+for k in range(m*n):
+  do_stuff(k/n,k%n)
+
+# Three loop
+for i in range(m):
+ for j in range(n):
+  for l in range(o):
+    do_stuff(i,j,l)
+
+for k in range(m*n*b):
+  do_stuff(k/n/o,k%(n*o)/o,k%o)
+```
+
 #### Check element in iterable
 
 ``` Python
@@ -157,6 +189,19 @@ T=*G,
 
 ### Others
 
+#### Reading from stdin
+
+``` Python
+import os;A=os.read(0,9**9)
+import os;A=os.read(0,99) # input is always less than 100 bytes.
+```
+
+#### Read all lines in a list
+
+``` Python
+
+```
+
 #### Import when use once
 
 ``` Python
@@ -168,3 +213,5 @@ __import__("itertools").groupby()
 ### Reference
 
 - [https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python](https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python)
+
+- [https://noe.mearie.org/python_code_golfing_tips/](https://noe.mearie.org/python_code_golfing_tips/)
