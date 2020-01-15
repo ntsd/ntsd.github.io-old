@@ -2,7 +2,7 @@
 layout: post
 title:  "Python Code Golf 101"
 date:   2019-10-6 12:30:54
-subtitle: "An simple tricks for code golf in Python "
+subtitle: "simple tricks to code golf in Python"
 author: "ntsd"
 catalog: true
 categories:
@@ -90,7 +90,7 @@ L=list(range(10))
 *L,=range(10)
 ```
 
-#### Get last and frist element from a list
+#### Get last and first element from a list
 
 ``` Python
 e=L[-1]
