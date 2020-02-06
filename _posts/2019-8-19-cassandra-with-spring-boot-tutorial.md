@@ -15,15 +15,15 @@ tags:
 published: false
 ---
 
-### What is Apache Cassandra?
+### "What is Apache Cassandra ?"
 
 Apache Cassandra is a NoSQL database that's good for Performance, [Fault tolerance](#FaultTolerance), High availability and [Linear scalability](#LinearScalability).
 
-### Why use Cassandra?
+### "Why use Cassandra ?"
 
-Cassandra is fast as writes and okay with reads. 
+Cassandra is fast as writes and okay with reads.
 
-##### When to use Cassandra
+#### When to use Cassandra
 
 - Distributed
 - [Linear scalability](#LinearScalability)
