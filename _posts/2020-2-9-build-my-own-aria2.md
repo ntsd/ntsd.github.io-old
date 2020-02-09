@@ -20,6 +20,8 @@ there's maximum 16 connection hard code in aria2 so when I want to split more co
 
 edit number arguments in NumberOptionHandler for MAX_CONNECTION_PER_SERVER in file "OptionHandlerFactory.cc"
 
+from 16 to 64 the number is as you want.
+
 ``` c++
 OptionHandler* op(new NumberOptionHandler(PREF_MAX_CONNECTION_PER_SERVER,
                                               TEXT_MAX_CONNECTION_PER_SERVER,
@@ -106,6 +108,8 @@ Now test your aria2c binary file
 - maximum number connections to one server.
 
 ## install bash-completion
+
+Optional, if you want to install to other computer you can use bash-completion to use bundle script
 
 `brew install bash-completion`
 
