@@ -109,7 +109,7 @@ Now test your aria2c binary file
 
 ## install bash-completion
 
-Optional, if you want to install to other computer you can use bash-completion to use bundle script
+Optional, if you want to install to a other computer you can use bash-completion to use bundle script
 
 `brew install bash-completion`
 

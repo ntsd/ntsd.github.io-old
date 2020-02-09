@@ -2,7 +2,7 @@
 layout: post
 title:  "Python Code Golf 101"
 date:   2019-10-6 12:30:54
-subtitle: "simple tricks to code golf in Python"
+subtitle: "simple tricks to code-golf in Python"
 author: "ntsd"
 catalog: true
 categories:
@@ -18,6 +18,14 @@ published: true
 ## Python Code golf
 
 ### Operator
+
+#### Negating Boolean
+
+``` Python
+if not C:
+if C<1:
+if~-C:
+```
 
 #### And operator
 
@@ -55,7 +63,37 @@ while n-1:
 while~-n:
 ```
 
-### Type
+#### shorter than the list selection
+
+``` Python
+[0,y][b] -> y*b
+[1,y][b] -> y**b
+[x,1][b] -> b or x
+[x,x+1][b] -> x+b
+[x,x-1][b] -> x-b
+[1,-1][b] -> 1|-b
+[x,~x][b] -> x^-b
+```
+
+#### Ceil and Floor
+
+``` Python
+math.floor(n)
+n//1
+
+math.ceil(n)
+-(-n//1)
+```
+
+### Types
+
+#### Check type of a variable
+
+``` Python
+x*0is 0 # integer
+x*0=="" # string
+x*0==[] # array
+```
 
 #### Convert integer to string
 
@@ -79,6 +117,16 @@ L=[1, 2, 3]
 
 ``` Python
 'ftarlusee'[C::2]
+```
+
+#### List all substrings
+
+``` Python
+# with repeat
+f=lambda s:[*s]and[s]+f(s[1:])+f(s[:-1])
+
+# avoid repeat
+f=lambda s:{*s}and{s}|f(s[1:])|f(s[:-1])
 ```
 
 ### Iterable
@@ -138,7 +186,7 @@ for i in range(m):
   do_stuff(i,j)
 
 for k in range(m*n):
-  do_stuff(k/n,k%n)
+ do_stuff(k/n,k%n)
 
 # Three loop
 for i in range(m):
@@ -147,7 +195,7 @@ for i in range(m):
     do_stuff(i,j,l)
 
 for k in range(m*n*b):
-  do_stuff(k/n/o,k%(n*o)/o,k%o)
+ do_stuff(k/n/o,k%(n*o)/o,k%o)
 ```
 
 #### Check element in iterable
@@ -160,6 +208,7 @@ if{e}&S
 #### Reverse List
 
 ``` Python
+L.reverse()
 L[::-1]
 ```
 
@@ -168,6 +217,37 @@ L[::-1]
 ``` Python
 min(L)<0
 '-'in`L`
+```
+
+#### Checking the length of a list
+
+``` Python
+a==[] # a is empty
+[]==a # for [] in the front and reduce 1 space
+a # a is not empty
+a>a[:i] # len(a) < i
+```
+
+#### Copy/Clone a list
+
+``` Python
+a=x[:]
+b=[*x]
+c=x*1
+```
+
+#### Multiple if statements in comprehensions
+
+``` Python
+[a for a in 'abc'if cond1()and cond2()or cond3()and cond4()and cond5()]
+[a for a in 'abc'if cond1()if cond2()or cond3()if cond4()if cond5()]
+```
+
+#### Split into chunks
+
+``` Python
+l=(n for n in range(18))
+zip(*[l]*4)
 ```
 
 ### Iterator & Iterator
@@ -196,10 +276,13 @@ import os;A=os.read(0,9**9)
 import os;A=os.read(0,99) # input is always less than 100 bytes.
 ```
 
-#### Read all lines in a list
+#### Multiline input to list
 
 ``` Python
+list(sys.stdin.readlines())
 
+eof='' # End of line you want to stop
+list(iter(input,eof))
 ```
 
 #### Import when use once
@@ -207,7 +290,31 @@ import os;A=os.read(0,99) # input is always less than 100 bytes.
 ``` Python
 import itertools
 itertools.groupby()
+
 __import__("itertools").groupby()
+```
+
+#### Helper prime functions
+
+``` Python
+# Function                                                   Output of f(360)
+f=lambda n,i=2:n//i*[0]and[f(n,i+1),[i]+f(n//i)][n%i<1]      # [2, 2, 2, 3, 3, 5] (slow!)
+f=lambda n,i=2:n//i*[0]and f(n,i+1)if n%i else[i]+f(n//i)    # [2, 2, 2, 3, 3, 5]
+f=lambda n,i=2:n//i*[0]and(n%i and f(n,i+1)or[i]+f(n//i))    # [2, 2, 2, 3, 3, 5]
+f=lambda n,i=2:n<2and{1}or n%i and f(n,i+1)or{i}|f(n//i)    # {1, 2, 3, 5}
+f=lambda n,i=2:n<2and{i}or n%i and f(n,i+1)or{i}|f(n//i,i)  #*{2, 3, 5}
+f=lambda n,i=2:n//i and[f(n,i+1),i+f(n//i)][n%i<1]           # 2+2+2+3+3+5 (slow!)
+f=lambda n,i=2:n//i and f(n,i+1)if n%i else i+f(n//i)        # 2+2+2+3+3+5
+f=lambda n,i=2:n//i and(n%i and f(n,i+1)or i+f(n//i))        # 2+2+2+3+3+5
+f=lambda n,i=1,p=1:n*[0]and p%i*[i]+f(n-p%i,i+1,p*i*i)     # first n primes
+f=lambda n,i=1,p=1:n*[0]and p%i*[i]+f(n-1,i+1,p*i*i)       # primes <= n
+f=lambda n,i=1,p=1:n//i and p%i*i+f(n,i+1,p*i*i)            # sum of primes <= n
+f=lambda n,i=1,p=1:n//i and p%i+f(n,i+1,p*i*i)              # count primes <= n
+f=lambda n,i=1,p=1:n and-~f(n-p%i,i+1,p*i*i)               # nth prime
+f=lambda n:all(n%m for m in range(2,n))                    #*is n prime? (not recursive)
+f=lambda n:1>>n or n*f(n-1)                                # factorial
+f=lambda n:sum(k//n*k%n>n-2for k in range(n*n))             # totient phi(n) (not recursive)
+f=lambda n:[k//n for k in range(n*n)if k//n*k%n==1]          # coprimes up to n (not recursive)
 ```
 
 ### Reference
