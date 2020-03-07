@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  "Build OpenWRT image into Banana Pi R64"
+title:  "Build OpenWRT into Banana Pi R64"
 date:   2020-1-3 12:30:54
-subtitle: "Build OpenWRT image into Banana Pi R64"
+subtitle: "Build OpenWRT into Banana Pi R64 with macOS"
 author: "ntsd"
 catalog: true
 categories:
     - router
-header-img: "../img/in-post/post-code-golf.jpg"
 tags:
     - openwrt
     - router
@@ -15,8 +14,9 @@ tags:
 published: false
 ---
 
-## Hardware Requirements
+## Requirements
 
+- macOS (I used 10.15.3), for Ubuntu will easier to build the image
 - Banana Pi R64
 - MicroSD Card
 - MicroSD Card Reader
@@ -40,7 +40,7 @@ you can use whatever serial console Putty, screen, minicom
 
 for this tutorial I use `screen`
 
-### 3. Download image
+### 3. Download images
 
 #### SD card image
 
@@ -58,9 +58,15 @@ https://drive.google.com/open?id=1Fy__GpNSWRcITEmzH4Z_jxnjrCS3BpQJ
 
 ## Setup boot from eMMC
 
+this step will allow you to build image to eMMC storage on the board instead sd card
+
 ### Write SD card image into SD card
 
-``
+You need to boot via sd card first to write preloader and eMMC all-in-one single image
+
+`dd if=sdcardimage.img of=/dev/sdX`
+
+replace `sdX` with your drive
 
 ### Run TFTP server
 
@@ -74,7 +80,7 @@ you can download here http://ww2.unime.it/flr/tftpserver/
 
 If you don't like to install 3rd party software you can use system TFTP Service
 
-``` shell
+``` bash
 sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
 
 sudo launchctl start com.apple.tftpd
@@ -84,17 +90,17 @@ cd /var/tftpboot touch # make initial tftp directory
 chmod 777 /var/tftpboot # change mode your directory to allow other users to read and write files
 ```
 
-### Connect to board using serial
+### Connect to board by UART
 
-use uart 115200 baud for Bananapi r64
+use serial 115200 baud for Bananapi r64
 
 `sudo screen /dev/cu.usbserial-A50285BI 115200`
 
 replace `cu.usbserial-A50285BI` with your serial driver
 
-### set u-boot env
+### Set u-boot env
 
-``` Shell
+``` bash
 setenv kernel_filename preloader_emmc.bin
 setenv ipaddr 192.168.1.126 # your bpi ip address
 setenv serverip 192.168.1.1 # your tfto server
@@ -103,29 +109,55 @@ saveenv
 ```
 
 load ROM to address 1080000
+
 `tftp 1080000 preloader_emmc.bin`
+
+check u-boot env
 
 `printenv`
 
+return to u-boot menu
+
+`bootmenu`
+
 ## Build your OpenWRT image
 
-### Preparation to build openwrt image
+### Preparation to build OpenWRT image
+
+follow the link for more information
+https://openwrt.org/docs/guide-developer/buildroot.exigence.macosx
 
 #### Setup MacOSX as an OpenWrt build environment
 
-follow https://openwrt.org/docs/guide-developer/buildroot.exigence.macosx
+Install these package by Homebrew
 
-#### Install OpenWrt Buildroot
-
-follow https://openwrt.org/docs/guide-developer/buildroot.exigence.macosx
-
-For me, I use OSX 10.15 but I set it to 10.14
-
-``` shell
-MACOSX_DEPLOYMENT_TARGET=10.14
-
+``` bash
 brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep wget quilt xz
+
+# Link gnu-getopt to local gnugetopt
+ln -s `brew --prefix gnu-getopt`/bin/getopt `brew --prefix`/bin/gnugetopt
 ```
+
+add gnu-getopt to your path
+
+``` bash
+export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+```
+
+#### Create case-insensitive filesystem
+
+OS X by default comes with a case-insensitive filesystem. OpenWrt won't build on that. As a workaround, create a (Sparse) case-sensitive disk-image that you then mount in the finder and use as build directory
+
+``` bash
+hdiutil create -size 20g -type SPARSE -fs "Case-sensitive HFS+" -volname OpenWrt OpenWrt.sparseimage
+
+# mount the image
+hdiutil attach OpenWrt.sparseimage
+```
+
+change directory to /Volumes/OpenWrt
+
+`cd /Volumes/OpenWrt`
 
 ### Build OpenWRT Image for MT7622
 
@@ -136,10 +168,12 @@ brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep wget qui
 #### Set parametres
 
 Target System: MediaTek Ralink ARM
+
 Subtarget: MT7622
+
 Target Profile: Banana Pi R64
 
-``` shell
+``` bash
 cd openwrt
 
 ./scripts/feeds update -a
@@ -148,9 +182,33 @@ cd openwrt
 make menuconfig
 ```
 
-#### Built OpenWRT image
+Set config and include built-in dependency that you want (Luci is not include by default)
 
-`make`
+then save to `.config`
+
+#### Build OpenWRT image
+
+``` bash
+# for 10.15 need set deploy target it to 10.14
+MACOSX_DEPLOYMENT_TARGET=10.14
+
+# Start make
+# vadd v1 mean verbose Level 1 (warnings/errors), level 99 (stdout+stderr)
+# add -j4 mean use quard core
+make -j4 V=1
+```
+
+Kernel image file will be at ./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin
+
+#### Install OpenWRT Image to bananapi via TFTP
+
+Copy the kernel image to tftp folder
+
+`cp ./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin /private/tftpboot/`
+
+Enter to uboot menu and install kernel image from TFTP
+
+Finally I got OpenWRT installed
 
 ## References
 - http://wiki.banana-pi.org/Banana_Pi_BPI-R64#Release

@@ -7,7 +7,7 @@ author: "ntsd"
 catalog: true
 categories:
     - Programming
-header-img: "../img/in-post/post-build-my-own-aria2.jpg"
+header-img: "../img/in-post/2020-2-9-build-my-own-aria2/post-build-my-own-aria2.jpg"
 tags:
     - programming
     - c++

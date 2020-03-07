@@ -7,7 +7,7 @@ author: "ntsd"
 catalog: true
 categories:
     - Programming
-header-img: "../img/in-post/post-code-golf.jpg"
+header-img: "../img/in-post/2019-10-6-python-codegolf/post-code-golf.jpg"
 tags:
     - programming
     - python
