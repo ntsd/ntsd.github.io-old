@@ -1,15 +1,16 @@
 ---
 layout: post
-title:  "Legends of Code and Magic เล่น Bot Programming ด้วย  Basic Algorithms"
+title:  "Legends of Code and Magic เล่น Bot Programming ด้วย Basic Algorithms"
 date:   2018-08-5 12:30:54
-subtitle: "บอทเกมคล้าย Hearthstone"
+subtitle: "สร้างบอทเกมเพื่อเล่นเกมไพ่แข่งกับคนอื่น"
 author: "ntsd"
 catalog: true
 categories: Programming
 header-img: "../img/in-post/2018-8-5-Legends-of-Code-and-Magic-play-Bot-Programming-with-Basic-Algorithms/post-legends-of-code-and-magic.png"
 tags:
-    - game bot
+    - ai
     - programming
+    - python
 ---
 
 # LEGENDS OF CODE AND MAGIC
