@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Build OpenWRT into Banana Pi R64"
+title:  "Build and install OpenWRT into Banana Pi R64"
 date:   2020-1-3 12:30:54
-subtitle: "Build OpenWRT into Banana Pi R64 with macOS"
+subtitle: "Build and install into Banana Pi R64 using macOS"
 author: "ntsd"
 catalog: true
 categories:
@@ -11,7 +11,7 @@ tags:
     - openwrt
     - router
     - three.js
-published: false
+published: true
 ---
 
 ## Requirements
@@ -86,9 +86,19 @@ sudo launchctl load -F /System/Library/LaunchDaemons/tftp.plist
 sudo launchctl start com.apple.tftpd
 
 cd /var/tftpboot touch # make initial tftp directory
-
-chmod 777 /var/tftpboot # change mode your directory to allow other users to read and write files
 ```
+
+#### Copy file to tftp folder
+
+change mode your directory to allow other users to read and write files
+
+``` bash
+chmod 777 /private/tftpboot
+```
+
+copy binary file into tftp root directory
+
+![copy binary file into tftp root directory](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/1.png)
 
 ### Connect to board by UART
 
@@ -101,16 +111,15 @@ replace `cu.usbserial-A50285BI` with your serial driver
 ### Set u-boot env
 
 ``` bash
-setenv kernel_filename preloader_emmc.bin
 setenv ipaddr 192.168.1.126 # your bpi ip address
 setenv serverip 192.168.1.1 # your tfto server
 setenv netmask 255.255.255.0
 saveenv
 ```
 
-load ROM to address 1080000
+[comment]: <> (load ROM to address 1080000)
 
-`tftp 1080000 preloader_emmc.bin`
+[comment]: <> (`tftp 1080000 preloader_emmc.bin`)
 
 check u-boot env
 
@@ -119,6 +128,39 @@ check u-boot env
 return to u-boot menu
 
 `bootmenu`
+
+### Write eMMC image to flash via TFTP
+
+Put Ethernet to WLAN port for connect to the router
+
+make sure your TFTP server in same network with your bpi board
+
+#### Install eMMC flash image to flash
+
+in u-boot menu choose "b. System Load flashimage then write to Flash via TFTP"
+
+![b. System Load flashimage then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/2.png)
+
+Set TFTP server ip and flash image file name
+
+![Set TFTP server ip and flash image file name](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/3.png)
+
+#### Install preloader to flash
+
+back to uboot menu choose "7. System Load Preloader then write to Flash via TFTP"
+
+![7. System Load Preloader then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/4.png)
+
+Set TFTP server ip and preloader file name
+
+![Set TFTP server ip and preloader file name](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/5.png)
+
+Remove sd card and power off the rpi, Remove SD card, and Power on.
+
+Now you'll get U-BOOT install on eMMC on board storage
+
+![U-BOOT install on eMMC on board storage](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/6.png)
+
 
 ## Build your OpenWRT image
 
