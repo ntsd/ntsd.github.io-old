@@ -67,14 +67,6 @@ featured-condition-size: 0 # A tag will be featured if the size of it is more th
 chrome-tab-theme-color: "#000000"
 service-worker: true
 
-# Friends
-# friends: [
-#     {
-#         title: "",
-#         href: ""
-#     }
-# ]
-
 # Quotes quotes will show when description or subtitle is null
 quotes: [
     "“Choose a job that you love and you will never have to work a day in your life” – Confucius",
