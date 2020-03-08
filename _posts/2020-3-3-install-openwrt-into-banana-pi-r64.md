@@ -11,6 +11,7 @@ tags:
     - openwrt
     - router
 published: true
+header-img: "../img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/plash-speed-2.jpg"
 ---
 
 ## Requirements
