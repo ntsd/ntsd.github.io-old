@@ -96,9 +96,9 @@ change mode your directory to allow other users to read and write files
 chmod 777 /private/tftpboot
 ```
 
-copy binary file into tftp root directory
+copy the binary file into TFTP root directory
 
-![copy binary file into tftp root directory](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/1.png)
+![copy the binary file into TFTP root directory](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/1.png)
 
 ### Connect to board by UART
 
@@ -133,7 +133,7 @@ return to u-boot menu
 
 Put Ethernet to WLAN port for connect to the router
 
-make sure your TFTP server in same network with your bpi board
+make sure your TFTP server in the same network with your bpi board
 
 #### Install eMMC flash image to flash
 
@@ -151,16 +151,15 @@ back to uboot menu choose "7. System Load Preloader then write to Flash via TFTP
 
 ![7. System Load Preloader then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/4.png)
 
-Set TFTP server ip and preloader file name
+Set TFTP server ip address and preloader file name
 
 ![Set TFTP server ip and preloader file name](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/5.png)
 
-Remove sd card and power off the rpi, Remove SD card, and Power on.
+Remove sd card and power off the Rpi, Remove SD card, and Power on.
 
-Now you'll get U-BOOT install on eMMC on board storage
+Now you'll get U-BOOT installed on eMMC storage
 
 ![U-BOOT install on eMMC on board storage](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/6.png)
-
 
 ## Build your OpenWRT image
 
@@ -224,7 +223,7 @@ cd openwrt
 make menuconfig
 ```
 
-Set config and include built-in dependency that you want (Luci is not include by default)
+Set config and include built-in dependency that you want (Luci is not included by default)
 
 then save to `.config`
 
@@ -244,11 +243,15 @@ Kernel image file will be at ./bin/targets/mediatek/mt7622/openwrt-mediatek-mt76
 
 #### Install OpenWRT Image to bananapi via TFTP
 
-Copy the kernel image to tftp folder
+Copy the kernel image to TFTP folder
 
 `cp ./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin /private/tftpboot/`
 
-Enter to uboot menu and install kernel image from TFTP
+Enter to the U-Boot menu
+
+Install kernel image from TFTP
+
+![Install kernel image from TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/8.png)
 
 Finally I got OpenWRT installed
 
