@@ -6,7 +6,7 @@ subtitle: "บอทเกมคล้าย Hearthstone"
 author: "ntsd"
 catalog: true
 categories: Programming
-header-img: "../img/in-post/post-legends-of-code-and-magic.png"
+header-img: "../img/in-post/2018-8-5-Legends-of-Code-and-Magic-play-Bot-Programming-with-Basic-Algorithms/post-legends-of-code-and-magic.png"
 tags:
     - game bot
     - programming
@@ -21,6 +21,7 @@ Codingame เป็นเว็บที่มีเกมแนว Bot Programm
 สำหรับคนที่ยังไม่ค่อยเข้าใจระบบเกม ให้ลองเลื่อนลงไปดู Game loops and Input ก่อน
 
 **Requirement skills to read**
+
 - Programming (Python Syntax)
 - Basic Algorithms
 - OOP นิดหน่อย
@@ -51,7 +52,8 @@ phase ที่สองจะเป็นการ Battle
 **creature abilities**
 
 creature จะมีความสามามารถพิเศษแตกต่างกันดังนี้
-```
+
+``` Text
 Breakthrough: Creatures with Breakthrough can deal extra damage to the opponent when they attack enemy creatures. If their attack damage is greater than the defending creature's defense, the excess damage is dealt to the opponent.
 Charge: Creatures with Charge can attack the turn they are summoned.
 Drain: Creatures with Drain heal the player of the amount of the damage they deal (when attacking only).
@@ -60,19 +62,18 @@ Lethal: Creatures with Lethal kill the creatures they deal damage to.
 Ward: Creatures with Ward ignore once the next damage they would receive from any source. The "shield" given by the Ward ability is then lost.
 ```
 
-# Class
-
+## Class
 
 **import อะไรให้พร้อม**
 
-```
+``` Python
 import sys # ใช้เพื่อ print log
 from copy import deepcopy  # deepcopy เพื่อให้ object ต่างๆ ไม่ reference เวลา simulate
 ```
 
 **class Player**
 
-```
+``` Python
 class Player:
     def __init__(self):
         self.mana_curve = [0, 7, 6, 5, 4, 3, 0, 0, 0, 0, 0, 0, 0] # mana curve ใช่เพื่อเลือไพ่ให้ได้ curve ตามต้องการ
@@ -90,7 +91,7 @@ class Player:
 
 **class Card**
 
-```
+``` Python
 class Card:
     def __init__(self, card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw):
         self.__dict__.update(l for l in locals().items() if l[0] != 'self')
@@ -113,7 +114,7 @@ class Card:
 
 **class Creature**
 
-```
+``` Python
 class Creature(Card): # inheritance Card เพื่อบอกว่าเป็น Subclass ของ Card   
     def attackTarget(self, target): # ใช้เมื่อโจมตี Creature ตัวอื่น
         self.action = 0
@@ -130,9 +131,10 @@ class Creature(Card): # inheritance Card เพื่อบอกว่าเป
             if target.defense <=0 or (self.lethal and type(target) is Creature):
                 target.live = 0
 ```
+
 **class Item (ยังไม่ได้ใช้)**
 
-```
+``` Python
 class Item(Card):
     def use(self, target):
         pass
@@ -146,7 +148,7 @@ class Item(Card):
 
 โดยผมจะเลือกตาม mana curve เป็นหลักและ value ของไพ่ โดยผมใช้ attack * defence เป็น vaule ของไพ่
 
-```
+``` Python
 def draft(self, draft_list): # เลือกไพ่ 1 ใน 3
         max_value = 0
         card_no=0
@@ -167,10 +169,11 @@ def draft(self, draft_list): # เลือกไพ่ 1 ใน 3
 โดยผมจะ summon creatures ก่อน แล้วจึงโจมตีฝั่งตรงข้าม
 
 โดยจะทำเป็น action list ดังนี้
-```
-	def useItem(self): # ผมยังไม่ได้ทำให้ใช้ item ได้เลยว่างไว้ก่อน
+
+``` Python
+    def useItem(self): # ผมยังไม่ได้ทำให้ใช้ item ได้เลยว่างไว้ก่อน
         return []
-    
+
     def play(self):
         action_list = []
         action_list += self.summon()
@@ -182,8 +185,9 @@ def draft(self, draft_list): # เลือกไพ่ 1 ใน 3
 **Summon**
 
 ต่อมาเป็นการเรียก Creature จากบนมือ โดยผมจะเลือกตัวที่มานามากที่สุดก่อน
-```
-def summon(self): # 
+
+``` Python
+def summon(self):
         mana=self.player_mana
         action_list = []
         boards_count = len(self.boards)
@@ -209,10 +213,9 @@ def summon(self): #
 - opFilter - filter creatures ของคู่ต่อสู้
 - rule - กฏเพื่อให้เข้าเงื่อนไข
 
-
 **Rule Class**
 
-```
+``` Python
 class AttackRule:
     def __init__(self, mySort, myFilter, opSort, opFilter, rule):
         self.__dict__.update(l for l in locals().items() if l[0] != 'self')
@@ -221,10 +224,11 @@ class AttackRule:
 **Creature Attack**
 
 ผมจะ simulate เพื่อให้ creature โจมตี crature ฝั่งตรงข้ามก่อนตามเงื่อนไขที่กำหนด จากนั้นถ้าเข้าเงื่อนไขจึงเก็บ action และบันทึกค่าว่าโจมตีจริงๆ
-```
+
+``` Python
 def creatureAttack(self):
         action_list = []
-        
+
         attack_rules=[
             # โจมตี taunt creature ให้ได้คุ้มค่า
             AttackRule(lambda my: -my.defense, lambda my: my.action,
@@ -247,10 +251,9 @@ def creatureAttack(self):
             lambda op: -op.attack, lambda op: True,
             lambda my, op: op.live==0), # and self.player_health < self.op.player_health
         ]
-        
-        
+
         for attack_rule in attack_rules:# loop ทุกๆ rules
-         	# sort และ filter creatures ตาม rule ที่กำหนด
+            # sort และ filter creatures ตาม rule ที่กำหนด
             for my_c in sorted(filter(attack_rule.myFilter, self.boards), key=attack_rule.mySort):
                 for op_c in sorted(filter(attack_rule.opFilter, self.op.boards), key=attack_rule.opSort):
                     my_c_temp = deepcopy(my_c) # deep copy เพื่อ simulate ว่าถ้าตีผลจะเป็นยังไง
@@ -266,7 +269,7 @@ def creatureAttack(self):
                         if not op_c.live:
                             self.op.boards.remove(op_c)
                         break
-                        
+
         # สั่งให้ตีฮีโร่ฝั่งตรงข้ามเมื่อไม่เข้าเงื่อนไขข้างบน
         for my_c in self.boards:
             if my_c.action:
@@ -276,7 +279,8 @@ def creatureAttack(self):
         return action_list
 ```
 
-# Game loops and Input
+## Game loops and Input
+
 main ของ Bot ใช้เพื่ออัพเดตค่าต่างๆของเกมโดยผู้เล่นจะสลับฝั่งกันเล่นและอัพเดตค่าผ่านทาง input, output
 
 โดย Bot Game ใน Codingame นั้นจะประมวลผลเกมเป็น loop ดังนี้
@@ -285,19 +289,19 @@ game ประมวลผล
 
 player 1 รับค่า และ ประมวลผล
 
-player 1 ส่งค่า 
+player 1 ส่งค่า
 
 game ประมวลผล
 
 player 2 รับค่า และ ประมวลผล
 
-player 2 ส่งค่า 
+player 2 ส่งค่า
 
 เป็น loop จนกว่าจะจบเกม
 
 **Main**
 
-```
+``` Python
 my_player = Player()
 op_player = Player()
 my_player.setEnemy(op_player)
@@ -306,12 +310,12 @@ while True:
     my_player.update(player_health, player_mana, player_deck, player_rune) # อัพเดตค่าของ player ทุกๆเทริน
     player_health, player_mana, player_deck, player_rune = [int(j) for j in input().split()]
     op_player.update(player_health, player_mana, player_deck, player_rune)
-    
+
     opponent_hand = int(input())
     card_count = int(input())
     draft_list = []
     for i in range(card_count):
-    	# Input card และ map แปลง input ที่เป็นตัวเลขให้เป็น Int
+        # Input card และ map แปลง input ที่เป็นตัวเลขให้เป็น Int
         card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw = map(lambda x: int(x) if x[-1].isdigit() else x,input().split()) 
         if card_type!=0: # เช็คว่าเป็นไพ่ชนิดใด
             card = Item(card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw)
@@ -325,17 +329,18 @@ while True:
             my_player.addBoard(card)
         elif location==-1: # เช็คว่ายู่บนสนามของคู่แข่ง
             op_player.addBoard(card)
-    
+
     if my_player.player_mana==0: # ถ้ามานาเท่ากับ 0 แสดงว่าเป็น draft parse
         my_player.draft(draft_list)
     else:
-        my_player.play() 
+        my_player.play()
 ```
 
 # Full Code
-```
+
+``` Python
 import sys
-from copy import deepcopy 
+from copy import deepcopy
 
 def log(*args,**kwargs):
     print(*args,**kwargs, file=sys.stderr)
@@ -357,7 +362,7 @@ class Player:
         self.hands.append(card)
     def addBoard(self, card):
         self.boards.append(card)
-        
+
     def draft(self, draft_list):
         max_value = 0
         card_no=0
@@ -371,7 +376,7 @@ class Player:
                     card_no = i
         self.mana_curve[draft_list[card_no].cost]-=1
         print('PICK {}'.format(card_no))
-     
+
     def summon(self): # to do make mana zero
         mana=self.player_mana
         action_list = []
@@ -386,11 +391,10 @@ class Player:
                         self.boards.append(c)
                     boards_count += 1
         return action_list
-    
-    
+
     def creatureAttack(self):
         action_list = []
-        
+
         attack_rules=[
             # trade taunt value
             AttackRule(lambda my: -my.defense, lambda my: my.action,
@@ -417,7 +421,7 @@ class Player:
             lambda op: -op.attack, lambda op: True,
             lambda my, op: op.live==0), # and self.player_health < self.op.player_health
         ]
-        
+
         for attack_rule in attack_rules:
             for my_c in sorted(filter(attack_rule.myFilter, self.boards), key=attack_rule.mySort):
                 for op_c in sorted(filter(attack_rule.opFilter, self.op.boards), key=attack_rule.opSort):
@@ -441,10 +445,10 @@ class Player:
                 my_c.action = 0
 
         return action_list
-    
+
     def useItem(self):# item red target op minion
         return []
-    
+
     def play(self):
         action_list = []
         action_list += self.summon()
@@ -475,7 +479,7 @@ class Item(Card):
     def use(self, target):
         pass
 
-class Creature(Card):      
+class Creature(Card):
     def attackTarget(self, target): # attack op creature
         self.action = 0
         if self.shield: # damage to self
@@ -490,7 +494,7 @@ class Creature(Card):
             target.defense -= self.attack
             if target.defense <=0 or (self.lethal and type(target) is Creature):
                 target.live = 0
-    
+
 my_player = Player()
 op_player = Player()
 my_player.setEnemy(op_player)
@@ -500,7 +504,7 @@ while True:
     my_player.update(player_health, player_mana, player_deck, player_rune)
     player_health, player_mana, player_deck, player_rune = [int(j) for j in input().split()]
     op_player.update(player_health, player_mana, player_deck, player_rune)
-    
+
     opponent_hand = int(input())
     card_count = int(input())
     draft_list = []
@@ -518,12 +522,11 @@ while True:
             my_player.addBoard(card)
         elif location==-1:
             op_player.addBoard(card)
-    
+
     if my_player.player_mana==0:
         my_player.draft(draft_list)
     else:
         my_player.play()
 ```
-
 
 การเขียนอาจะจะเข้าใจยากไปหน่อย ก็ติดชมกันได้ครับ

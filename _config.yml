@@ -13,11 +13,9 @@ future: true
 
 # SNS settings
 RSS: false
-# weibo_username:
-# zhihu_username:
 github_username:    ntsd
 # twitter_username:
-# facebook_username:  jo.ntsd
+facebook_username:  jo.ntsd
 linkedin_username:  jirawat-boonkumnerd-815832114
 
 # Build settings
