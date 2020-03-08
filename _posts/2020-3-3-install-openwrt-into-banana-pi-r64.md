@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Build and install OpenWRT into Banana Pi R64"
-date:   2020-1-3 12:30:54
+date:   2020-3-3 12:30:54
 subtitle: "Build and install into Banana Pi R64 using macOS"
 author: "ntsd"
 catalog: true
@@ -10,7 +10,6 @@ categories:
 tags:
     - openwrt
     - router
-    - three.js
 published: true
 ---
 
@@ -24,7 +23,7 @@ published: true
 
 ## Preparation
 
-### 1. Install USB to UART Driver
+### Install USB to UART Driver
 
 Just follow this link if you're using FTDI
 
@@ -34,13 +33,13 @@ here is for CP2102
 
 https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
 
-### 2. Terminal software for serial
+### Terminal software for serial
 
 you can use whatever serial console Putty, screen, minicom
 
 for this tutorial I use `screen`
 
-### 3. Download images
+### Download images
 
 #### SD card image
 
