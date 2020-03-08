@@ -24,7 +24,7 @@ highlighter: rouge
 permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
@@ -46,13 +46,9 @@ disqus_username: "ntsd-github-io"
 # Netease settings
 netease_comment: false
 
-# Analytics settings
-# Baidu Analytics 
-# ba_track_id: [your track id]
-
 # Google Analytics
 ga_track_id: 'UA-29710747-1' # Format: UA-xxxxxx-xx
-ga_domain: ntsd.github.io
+ga_domain: ntsd.mw
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
