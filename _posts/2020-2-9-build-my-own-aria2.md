@@ -107,7 +107,13 @@ Now test your aria2c binary file
 
 - maximum number connections to one server.
 
-## install bash-completion
+You'll see the number of connections is 64
+
+![the number of connections is 64](/img/in-post/2020-2-9-build-my-own-aria2/aria.png)
+
+Awesome !!
+
+## install bash-completion (Optional)
 
 Optional, if you want to install to the other computer you can use bash-completion to use bundle script
 
