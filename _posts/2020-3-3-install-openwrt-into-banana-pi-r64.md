@@ -251,6 +251,8 @@ Enter to uboot menu and install kernel image from TFTP
 
 Finally I got OpenWRT installed
 
+![OpenWRT installed](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/7.png)
+
 ## References
 - http://wiki.banana-pi.org/Banana_Pi_BPI-R64#Release
 - http://forum.banana-pi.org/t/bpi-r64-loading-openwrt-built-files-into-the-board/9960
