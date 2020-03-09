@@ -62,3 +62,6 @@ header.intro-header {
 .sidebar-container .tags a {
   border-color: #585858;
 }
+.side-catalog.fixed {
+  top: -21px;
+}
