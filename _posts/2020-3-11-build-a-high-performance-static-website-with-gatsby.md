@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Create a high performance static website with Gatsby"
+title:  "Build a high performance static website with Gatsby"
 date:   2020-3-11 12:30:54
-subtitle: "Create a high performance static website with Gatsby"
+subtitle: "Build a high performance static website with Gatsby"
 author: "ntsd"
 catalog: true
 categories:
