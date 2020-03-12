@@ -1,8 +1,8 @@
 # NTSD Blog
 
-#### Post Format
+## Post Format
 
-```
+``` yml
 ---
 layout: post
 title:  "hello jekyll!"
@@ -19,8 +19,9 @@ multilingual: true # for multiple language post
 ---
 ```
 
-#### Page format
-```
+## Page format
+
+``` yml
 ---
 layout: page
 title: "Categories"
@@ -32,17 +33,15 @@ multilingual: false # for multiple language page
 ---
 ```
 
-#### cannot load such file -- jekyll-paginate
+## cannot load such file -- jekyll-paginate
 
 Executing this command to install this plugin:
 
+``` bash
+gem install jekyll-paginate
 ```
-$ gem install jekyll-paginate 
-```
 
-This blog started in Jekyll 2 time when `jekyll-paginate` is standard. With Jekyll 3, it's a plugin we included in `_config.yml`.
-
-
+This blog started in Jekyll 2 times when `jekyll-paginate` is standard. With Jekyll 3, it's a plugin we included in `_config.yml`.
 
 ## License
 

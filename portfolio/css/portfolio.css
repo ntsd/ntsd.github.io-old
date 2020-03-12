@@ -235,8 +235,7 @@ ul {
   display:table;
   margin-top: 0;
   margin-bottom: 0;
-  padding-top: 10vh;
-  padding-bottom: 10vh;
+  padding: 10vh 15px 10vh 20px;
 }
 
 #experience .experience-title {

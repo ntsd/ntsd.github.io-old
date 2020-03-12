@@ -24,7 +24,7 @@ function handleRegistration(registration){
         console.log('A Visit without previous SW');
         createSnackbar({
           message: 'App ready for offline use.',
-          duration: 3000
+          duration: 5000
         })
       }
     };
@@ -49,8 +49,8 @@ if(navigator.serviceWorker){
       console.log("UPDATE_FOUND_BY_SW", data);
       createSnackbar({
         message: "Content updated.",
-        actionText:"refresh",
-        action: function(e){location.reload()}
+        duration: 3000,
+        callback: () => {location.reload()}
       })
     }
   }
