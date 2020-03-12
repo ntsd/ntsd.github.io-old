@@ -50,7 +50,9 @@ if(navigator.serviceWorker){
       createSnackbar({
         message: "Content updated.",
         actionText:"refresh",
-        action: function(e){location.reload()}
+        action: function(e){
+          location.reload()
+        }
       })
     }
   }
