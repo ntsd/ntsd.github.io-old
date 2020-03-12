@@ -21,7 +21,8 @@ var createSnackbar = (function() {
     var message = config.message,
       actionText = config.actionText,
       action = config.action,
-      duration = config.duration;
+      duration = config.duration,
+      callback = config.callback;
 
     if (previous) {
       previous.dismiss();
@@ -54,6 +55,9 @@ var createSnackbar = (function() {
         this.parentElement.removeChild(this);
         if (previous === this) {
           previous = null;
+          if (callback) {
+            callback();
+          }
         }
       }
     }.bind(snackbar));
