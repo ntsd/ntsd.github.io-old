@@ -6,7 +6,7 @@ subtitle: " \"Everyone get in here\""
 author: "ntsd"
 categories: General
 tags:
-    - general
+    - General
 ---
 
 #### Hello everyone

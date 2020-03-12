@@ -9,9 +9,9 @@ categories:
     - Programming
 header-img: "../img/in-post/LegendsofCodeandMagic.png"
 tags:
-    - programming
-    - database
-    - cassandra
+    - Programming
+    - Database
+    - Cassandra
 published: false
 ---
 

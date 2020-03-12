@@ -9,8 +9,8 @@ categories:
     - Programming
 header-img: "../img/in-post/2019-9-19-data-structures/post-bg-data-structure.jpg"
 tags:
-    - programming
-    - data structure
+    - Programming
+    - Data Structure
 published: false
 ---
 
