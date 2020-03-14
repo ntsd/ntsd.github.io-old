@@ -264,11 +264,6 @@ function revalidateContent(cachedResp, fetchedResp) {
           'command': 'UPDATE_FOUND',
           'url': fetched.url
         })
-      } else {
-        sendMessageToClientsAsync({
-          'command': 'CONTENT_UP_TO_DATE',
-          'url': fetched.url
-        })
       }
     })
     .catch(err => console.log(err))
