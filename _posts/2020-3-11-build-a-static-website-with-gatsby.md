@@ -18,9 +18,7 @@ published: true
 header-img: "img/in-post/2020-3-11-build-a-static-website-with-gatsby/4.png"
 ---
 
-## Installations
-
-### Install Gatsby and generate website
+## Install Gatsby
 
 if you're a beginner you should follow the getting start from Gatsby
 
@@ -46,7 +44,7 @@ now you'll get the Gatsby default page
 
 ![now you'll get the Gatsby default page](/img/in-post/2020-3-11-build-a-static-website-with-gatsby/1.png)
 
-### Make Gatsby support TypeScript
+## Make TypeScript support
 
 Install `gatsby-plugin-typescript` and `typeScript`  dependencies
 
