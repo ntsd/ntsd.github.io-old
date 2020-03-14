@@ -234,7 +234,7 @@ go to audits tab
 
 click generate report
 
-![Setup netlify](/img/in-post/2020-3-11-build-a-static-website-with-gatsby/3.png)
+![Setup netlify](/img/in-post/2020-3-11-build-a-static-website-with-gatsby/4.png)
 
 Wow! you get max score
 
