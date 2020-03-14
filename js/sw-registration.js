@@ -47,11 +47,11 @@ if(navigator.serviceWorker){
     
     if(data.command == "UPDATE_FOUND"){
       console.log("UPDATE_FOUND_BY_SW", data);
-      createSnackbar({
-        message: "Content updated.",
-        duration: 3000,
-        callback: () => {location.reload()}
-      })
+      // sendMessageToClientsAsync({
+      //   'command': 'CONTENT_UP_TO_DATE',
+      //   'url': fetched.url
+      // })
+      location.reload();
     }
   }
 }
