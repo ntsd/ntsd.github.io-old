@@ -258,9 +258,15 @@ function revalidateContent(cachedResp, fetchedResp) {
       const cachedVer = cached.headers.get('last-modified')
       const fetchedVer = fetched.headers.get('last-modified')
       console.log(`"${cachedVer}" vs. "${fetchedVer}"`);
+
       if (cachedVer !== fetchedVer) {
         sendMessageToClientsAsync({
           'command': 'UPDATE_FOUND',
+          'url': fetched.url
+        })
+      } else {
+        sendMessageToClientsAsync({
+          'command': 'CONTENT_UP_TO_DATE',
           'url': fetched.url
         })
       }
