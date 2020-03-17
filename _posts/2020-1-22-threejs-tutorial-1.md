@@ -10,7 +10,7 @@ categories:
 header-img: "../img/in-post/post-code-golf.jpg"
 tags:
     - Programming
-    - Typescript
+    - TypeScript
     - Three.js
 published: false
 ---

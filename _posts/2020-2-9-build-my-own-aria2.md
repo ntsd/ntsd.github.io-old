@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Build my own aria2 to increment max connections per server"
+title:  "Build aria2 to increment maximum connections per server"
 date:   2020-2-9 12:30:54
-subtitle: "edit a line of code and recomplie aria2"
+subtitle: "Edit a line of code and recompile aria2 to increment maximum connections per server"
 author: "ntsd"
 catalog: true
 categories:
@@ -11,6 +11,7 @@ header-img: "../img/in-post/2020-2-9-build-my-own-aria2/post-build-my-own-aria2.
 tags:
     - Programming
     - C++
+    - aria2
 published: true
 ---
 

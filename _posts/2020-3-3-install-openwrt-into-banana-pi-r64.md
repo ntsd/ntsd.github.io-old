@@ -17,7 +17,7 @@ header-img: "../img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/plash-sp
 
 ## Requirements
 
-- macOS (I used 10.15.3), for Ubuntu will easier to build the image
+- macOS (I used 10.15.3) *for Ubuntu, will easier to build the image
 - Banana Pi R64
 - MicroSD Card
 - MicroSD Card Reader
@@ -29,11 +29,11 @@ header-img: "../img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/plash-sp
 
 Just follow this link if you're using FTDI
 
-https://learn.sparkfun.com/tutorials/how-to-install-ftdi-drivers/all
+<https://learn.sparkfun.com/tutorials/how-to-install-ftdi-drivers/all>
 
 here is for CP2102
 
-https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers
+<https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers>
 
 ### Terminal software for serial
 
@@ -45,17 +45,17 @@ for this tutorial I use `screen`
 
 #### SD card image
 
-https://drive.google.com/open?id=1Ap7lt-pjpG-pAOAEqpH13-SMOSkRkZI0
+<https://drive.google.com/open?id=1Ap7lt-pjpG-pAOAEqpH13-SMOSkRkZI0>
 
 #### eMMC all-in-one single image
 
-includes GPT, atf, u-boot, and linux kernel image
+includes GPT, ATF, u-boot, and Linux kernel image
 
-https://drive.google.com/open?id=1w8kO3klbPfdHK6lTI8Ub8sR_7ViISORM
+<https://drive.google.com/open?id=1w8kO3klbPfdHK6lTI8Ub8sR_7ViISORM>
 
 #### eMMC preloader
 
-https://drive.google.com/open?id=1Fy__GpNSWRcITEmzH4Z_jxnjrCS3BpQJ
+<https://drive.google.com/open?id=1Fy__GpNSWRcITEmzH4Z_jxnjrCS3BpQJ>
 
 ## Setup boot from eMMC
 
@@ -75,7 +75,7 @@ You can your system TFTP Server but for easy on and off the service so I use 3rd
 
 #### TFTP server
 
-you can download here http://ww2.unime.it/flr/tftpserver/
+you can download here <http://ww2.unime.it/flr/tftpserver>
 
 #### MacOS build-in tftp (optional)
 
@@ -138,9 +138,9 @@ make sure your TFTP server in the same network with your bpi board
 
 #### Install eMMC flash image to flash
 
-in u-boot menu choose "b. System Load flashimage then write to Flash via TFTP"
+in u-boot menu choose "b. System Load flash image then write to Flash via TFTP"
 
-![b. System Load flashimage then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/2.png)
+![b. System Load flash image then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/2.png)
 
 Set TFTP server ip and flash image file name
 
@@ -148,7 +148,7 @@ Set TFTP server ip and flash image file name
 
 #### Install preloader to flash
 
-back to uboot menu choose "7. System Load Preloader then write to Flash via TFTP"
+back to the Uboot menu and choose "7. System Load Preloader then write to Flash via TFTP"
 
 ![7. System Load Preloader then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/4.png)
 
@@ -156,7 +156,7 @@ Set TFTP server ip address and preloader file name
 
 ![Set TFTP server ip and preloader file name](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/5.png)
 
-Remove sd card and power off the Rpi, Remove SD card, and Power on.
+Remove sd card and power-off The Banana pi, Remove SD card, and Power on.
 
 Now you'll get U-BOOT installed on eMMC storage
 
@@ -188,7 +188,7 @@ export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 
 #### Create case-insensitive filesystem
 
-OS X by default comes with a case-insensitive filesystem. OpenWrt won't build on that. As a workaround, create a (Sparse) case-sensitive disk-image that you then mount in the finder and use as build directory
+> OS X by default comes with a case-insensitive filesystem. OpenWrt won't build on that. As a workaround, create a (Sparse) case-sensitive disk-image that you then mount in the finder and use as build directory
 
 ``` bash
 hdiutil create -size 20g -type SPARSE -fs "Case-sensitive HFS+" -volname OpenWrt OpenWrt.sparseimage
@@ -240,7 +240,7 @@ MACOSX_DEPLOYMENT_TARGET=10.14
 make -j4 V=1
 ```
 
-Kernel image file will be at ./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin
+The kernel image file will be at `./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin`
 
 #### Install OpenWRT Image to bananapi via TFTP
 
@@ -254,7 +254,7 @@ Install kernel image from TFTP
 
 ![Install kernel image from TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/8.png)
 
-Finally I got OpenWRT installed
+Finally, I got The OpenWRT image installed
 
 ![OpenWRT installed](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/7.png)
 
