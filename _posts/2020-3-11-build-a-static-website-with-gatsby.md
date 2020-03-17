@@ -24,7 +24,7 @@ if you're a beginner you should follow the getting start from Gatsby
 
 <https://www.gatsbyjs.org/docs/quick-start/>
 
-I'll skip this step because it's too easy
+I'll skip this step because it's too easy just follow the guide
 
 ``` Shell
 # Install the Gatsby CLI
@@ -210,7 +210,7 @@ In your Netlify dashboard New site from Git
 
 ![New site from Git](/img/in-post/2020-3-11-build-a-static-website-with-gatsby/2.png)
 
-Choose your repository
+choose your repository in Github or Gitlab to deploy
 
 and the default setting should work
 
