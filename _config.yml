@@ -3,8 +3,8 @@ title: NTSD Blog
 SEOTitle: NTSD Blog | Jirawat Boonkumnerd
 header-img: img/post-bg-os-metro.jpg
 email: jo06942@gmail.com
-description: "A Software Engineer \n who interesting in Machine Learning"
-keyword: "ntsd, Software Engineer, Machine Learning, Bot, Programming, Python, JavaScript, Java"
+description: "A Software Engineer"
+keyword: "Full-Stack Developer, Programming, Machine Learning, IoT"
 url: "https://ntsd.me" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -48,12 +48,12 @@ netease_comment: false
 
 # Google Analytics
 ga_track_id: 'UA-29710747-1' # Format: UA-xxxxxx-xx
-ga_domain: ntsd.mw
+ga_domain: ntsd.me
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "A Software Engineer \n who interesting in Machine Learning"
-sidebar-avatar: https://avatars0.githubusercontent.com/u/8283616?s=175&v=4.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "<h4>Jirawat Boonkumnerd</h4> A Software Engineer"
+sidebar-avatar: /img/me.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
 featured-tags: true # whether or not using Feature-Tags
