@@ -15,7 +15,6 @@ tags:
     - Progressive Web App
     - TypeScript
 published: true
-header-img: "img/in-post/2020-3-11-build-a-static-website-with-gatsby/4.png"
 ---
 
 ## Install Gatsby

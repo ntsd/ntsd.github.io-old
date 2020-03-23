@@ -7,7 +7,6 @@ author: "ntsd"
 catalog: true
 categories:
     - Programming
-# header-img: "../img/in-post/post-code-golf.jpg"
 tags:
     - Programming
     - Facebook Developer
