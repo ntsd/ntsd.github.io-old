@@ -3,13 +3,13 @@ layout: default
 ---
 <!-- Post Header -->
 <style type="text/css">
-    header.intro-header{
+    header.intro-header {
         position: relative;
         background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');
     }
 
     {% if page.header-mask %}
-    header.intro-header .header-mask{
+    header.intro-header .header-mask {
         width: 100%;
         height: 100%;
         position: absolute;
@@ -92,6 +92,15 @@ layout: default
                     {% endif %}
                 </ul>
 
+                <!-- Facebook comments -->
+                {% if site.facebook_comments %}
+                <div class="comment">
+                    <div id="fb-root"></div>
+                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId={{site.facebook_app_id}}"></script>
+                    <div class="fb-comments" data-href="{{site.url}}{{page.url}}" data-width="100%" data-numposts="5"></div>
+                </div>
+                {% endif %}
+                <!-- Facebook comments end -->
 
                 {% if site.disqus_username %}
                 <!-- disqus 评论框 start -->
@@ -161,7 +170,6 @@ layout: default
 </script>
 <!-- disqus 公共JS代码 end -->
 {% endif %}
-
 
 {% if site.anchorjs %}
 <!-- async load function -->
