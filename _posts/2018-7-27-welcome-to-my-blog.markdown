@@ -15,4 +15,4 @@ tags:
 
 Hope you like it
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_lbaswb4vIw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CbCPL3ECwTM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
