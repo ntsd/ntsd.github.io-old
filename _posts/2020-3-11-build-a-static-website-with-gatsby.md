@@ -15,7 +15,6 @@ tags:
     - Progressive Web App
     - TypeScript
 published: true
-header-img: "img/in-post/2020-3-11-build-a-static-website-with-gatsby/4.png"
 ---
 
 ## Install Gatsby
@@ -156,7 +155,7 @@ Web App Manifest will allow users to save PWA app to the home screen
 and it includes information like the Web App’s name, icons, start_url, background-color and [more](https://web.dev/add-manifest/)
 
 ``` Shell
-npm install atsby-plugin-manifest
+npm install gatsby-plugin-manifest
 ```
 
 then you can config Web App Manifest in `gatsby-config.js`
@@ -193,18 +192,6 @@ Gatsby will generate [Service Worker](https://developer.mozilla.org/en-US/docs/W
 you can read the [available options](https://www.gatsbyjs.org/packages/gatsby-plugin-offline#available-options) to change the config
 
 ## Deploy to Netlify
-
-Install Netlify plugin for gatsby
-
-``` Shell
-npm install gatsby-plugin-netlify
-```
-
-In your `gatsby-config.js` add `gatsby-plugin-netlify` to plugins
-
-``` JS
-plugins: [`gatsby-plugin-netlify`]
-```
 
 In your Netlify dashboard New site from Git
 
