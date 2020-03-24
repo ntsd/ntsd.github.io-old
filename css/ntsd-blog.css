@@ -65,3 +65,9 @@ header.intro-header .intro-header-inner {
 .side-catalog.fixed {
   top: 100px;
 }
+.post-content-preview {
+  color: #737373;
+}
+.post-preview > .post-meta {
+  color: #999;
+}
