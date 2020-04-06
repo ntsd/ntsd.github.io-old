@@ -15,11 +15,9 @@ tags:
 published: true
 ---
 
-## Python Code golf
+## Operator
 
-### Operator
-
-#### Negating Boolean
+### Negating Boolean
 
 ``` Python
 if not C:
@@ -27,7 +25,7 @@ if C<1:
 if~-C:
 ```
 
-#### And operator
+### And operator
 
 ``` Python
 if a and b:
@@ -39,7 +37,7 @@ if(i,j)==(4,4):
 if i==j==4:
 ```
 
-#### Increment or decrement 1 in statement
+### Increment or decrement 1 in statement
 
 ``` Python
 c/(n-1)
@@ -55,7 +53,7 @@ or n+1
 or-~n
 ```
 
-#### While n!=1
+### While n!=1
 
 ``` Python
 while n!=1:
@@ -63,7 +61,7 @@ while n-1:
 while~-n:
 ```
 
-#### shorter than the list selection
+### shorter than the list selection
 
 ``` Python
 [0,y][b] -> y*b
@@ -75,7 +73,7 @@ while~-n:
 [x,~x][b] -> x^-b
 ```
 
-#### Ceil and Floor
+### Ceil and Floor
 
 ``` Python
 math.floor(n)
@@ -85,9 +83,9 @@ math.ceil(n)
 -(-n//1)
 ```
 
-### Types
+## Types
 
-#### Check type of a variable
+### Check type of a variable
 
 ``` Python
 x*0is 0 # integer
@@ -95,14 +93,14 @@ x*0=="" # string
 x*0==[] # array
 ```
 
-#### Convert integer to string
+### Convert integer to string
 
 ``` Python
 str(n)
 `n`
 ```
 
-#### Join list of string or integer
+### Join list of string or integer
 
 ``` Python
 L=['a', 'b', 'c']
@@ -113,13 +111,13 @@ L=[1, 2, 3]
 `L`[1::3]
 ```
 
-#### 2 String same lenght or 1 lenght diff
+### 2 String same length or 1 length diff
 
 ``` Python
 'ftarlusee'[C::2]
 ```
 
-#### List all substrings
+### List all substrings
 
 ``` Python
 # with repeat
@@ -129,16 +127,16 @@ f=lambda s:[*s]and[s]+f(s[1:])+f(s[:-1])
 f=lambda s:{*s}and{s}|f(s[1:])|f(s[:-1])
 ```
 
-### Iterable
+## Iterable
 
-#### List of range
+### List of range
 
 ``` Python
 L=list(range(10))
 *L,=range(10)
 ```
 
-#### Get last and first element from a list
+### Get last and first element from a list
 
 ``` Python
 e=L[-1]
@@ -148,7 +146,7 @@ e=(L)[0]
 e,*_=L
 ```
 
-#### Append and Extend to list
+### Append and Extend to list
 
 ``` Python
 L.append(e)  
@@ -158,7 +156,7 @@ L.extend(e)
 L+=e
 ```
 
-#### For in range
+### For in range
 
 ``` Python
 for i in range(x):pass
@@ -178,7 +176,7 @@ for _ in r*-~x:pass
 exec'pass;'*x
 ```
 
-#### Multiple numerical loops
+### Multiple numerical loops
 
 ``` Python
 for i in range(m):
@@ -198,28 +196,28 @@ for k in range(m*n*b):
  do_stuff(k/n/o,k%(n*o)/o,k%o)
 ```
 
-#### Check element in iterable
+### Check element in iterable
 
 ``` Python
 if e in S
 if{e}&S
 ```
 
-#### Reverse List
+### Reverse List
 
 ``` Python
 L.reverse()
 L[::-1]
 ```
 
-#### Check negative integer in list
+### Check negative integer in a list
 
 ``` Python
 min(L)<0
 '-'in`L`
 ```
 
-#### Checking the length of a list
+### Checking the length of a list
 
 ``` Python
 a==[] # a is empty
@@ -228,7 +226,7 @@ a # a is not empty
 a>a[:i] # len(a) < i
 ```
 
-#### Copy/Clone a list
+### Copy/Clone a list
 
 ``` Python
 a=x[:]
@@ -236,23 +234,23 @@ b=[*x]
 c=x*1
 ```
 
-#### Multiple if statements in comprehensions
+### Multiple if statements in comprehensions
 
 ``` Python
 [a for a in 'abc'if cond1()and cond2()or cond3()and cond4()and cond5()]
 [a for a in 'abc'if cond1()if cond2()or cond3()if cond4()if cond5()]
 ```
 
-#### Split into chunks
+### Split into chunks
 
 ``` Python
 l=(n for n in range(18))
 zip(*[l]*4)
 ```
 
-### Iterator & Iterator
+## Iterator & Iterator
 
-#### Unpack generator
+### Unpack generator
 
 ``` Python
 set(G)
@@ -267,16 +265,16 @@ tuple(G)
 T=*G,
 ```
 
-### Others
+## Others
 
-#### Reading from stdin
+### Reading from stdin
 
 ``` Python
 import os;A=os.read(0,9**9)
 import os;A=os.read(0,99) # input is always less than 100 bytes.
 ```
 
-#### Multiline input to list
+### Multiline input to list
 
 ``` Python
 list(sys.stdin.readlines())
@@ -285,7 +283,7 @@ eof='' # End of line you want to stop
 list(iter(input,eof))
 ```
 
-#### Import when use once
+### Import when use once
 
 ``` Python
 import itertools
@@ -294,7 +292,7 @@ itertools.groupby()
 __import__("itertools").groupby()
 ```
 
-#### Helper prime functions
+### Helper prime functions
 
 ``` Python
 # Function                                                   Output of f(360)
@@ -317,7 +315,7 @@ f=lambda n:sum(k//n*k%n>n-2for k in range(n*n))             # totient phi(n) (no
 f=lambda n:[k//n for k in range(n*n)if k//n*k%n==1]          # coprimes up to n (not recursive)
 ```
 
-### Reference
+## Reference
 
 - [https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python](https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python)
 
