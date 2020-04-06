@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Add Facebook comments to your website"
+title:  "Add Facebook comments to a website in 5 minutes"
 date:   2020-3-23 12:30:54
-subtitle: "Add Facebook comments to your website"
+subtitle: "Add Facebook comments to a website in 5 minutes"
 author: "ntsd"
 catalog: true
 categories:
