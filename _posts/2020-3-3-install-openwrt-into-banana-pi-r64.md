@@ -142,17 +142,17 @@ in u-boot menu choose "b. System Load flash image then write to Flash via TFTP"
 
 ![b. System Load flash image then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/2.png)
 
-Set TFTP server ip and flash image file name
+Set TFTP server IP and flash image file name
 
 ![Set TFTP server ip and flash image file name](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/3.png)
 
 #### Install preloader to flash
 
-back to the Uboot menu and choose "7. System Load Preloader then write to Flash via TFTP"
+back to U-Boot menu choose "7. System Load Preloader then write to Flash via TFTP"
 
 ![7. System Load Preloader then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/4.png)
 
-Set TFTP server ip address and preloader file name
+Set TFTP server IP address and preloader file name
 
 ![Set TFTP server ip and preloader file name](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/5.png)
 
@@ -188,7 +188,7 @@ export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 
 #### Create case-insensitive filesystem
 
-> OS X by default comes with a case-insensitive filesystem. OpenWrt won't build on that. As a workaround, create a (Sparse) case-sensitive disk-image that you then mount in the finder and use as build directory
+OS X by default comes with a case-insensitive filesystem. OpenWrt won't build on that. As a workaround, create a (Sparse) case-sensitive disk-image that you then mount in the finder and use as build directory
 
 ``` bash
 hdiutil create -size 20g -type SPARSE -fs "Case-sensitive HFS+" -volname OpenWrt OpenWrt.sparseimage
@@ -240,7 +240,7 @@ MACOSX_DEPLOYMENT_TARGET=10.14
 make -j4 V=1
 ```
 
-The kernel image file will be at `./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin`
+Kernel image file will be at ./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin
 
 #### Install OpenWRT Image to bananapi via TFTP
 
