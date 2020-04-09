@@ -26,6 +26,18 @@ paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 
+# Config compress html
+# documents: https://jch.penibelst.de/
+compress_html:
+  clippings: all
+  comments: ["<!--", "-->"]
+  endings: all
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
+
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
 # make sure you have this gem installed
