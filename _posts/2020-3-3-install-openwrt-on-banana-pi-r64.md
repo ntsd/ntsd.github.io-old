@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Build and install OpenWRT into Banana Pi R64"
+title:  "Build and Install OpenWRT on Banana Pi R64"
 date:   2020-3-3 12:30:54
-subtitle: "Build and install into Banana Pi R64 using macOS"
+subtitle: "Getting start to build and install OpenWRT on Banana Pi R64 by using macOS"
 author: "ntsd"
 catalog: true
 categories:
@@ -12,8 +12,29 @@ tags:
     - Router
     - macOS
 published: true
-header-img: "../img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/plash-speed-2.jpg"
+header-img: "../img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/plash-speed-2.jpg"
 ---
+
+This guide is a getting start to build OpenWRT image and install on Banana Pi R64, This guide also works with the Banana Pi R2 but it will be a difference in some steps.
+
+## What is Banana Pi R64"?"
+
+The Banana Pi R64 is a router based development board running with ARM Chipset MediaTek MT7622. So you can install operating systems which support to this ARM CPU including OpenWrt, Ubuntu, or many Linux distributions. It has many interfaces support such as on board Wifi/Bluetooth, 1GB Ethernet, USB 3.0, 40 GPIO, etc. Banana Pi R64 can add a Mini-PCI Express Modules and PoE module. And It also has a performance, resource, and interfaces good enough to be a high-end router.
+
+### Banana Pi R64 Specifications
+
+- MediaTek MT7622,1.35GHZ 64 bit dual-core ARM Cortex-A53
+- 1G DDR3 SDRAM
+- Mini PCIE interface support 4G module
+- Built-in 4x4n 802.11n/Bluetooth 5.0 system-on-chip
+- MTK7615 4x4ac wifi on board
+- Support 1 SATA interface
+- MicroSD slot supports up to 256GB expansion
+- 8G eMMC flash (option 16/32/64G)
+- 5 port 10/100/1000 Mb Ethernet port
+- 1 Port USB 3.0
+- Slow I/O:ADC, Audio Amplifier, GPIO, I2C, I2S, IR, PMIC I/F, PWM, RTC, SPI, UART
+- POE function support
 
 ## Requirements
 
@@ -259,7 +280,7 @@ Finally, I got The OpenWRT image installed
 ![OpenWRT installed](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/7.png)
 
 ## References
-- http://wiki.banana-pi.org/Banana_Pi_BPI-R64#Release
+- http://wiki.banana-pi.org/Banana_Pi_BPI-R64
 - http://forum.banana-pi.org/t/bpi-r64-loading-openwrt-built-files-into-the-board/9960
 - http://forum.banana-pi.org/t/bpi-r64-quick-start-boot-from-emmc/9809
 - https://openwrt.org/docs/guide-developer/

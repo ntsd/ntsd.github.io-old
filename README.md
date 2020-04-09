@@ -33,7 +33,9 @@ multilingual: false # for multiple language page
 ---
 ```
 
-## cannot load such file -- jekyll-paginate
+## Issues
+
+### cannot load such file -- jekyll-paginate
 
 Executing this command to install this plugin:
 
