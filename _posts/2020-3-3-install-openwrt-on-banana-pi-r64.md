@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Build and install OpenWRT into Banana Pi R64"
+title:  "Build and Install OpenWRT on Banana Pi R64"
 date:   2020-3-3 12:30:54
-subtitle: "Build and install into Banana Pi R64 using macOS"
+subtitle: "Build and install on Banana Pi R64 by using macOS"
 author: "ntsd"
 catalog: true
 categories:
@@ -12,7 +12,7 @@ tags:
     - Router
     - macOS
 published: true
-header-img: "../img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/plash-speed-2.jpg"
+header-img: "../img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/plash-speed-2.jpg"
 ---
 
 ## Requirements

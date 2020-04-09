@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Python Code Golf 101"
+title:  "Python Code Golf Cheatsheet"
 date:   2019-10-6 12:30:54
 subtitle: "simple tricks to code-golf in Python"
 author: "ntsd"
