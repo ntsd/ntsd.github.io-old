@@ -8,7 +8,7 @@ catalog: true
 categories: Programming
 header-img: "../img/in-post/2018-8-5-legends-of-code-and-magic-play-bot-programming-with-basic-algorithms/post-legends-of-code-and-magic.png"
 tags:
-    - AI
+    - Artificial Intelligence
     - Programming
     - Python
 ---

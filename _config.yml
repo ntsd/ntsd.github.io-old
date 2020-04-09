@@ -26,11 +26,40 @@ paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 
+# Config compress html
+# documents: https://jch.penibelst.de/
+compress_html:
+  clippings: all
+  comments: ["<!--", "-->"]
+  endings: all
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
+
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
 # make sure you have this gem installed
 # `$ gem install jekyll-paginate`
-plugins: [jekyll-paginate]
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Seo Tag setting
+# document: https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+facebook: 
+  app_id: 523337598616322
+  publisher: ntsd.me
+  admins: jo.ntsd
+social:
+  name: Jirawat Boonkumnerd
+  links:
+    - https://web.facebook.com/jo.ntsd
+    - https://web.facebook.com/ntsd.me
+    - https://github.com/ntsd
+    - https://www.linkedin.com/in/jirawat-boonkumnerd-815832114
 
 # Markdown settings
 # replace redcarpet to kramdown,
@@ -40,12 +69,12 @@ markdown: kramdown
 kramdown:
   input: GFM # use Github Flavored Markdown !important
 
-# Facebook setting
+# Facebook comments setting
 facebook_app_id: 523337598616322
-facebook_comments: true
+facebook_comments: false
 
 # Disqus settings
-# disqus_username: "ntsd-github-io"
+disqus_username: "ntsd-github-io"
 
 # Google Analytics
 ga_track_id: 'UA-29710747-1' # Format: UA-xxxxxx-xx
