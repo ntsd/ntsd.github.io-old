@@ -35,6 +35,20 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Seo Tag setting
+# document: https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+facebook: 
+  app_id: 523337598616322
+  publisher: ntsd.me
+  admins: jo.ntsd
+social:
+  name: Jirawat Boonkumnerd
+  links:
+    - https://web.facebook.com/jo.ntsd
+    - https://web.facebook.com/ntsd.me
+    - https://github.com/ntsd
+    - https://www.linkedin.com/in/jirawat-boonkumnerd-815832114
+
 # Markdown settings
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
@@ -43,7 +57,7 @@ markdown: kramdown
 kramdown:
   input: GFM # use Github Flavored Markdown !important
 
-# Facebook setting
+# Facebook comments setting
 facebook_app_id: 523337598616322
 facebook_comments: false
 
