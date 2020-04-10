@@ -17,9 +17,9 @@ header-img: "../img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/plash-spee
 
 This guide is a getting start to build OpenWRT image and install on Banana Pi R64, This guide also works with the Banana Pi R2 but it will be a difference in some steps.
 
-## What is Banana Pi R64"?"
+## What is Banana Pi R64
 
-The Banana Pi R64 is a router based development board running with ARM Chipset MediaTek MT7622. So you can install operating systems which support to this ARM CPU including OpenWrt, Ubuntu, or many Linux distributions. It has many interfaces support such as on board Wifi/Bluetooth, 1GB Ethernet, USB 3.0, 40 GPIO, etc. Banana Pi R64 can add a Mini-PCI Express Modules and PoE module. And It also has a performance, resource, and interfaces good enough to be a high-end router.
+The Banana Pi R64 is a router-based development board running with ARM Chipset MediaTek MT7622. So you can install operating systems which support to this ARM CPU including OpenWrt, Ubuntu, or many Linux distributions. It has many interfaces support such as on board Wifi/Bluetooth, 1GB Ethernet, USB 3.0, 40 GPIO, etc. Banana Pi R64 can add a Mini-PCI Express Modules and PoE module. And It also has a performance, resource, and interfaces good enough to be a high-end router.
 
 ### Banana Pi R64 Specifications
 
@@ -120,7 +120,7 @@ chmod 777 /private/tftpboot
 
 copy the binary file into TFTP root directory
 
-![copy the binary file into TFTP root directory](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/1.png)
+![copy the binary file into TFTP root directory](/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/1.png)
 
 ### Connect to board by UART
 
@@ -161,27 +161,27 @@ make sure your TFTP server in the same network with your bpi board
 
 in u-boot menu choose "b. System Load flash image then write to Flash via TFTP"
 
-![b. System Load flash image then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/2.png)
+![b. System Load flash image then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/2.png)
 
 Set TFTP server IP and flash image file name
 
-![Set TFTP server ip and flash image file name](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/3.png)
+![Set TFTP server ip and flash image file name](/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/3.png)
 
 #### Install preloader to flash
 
 back to U-Boot menu choose "7. System Load Preloader then write to Flash via TFTP"
 
-![7. System Load Preloader then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/4.png)
+![7. System Load Preloader then write to Flash via TFTP](/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/4.png)
 
 Set TFTP server IP address and preloader file name
 
-![Set TFTP server ip and preloader file name](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/5.png)
+![Set TFTP server ip and preloader file name](/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/5.png)
 
 Remove sd card and power-off The Banana pi, Remove SD card, and Power on.
 
 Now you'll get U-BOOT installed on eMMC storage
 
-![U-BOOT install on eMMC on board storage](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/6.png)
+![U-BOOT install on eMMC on board storage](/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/6.png)
 
 ## Build your OpenWRT image
 
@@ -273,11 +273,11 @@ Enter to the U-Boot menu
 
 Install kernel image from TFTP
 
-![Install kernel image from TFTP](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/8.png)
+![Install kernel image from TFTP](/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/8.png)
 
 Finally, I got The OpenWRT image installed
 
-![OpenWRT installed](/img/in-post/2020-1-3-install-openwrt-into-banana-pi-r64/7.png)
+![OpenWRT installed](/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/7.png)
 
 ## References
 - http://wiki.banana-pi.org/Banana_Pi_BPI-R64
