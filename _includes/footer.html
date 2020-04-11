@@ -150,7 +150,7 @@
     window.removeEventListener("testPassive", null, opts);
     } catch (e) {}
 
-    elem.addEventListener('touchstart', fn, supportsPassive ? { passive: true } : false); 
+    document.addEventListener('touchstart', () => {}, supportsPassive ? { passive: true } : false); 
 </script>
 
 <!-- Google Analytics -->
