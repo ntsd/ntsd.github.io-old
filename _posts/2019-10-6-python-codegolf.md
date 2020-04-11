@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Python Code Golf Cheatsheet"
+title:  "Python Code Golf Cheat Sheet"
 date:   2019-10-6 12:30:54
 subtitle: "simple tricks to code-golf in Python"
 author: "ntsd"
@@ -290,29 +290,6 @@ import itertools
 itertools.groupby()
 
 __import__("itertools").groupby()
-```
-
-### Helper prime functions
-
-``` Python
-# Function                                                   Output of f(360)
-f=lambda n,i=2:n//i*[0]and[f(n,i+1),[i]+f(n//i)][n%i<1]      # [2, 2, 2, 3, 3, 5] (slow!)
-f=lambda n,i=2:n//i*[0]and f(n,i+1)if n%i else[i]+f(n//i)    # [2, 2, 2, 3, 3, 5]
-f=lambda n,i=2:n//i*[0]and(n%i and f(n,i+1)or[i]+f(n//i))    # [2, 2, 2, 3, 3, 5]
-f=lambda n,i=2:n<2and{1}or n%i and f(n,i+1)or{i}|f(n//i)    # {1, 2, 3, 5}
-f=lambda n,i=2:n<2and{i}or n%i and f(n,i+1)or{i}|f(n//i,i)  #*{2, 3, 5}
-f=lambda n,i=2:n//i and[f(n,i+1),i+f(n//i)][n%i<1]           # 2+2+2+3+3+5 (slow!)
-f=lambda n,i=2:n//i and f(n,i+1)if n%i else i+f(n//i)        # 2+2+2+3+3+5
-f=lambda n,i=2:n//i and(n%i and f(n,i+1)or i+f(n//i))        # 2+2+2+3+3+5
-f=lambda n,i=1,p=1:n*[0]and p%i*[i]+f(n-p%i,i+1,p*i*i)     # first n primes
-f=lambda n,i=1,p=1:n*[0]and p%i*[i]+f(n-1,i+1,p*i*i)       # primes <= n
-f=lambda n,i=1,p=1:n//i and p%i*i+f(n,i+1,p*i*i)            # sum of primes <= n
-f=lambda n,i=1,p=1:n//i and p%i+f(n,i+1,p*i*i)              # count primes <= n
-f=lambda n,i=1,p=1:n and-~f(n-p%i,i+1,p*i*i)               # nth prime
-f=lambda n:all(n%m for m in range(2,n))                    #*is n prime? (not recursive)
-f=lambda n:1>>n or n*f(n-1)                                # factorial
-f=lambda n:sum(k//n*k%n>n-2for k in range(n*n))             # totient phi(n) (not recursive)
-f=lambda n:[k//n for k in range(n*n)if k//n*k%n==1]          # coprimes up to n (not recursive)
 ```
 
 ## Reference
