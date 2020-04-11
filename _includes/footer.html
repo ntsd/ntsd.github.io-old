@@ -150,8 +150,16 @@
     window.removeEventListener("testPassive", null, opts);
     } catch (e) {}
 
-    window.addEventListener('touchstart', () => {}, supportsPassive ? { passive: true } : false); 
-    window.addEventListener('touchmove', () => {}, supportsPassive ? { passive: true } : false); 
+    window.addEventListener('touchstart', (e) => {
+        try {
+            e.preventDefault();
+        } catch {}
+    }, supportsPassive ? { passive: true } : false); 
+    window.addEventListener('touchmove', (e) => {
+        try {
+            e.preventDefault();
+        } catch {}
+    }, supportsPassive ? { passive: true } : false); 
 </script>
 
 <!-- Google Analytics -->
