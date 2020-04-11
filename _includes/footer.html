@@ -137,6 +137,21 @@
     })
 </script>
 
+<!-- passive listener to improve scrolling performance -->
+<script>
+    var supportsPassive = false;
+    try {
+    var opts = Object.defineProperty({}, 'passive', {
+        get: function() {
+        supportsPassive = true;
+        }
+    });
+    window.addEventListener("testPassive", null, opts);
+    window.removeEventListener("testPassive", null, opts);
+    } catch (e) {}
+
+    elem.addEventListener('touchstart', fn, supportsPassive ? { passive: true } : false); 
+</script>
 
 <!-- Google Analytics -->
 {% if site.ga_track_id %}
