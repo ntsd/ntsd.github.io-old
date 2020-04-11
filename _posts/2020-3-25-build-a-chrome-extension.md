@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Three.js with Angular step by step part 1"
+title:  "Build a chrome extension in minutes"
 date:   2020-1-22 12:30:54
-subtitle: "Creat a simple Three.js project for beginner"
+subtitle: "Build a chrome extension in minutes"
 author: "ntsd"
 catalog: true
 categories:
@@ -10,7 +10,7 @@ categories:
 header-img: "../img/in-post/post-code-golf.jpg"
 tags:
     - Programming
-    - TypeScript
+    - Typescript
     - Three.js
 published: false
 ---

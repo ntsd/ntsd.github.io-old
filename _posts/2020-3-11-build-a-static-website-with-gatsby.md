@@ -15,18 +15,15 @@ tags:
     - Progressive Web App
     - TypeScript
 published: true
-header-img: "img/in-post/2020-3-11-build-a-static-website-with-gatsby/4.png"
 ---
 
-## Installations
-
-### Install Gatsby and generate website
+## Install Gatsby
 
 if you're a beginner you should follow the getting start from Gatsby
 
 <https://www.gatsbyjs.org/docs/quick-start/>
 
-I'll skip this step because it's too easy
+I'll skip this step because it's too easy just follow the guide
 
 ``` Shell
 # Install the Gatsby CLI
@@ -46,7 +43,7 @@ now you'll get the Gatsby default page
 
 ![now you'll get the Gatsby default page](/img/in-post/2020-3-11-build-a-static-website-with-gatsby/1.png)
 
-### Make Gatsby support TypeScript
+## Make TypeScript support
 
 Install `gatsby-plugin-typescript` and `typeScript`  dependencies
 
@@ -158,7 +155,7 @@ Web App Manifest will allow users to save PWA app to the home screen
 and it includes information like the Web App’s name, icons, start_url, background-color and [more](https://web.dev/add-manifest/)
 
 ``` Shell
-npm install atsby-plugin-manifest
+npm install gatsby-plugin-manifest
 ```
 
 then you can config Web App Manifest in `gatsby-config.js`
@@ -196,23 +193,11 @@ you can read the [available options](https://www.gatsbyjs.org/packages/gatsby-pl
 
 ## Deploy to Netlify
 
-Install Netlify plugin for gatsby
-
-``` Shell
-npm install gatsby-plugin-netlify
-```
-
-In your `gatsby-config.js` add `gatsby-plugin-netlify` to plugins
-
-``` JS
-plugins: [`gatsby-plugin-netlify`]
-```
-
 In your Netlify dashboard New site from Git
 
 ![New site from Git](/img/in-post/2020-3-11-build-a-static-website-with-gatsby/2.png)
 
-Choose your repository
+choose your repository in Github or Gitlab to deploy
 
 and the default setting should work
 

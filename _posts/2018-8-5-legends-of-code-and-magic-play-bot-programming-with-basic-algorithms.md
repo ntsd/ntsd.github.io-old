@@ -13,15 +13,13 @@ tags:
     - Python
 ---
 
-# LEGENDS OF CODE AND MAGIC
-
-Codingame เป็นเว็บที่มีเกมแนว Bot Programming ที่ให้ผู้เล่นเขียนโค๊ดเพื่อให้บอทไปสู้กับบอทคนอื่น
+Codingame เป็นเว็บที่มีเว็บโปรแกรมมิ่งแนว Bot Programming ที่ให้ผู้เล่นเขียนโค๊ดเพื่อให้บอทไปสู้กับบอทคนอื่น
 
 สามารถเล่นได้ที่นี่ [Link](https://www.codingame.com/contests/legends-of-code-and-magic-marathon)
 
 สำหรับคนที่ยังไม่ค่อยเข้าใจระบบเกม ให้ลองเลื่อนลงไปดู Game loops and Input ก่อน
 
-**Requirement skills to read**
+## Requirement skills
 
 - Programming (Python Syntax)
 - Basic Algorithms
@@ -29,7 +27,7 @@ Codingame เป็นเว็บที่มีเกมแนว Bot Programm
 
 LEGENDS OF CODE AND MAGIC เป็นเกมนี้จะเป็นบอร์ดเกมคล้าย Hearthstone
 
-ตัวอย่างเกม https://www.codingame.com/replay/328489470
+ตัวอย่างเกม <https://www.codingame.com/replay/328489470>
 
 มีผู้เล่นสองคนใช้ไพ่ต่อสู้กันใครเลือดหมดก่อนแพ้
 
@@ -50,7 +48,7 @@ phase ที่สองจะเป็นการ Battle
 
 เลือดจะลดหากโจมตี creature ด้วยกันเอง
 
-**creature abilities**
+## creature abilities
 
 creature จะมีความสามามารถพิเศษแตกต่างกันดังนี้
 
@@ -65,14 +63,14 @@ Ward: Creatures with Ward ignore once the next damage they would receive from an
 
 ## Class
 
-**import อะไรให้พร้อม**
+### import อะไรให้พร้อม
 
 ``` Python
 import sys # ใช้เพื่อ print log
 from copy import deepcopy  # deepcopy เพื่อให้ object ต่างๆ ไม่ reference เวลา simulate
 ```
 
-**class Player**
+### class Player
 
 ``` Python
 class Player:
@@ -90,7 +88,7 @@ class Player:
         self.boards.append(card)
 ```
 
-**class Card**
+### class Card
 
 ``` Python
 class Card:
@@ -113,10 +111,10 @@ class Card:
         )
 ```
 
-**class Creature**
+### class Creature
 
 ``` Python
-class Creature(Card): # inheritance Card เพื่อบอกว่าเป็น Subclass ของ Card   
+class Creature(Card): # inheritance Card เพื่อบอกว่าเป็น Subclass ของ Card
     def attackTarget(self, target): # ใช้เมื่อโจมตี Creature ตัวอื่น
         self.action = 0
         if self.shield: # เมื่อดาเมจโดน shield จะหาย
@@ -133,7 +131,7 @@ class Creature(Card): # inheritance Card เพื่อบอกว่าเป
                 target.live = 0
 ```
 
-**class Item (ยังไม่ได้ใช้)**
+### class Item
 
 ``` Python
 class Item(Card):
@@ -141,11 +139,11 @@ class Item(Card):
         pass
 ```
 
-# Algorithms
+## Algorithms
 
 โดยวิธีที่ผมใช้เป็น Basic Algorithms ในการสร้าง Rules ต่างๆ ในการเล่นเกม เพื่อทำให้ชนะการเล่น โดยผมจะใส่เป็น Method ของ Player ดังนี้
 
-**Draft Card**
+### Draft Card
 
 โดยผมจะเลือกตาม mana curve เป็นหลักและ value ของไพ่ โดยผมใช้ attack * defence เป็น vaule ของไพ่
 
@@ -154,7 +152,7 @@ def draft(self, draft_list): # เลือกไพ่ 1 ใน 3
         max_value = 0
         card_no=0
         for i, card in enumerate(draft_list):
-            if type(card) is Creature: # ดูว่าไพ่เป็นชนิด Creature 
+            if type(card) is Creature: # ดูว่าไพ่เป็นชนิด Creature
                 value = card.attack * card.defense
                 if self.mana_curve[card.cost] > 0:
                     value += 100 # ถ้า curve ยังไม่เต็มให้เลือกตาม curve ก่อน โดยเพิ่ม value
@@ -165,7 +163,7 @@ def draft(self, draft_list): # เลือกไพ่ 1 ใน 3
         print('PICK {}'.format(card_no))
 ```
 
-**Battle Parse**
+### Battle Parse
 
 โดยผมจะ summon creatures ก่อน แล้วจึงโจมตีฝั่งตรงข้าม
 
@@ -180,10 +178,10 @@ def draft(self, draft_list): # เลือกไพ่ 1 ใน 3
         action_list += self.summon()
         action_list += self.useItem()
         action_list += self.creatureAttack()
-        print(';'.join(action_list)) #  actions จะแบ่งด้วย ; 
+        print(';'.join(action_list)) #  actions จะแบ่งด้วย ;
 ```
 
-**Summon**
+### Summon
 
 ต่อมาเป็นการเรียก Creature จากบนมือ โดยผมจะเลือกตัวที่มานามากที่สุดก่อน
 
@@ -204,7 +202,7 @@ def summon(self):
         return action_list # return action list
 ```
 
-**Attack**
+### Attack
 
 ในการโจมตีของ creature ผมจะสร้าง rules ลำดับความสำคัญให้มันว่าจะต้องทำอะไรก่อน โดยผมจะสร้าง Rule Class โดยจะใส่ lambda functions ให้กับมันดังนี้
 
@@ -214,7 +212,7 @@ def summon(self):
 - opFilter - filter creatures ของคู่ต่อสู้
 - rule - กฏเพื่อให้เข้าเงื่อนไข
 
-**Rule Class**
+### Rule Class
 
 ``` Python
 class AttackRule:
@@ -222,7 +220,7 @@ class AttackRule:
         self.__dict__.update(l for l in locals().items() if l[0] != 'self')
 ```
 
-**Creature Attack**
+### Creature Attack
 
 ผมจะ simulate เพื่อให้ creature โจมตี crature ฝั่งตรงข้ามก่อนตามเงื่อนไขที่กำหนด จากนั้นถ้าเข้าเงื่อนไขจึงเก็บ action และบันทึกค่าว่าโจมตีจริงๆ
 
@@ -243,7 +241,7 @@ def creatureAttack(self):
             AttackRule(lambda my: -my.attack, lambda my: my.action,
             lambda op: -op.attack, lambda op: op.guard==1,
             lambda my, op: True),
-            # โจมตีโดยที่ creature ฝั่งตรงข้ามตาย แต่ฝั่งเราไม่ตาย 
+            # โจมตีโดยที่ creature ฝั่งตรงข้ามตาย แต่ฝั่งเราไม่ตาย
             AttackRule(lambda my: my.attack, lambda my: my.action,
             lambda op: -op.attack, lambda op: True,
             lambda my, op: my.live and op.live==0),
@@ -280,7 +278,7 @@ def creatureAttack(self):
         return action_list
 ```
 
-## Game loops and Input
+### Game loops and Input
 
 main ของ Bot ใช้เพื่ออัพเดตค่าต่างๆของเกมโดยผู้เล่นจะสลับฝั่งกันเล่นและอัพเดตค่าผ่านทาง input, output
 
@@ -300,7 +298,7 @@ player 2 ส่งค่า
 
 เป็น loop จนกว่าจะจบเกม
 
-**Main**
+### Main
 
 ``` Python
 my_player = Player()
@@ -317,7 +315,7 @@ while True:
     draft_list = []
     for i in range(card_count):
         # Input card และ map แปลง input ที่เป็นตัวเลขให้เป็น Int
-        card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw = map(lambda x: int(x) if x[-1].isdigit() else x,input().split()) 
+        card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw = map(lambda x: int(x) if x[-1].isdigit() else x,input().split())
         if card_type!=0: # เช็คว่าเป็นไพ่ชนิดใด
             card = Item(card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw)
         else:
@@ -337,7 +335,7 @@ while True:
         my_player.play()
 ```
 
-# Full Code
+## Full Code
 
 ``` Python
 import sys
@@ -409,7 +407,7 @@ class Player:
             AttackRule(lambda my: -my.attack, lambda my: my.action,
             lambda op: -op.attack, lambda op: op.guard==1,
             lambda my, op: True),
-            # trade lethal 
+            # trade lethal
             AttackRule(lambda my: my.defense, lambda my: my.action,
             lambda op: -op.attack, lambda op: op.lethal==1,
             lambda my, op: op.live==0),
@@ -530,4 +528,4 @@ while True:
         my_player.play()
 ```
 
-การเขียนอาจะจะเข้าใจยากไปหน่อย ก็ติดชมกันได้ครับ
+การเขียนอาจะจะเข้าใจยากไปหน่อย สามารถติชมกันได้ครับ

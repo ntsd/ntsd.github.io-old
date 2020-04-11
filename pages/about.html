@@ -24,19 +24,23 @@ multilingual: true
     {{ about_en | markdownify }}
 </div>
 
+{% if site.facebook_comments %}
+<!-- Facebook comments -->
+<div class="comment">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId={{site.facebook_app_id}}"></script>
+    <div class="fb-comments" data-href="{{site.url}}{{page.url}}" data-width="100%" data-numposts="5"></div>
+</div>
+<!-- Facebook comments end -->
+{% endif %}
 
 {% if site.disqus_username %}
-<!-- disqus 评论框 start -->
+<!-- disqus start -->
 <div class="comment">
     <div id="disqus_thread" class="disqus-thread">
-
     </div>
 </div>
-<!-- disqus 评论框 end -->
-
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "{{site.disqus_username}}";
     var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
     var disqus_url = "{{site.url}}{{page.url}}";
@@ -47,5 +51,5 @@ multilingual: true
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
-<!-- disqus 公共JS代码 end -->
+<!-- disqus end -->
 {% endif %}
