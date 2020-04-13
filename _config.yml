@@ -13,10 +13,10 @@ future: true
 
 # SNS settings
 RSS: false
-github_username:    ntsd
+github_username: ntsd
 # twitter_username:
-facebook_username:  jo.ntsd
-linkedin_username:  jirawat-boonkumnerd-815832114
+facebook_username: jo.ntsd
+linkedin_username: ntsd
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
@@ -59,7 +59,7 @@ social:
     - https://web.facebook.com/jo.ntsd
     - https://web.facebook.com/ntsd.me
     - https://github.com/ntsd
-    - https://www.linkedin.com/in/jirawat-boonkumnerd-815832114
+    - https://www.linkedin.com/in/ntsd
 
 # Markdown settings
 # replace redcarpet to kramdown,

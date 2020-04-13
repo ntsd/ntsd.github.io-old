@@ -8,29 +8,32 @@
 
     {% seo %}
 
+    <!-- preconnect & dns-prefetch -->
+    <link rel="preconnect" href="https://www.google-analytics.com" async>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" async>
+
     <!-- Web App Manifest -->
-    <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json">
-
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
-
-    <!-- apple-touch-icon -->
-    <link rel="apple-touch-icon" href="{{ site.baseurl }}/favicon.ico">
+    <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json" async>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}" async>
+    <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' | prepend: site.baseurl }}" defer>
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="{{ "/css/hux-blog.min.css" | prepend: site.baseurl }}" async>
+    <link rel="stylesheet" href="{{ '/css/hux-blog.min.css' | prepend: site.baseurl }}" defer>
 
     <!-- Custom css -->
-    <link rel="stylesheet" href="{{ "/css/ntsd-blog.min.css" | prepend: site.baseurl }}" async>
+    <link rel="stylesheet" href="{{ '/css/ntsd-blog.min.css' | prepend: site.baseurl }}" defer>
 
     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" async>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" defer>
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}" defer>
+    <link rel="stylesheet" href="{{ '/css/syntax.css' | prepend: site.baseurl }}" defer>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" defer>
+    <!-- apple-touch-icon -->
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/favicon.ico" defer>
 
     <!-- ga & ba script hoook -->
     <script></script>

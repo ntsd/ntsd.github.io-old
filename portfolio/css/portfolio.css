@@ -30,7 +30,7 @@ section {
 /*-----------------------------------------------------------------------------------*/
 
 a {
-  color: #B9CFD0;
+  color: rgb(0, 99, 104);
   text-decoration: none !important; 
   /* border-bottom: 1px solid #B9CFD0; */
 }
@@ -217,7 +217,7 @@ ul {
 #about .info li .second-block {
   width: 60%;
   display: inline-block;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /*----------------------------------------------------------------------------------*/

@@ -16,7 +16,6 @@ const PRECACHE_LIST = [
   "./",
   "./offline.html",
   "./js/jquery.min.js",
-  "./js/bootstrap.min.js",
   "./js/hux-blog.min.js",
   "./js/ntsd-blog.min.js",
   "./js/snackbar.js",
@@ -25,10 +24,10 @@ const PRECACHE_LIST = [
   "./css/hux-blog.min.css",
   "./css/ntsd-blog.min.css",
   "./css/syntax.css",
-  "./css/bootstrap.min.css"
-  // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css",
-  // "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/fonts/fontawesome-webfont.woff2?v=4.6.3",
-  // "//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"
+  "./css/bootstrap.min.css",
+  "//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js",
+  "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
+  "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0"
 ]
 const HOSTNAME_WHITELIST = [
   self.location.hostname,

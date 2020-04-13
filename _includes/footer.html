@@ -74,10 +74,6 @@
 <!-- jQuery -->
 <script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
-<script src="{{ "/js/bootstrap.min.js " | prepend: site.baseurl }}"></script>
-
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
 
@@ -112,12 +108,12 @@
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
      - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
 -->
-    <script>
-        async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/styles/default.min.css" rel="stylesheet">
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js", function(){
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css" rel="stylesheet" defer>
 
 <!-- jquery.tagcloud.js -->
 <script>
@@ -140,7 +136,6 @@
         if($nav) FastClick.attach($nav);
     })
 </script>
-
 
 <!-- Google Analytics -->
 {% if site.ga_track_id %}
