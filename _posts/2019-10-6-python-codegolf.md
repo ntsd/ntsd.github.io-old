@@ -127,7 +127,7 @@ f=lambda s:[*s]and[s]+f(s[1:])+f(s[:-1])
 f=lambda s:{*s}and{s}|f(s[1:])|f(s[:-1])
 ```
 
-## Iterable
+## Iterable & Iterator
 
 ### List of range
 
@@ -247,8 +247,6 @@ c=x*1
 l=(n for n in range(18))
 zip(*[l]*4)
 ```
-
-## Iterator & Iterator
 
 ### Unpack generator
 
