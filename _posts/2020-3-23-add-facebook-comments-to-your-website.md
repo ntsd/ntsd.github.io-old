@@ -25,7 +25,7 @@ before creating the Facebook comments you need to have your Facebook App first i
 
 4. click `Create App ID`
 
-![Create a Facebook App](/img/in-post/2020-3-23-add-facebook-comments-to-your-website/0.png)
+![Create a Facebook App](/img/in-post/2020-3-23-add-facebook-comments-to-your-website/0.png){:class="lazyload"}
 
 ## Generate Comments Plugin Code
 
@@ -40,10 +40,10 @@ Generate code and import Facebook SDK from the Facebook developer page
 4. set number of posts mean number of posts will show immediately and for other user need to click show more for it
 
 5. click get code
-![get Facebook comment code](/img/in-post/2020-3-23-add-facebook-comments-to-your-website/1.png)
+![get Facebook comment code](/img/in-post/2020-3-23-add-facebook-comments-to-your-website/1.png){:class="lazyload"}
 
 6. select your app ID you need to use the API for and select language you want for the SDK
-![select your app ID you need to use the API for and select language you want for the SDK](/img/in-post/2020-3-23-add-facebook-comments-to-your-website/2.png)
+![select your app ID you need to use the API for and select language you want for the SDK](/img/in-post/2020-3-23-add-facebook-comments-to-your-website/2.png){:class="lazyload"}
 
 7. copy these code and drop to your page
 
