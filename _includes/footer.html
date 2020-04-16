@@ -118,23 +118,23 @@
 <!-- jquery.tagcloud.js -->
 <script>
     /* only load tagcloud.js in tag.html */
-    if($('#tag_cloud').length !== 0){
-        async('{{ "/js/jquery.tagcloud.js" | prepend: site.baseurl }}',function(){
+    if ($('#tag_cloud').length !== 0) {
+        async('{{ "/js/jquery.tagcloud.js" | prepend: site.baseurl }}', function() {
             $.fn.tagcloud.defaults = {
                 /* size: {start: 1, end: 1, unit: 'em'}, */
                 color: {start: '#bbbbee', end: '#0085a1'},
             };
             $('#tag_cloud a').tagcloud();
-        })
+        });
     }
 </script>
 
 <!--fastClick.js -->
 <script>
-    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function() {
         var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
+        if ($nav) FastClick.attach($nav);
+    });
 </script>
 
 <!-- Google Analytics -->
@@ -159,9 +159,9 @@
     function generateCatalog (selector) {
         /* interop with multilangual */
         if ('{{ page.multilingual }}' == 'true') {
-            _containerSelector = 'div.post-container.active'
+            _containerSelector = 'div.post-container.active';
         } else {
-            _containerSelector = 'div.post-container'
+            _containerSelector = 'div.post-container';
         }
 
         /* init */
@@ -187,9 +187,9 @@
     generateCatalog(".catalog-body");
 
     /* toggle side catalog */
-    $(".catalog-toggle").click((function(e){
+    $(".catalog-toggle").click((function(e) {
         e.preventDefault();
-        $('.side-catalog').toggleClass("fold")
+        $('.side-catalog').toggleClass("fold");
     }));
 
     /*
@@ -224,17 +224,17 @@
     var $select = document.querySelector("select");
 
     /* handle render */
-    function _render(_hash){
+    function _render(_hash) {
         var _hash = _hash || window.location.hash;
         /* en */
-        if(_hash == "#en"){
+        if (_hash == "#en") {
             $select.selectedIndex = 1;
             $en.style.display = "block";
             $en.classList.add("active");
             $th.style.display = "none";
             $th.classList.remove("active");
         /* zh by default */
-        }else{
+        } else {
             /* not trigger onChange, otherwise cause a loop call. */
             $select.selectedIndex = 0;
             $th.style.display = "block";
@@ -247,13 +247,13 @@
     }
 
     /* handle select change */
-    function onLanChange(index){
-        if(index == 0){
-            _hash = "#th"
-        }else{
-            _hash = "#en"
+    function onLanChange(index) {
+        if (index == 0) {
+            _hash = "#th";
+        } else {
+            _hash = "#en";
         }
-        _render(_hash)
+        _render(_hash);
     }
 
     /* init */
