@@ -6,11 +6,12 @@ subtitle: "Getting start to build and install OpenWRT on Banana Pi R64 by using 
 author: "ntsd"
 catalog: true
 categories:
-    - Router
+    - Network
 tags:
     - OpenWRT
     - Router
-    - macOS
+    - Network
+    - Embedded
 published: true
 header-img: "../img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/plash-speed-2.jpg"
 ---

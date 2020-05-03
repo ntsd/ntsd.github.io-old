@@ -11,7 +11,7 @@ header-img: "../img/in-post/2019-10-6-python-codegolf/post-code-golf.jpg"
 tags:
     - Programming
     - Python
-    - Code-golf
+    - Code golf
 published: true
 ---
 
