@@ -2,7 +2,7 @@
 layout: post
 title:  "Python Code Golf Cheat Sheet"
 date:   2019-10-6 12:30:54
-subtitle: "simple tricks to code-golf in Python"
+subtitle: "Simple tricks to code-golf in Python"
 author: "ntsd"
 catalog: true
 categories:
@@ -11,7 +11,7 @@ header-img: "../img/in-post/2019-10-6-python-codegolf/post-code-golf.jpg"
 tags:
     - Programming
     - Python
-    - Code-golf
+    - Code golf
 published: true
 ---
 
@@ -127,7 +127,7 @@ f=lambda s:[*s]and[s]+f(s[1:])+f(s[:-1])
 f=lambda s:{*s}and{s}|f(s[1:])|f(s[:-1])
 ```
 
-## Iterable
+## Iterable & Iterator
 
 ### List of range
 
@@ -247,8 +247,6 @@ c=x*1
 l=(n for n in range(18))
 zip(*[l]*4)
 ```
-
-## Iterator & Iterator
 
 ### Unpack generator
 
