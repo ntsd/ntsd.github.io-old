@@ -16,7 +16,7 @@ published: true
 header-img: "../img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/plash-speed-2.jpg"
 ---
 
-This guide is a getting start to build OpenWRT image and install on Banana Pi R64, This guide also works with the Banana Pi R2 but it will be a difference in some steps.
+This tutorial is a getting start to build OpenWRT image and install on Banana Pi R64, This guide also works with the Banana Pi R2 but it will be a difference in some steps.
 
 ## What is Banana Pi R64
 
@@ -264,7 +264,7 @@ make -j4 V=1
 
 Kernel image file will be at ./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin
 
-#### Install OpenWRT Image to bananapi via TFTP
+#### Install OpenWRT Image to Bananapi via TFTP
 
 Copy the kernel image to TFTP folder
 
