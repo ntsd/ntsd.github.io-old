@@ -2,7 +2,7 @@
 layout: post
 title:  "Python Code Golf Cheat Sheet"
 date:   2019-10-6 12:30:54
-subtitle: "simple tricks to code-golf in Python"
+subtitle: "Simple tricks to code-golf in Python"
 author: "ntsd"
 catalog: true
 categories:
