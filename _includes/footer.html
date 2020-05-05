@@ -75,15 +75,15 @@
 </footer>
 
 <!-- jQuery -->
-<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}" defer></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="{{ "/js/ntsd-blog.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/ntsd-blog.min.js " | prepend: site.baseurl }}" defer></script>
 
 <!-- Service Worker -->
 {% if site.service-worker %}
-<script src="{{ "/js/snackbar.min.js " | prepend: site.baseurl }}"></script>
-<script src="{{ "/js/sw-registration.min.js " | prepend: site.baseurl }}"></script>
+<script src="{{ "/js/snackbar.min.js " | prepend: site.baseurl }}" defer></script>
+<script src="{{ "/js/sw-registration.min.js " | prepend: site.baseurl }}" defer></script>
 {% endif %}
 
 <!-- async load function -->
@@ -108,7 +108,7 @@
      - https://help.github.com/articles/creating-and-highlighting-code-blocks/
      - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
 -->
-<script>
+<script defer>
     async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js", function(){
         hljs.initHighlightingOnLoad();
     })
@@ -116,7 +116,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css" rel="stylesheet" defer>
 
 <!-- jquery.tagcloud.js -->
-<script>
+<script defer>
     /* only load tagcloud.js in tag.html */
     if ($('#tag_cloud').length !== 0) {
         async('{{ "/js/jquery.tagcloud.min.js" | prepend: site.baseurl }}', function() {
@@ -130,7 +130,7 @@
 </script>
 
 <!--fastClick.js -->
-<script>
+<script defer>
     async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function() {
         var $nav = document.querySelector("nav");
         if ($nav) FastClick.attach($nav);
@@ -139,7 +139,7 @@
 
 <!-- Google Analytics -->
 {% if site.ga_track_id %}
-<script>
+<script defer>
     var _gaId = '{{ site.ga_track_id }}';
     var _gaDomain = '{{ site.ga_domain }}';
 
@@ -155,7 +155,7 @@
 
 <!-- Side Catalog -->
 {% if page.catalog %}
-<script type="text/javascript">
+<script type="text/javascript" defer>
     function generateCatalog (selector) {
         /* interop with multilangual */
         if ('{{ page.multilingual }}' == 'true') {
@@ -217,7 +217,7 @@
 <!-- Multi-Lingual -->
 {% if page.multilingual %}
 <!-- Handle Language Change -->
-<script type="text/javascript">
+<script type="text/javascript" defer>
     /* get nodes */
     var $th = document.querySelector(".th");
     var $en = document.querySelector(".en");
