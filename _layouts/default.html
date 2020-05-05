@@ -18,6 +18,10 @@ layout: compress
     {% if page.no-footer == null %}
         {% include footer.html %}
     {% endif %}
+
+    {% if page.footer_import %}
+        {% include_relative {{ page.footer_import }} %}
+    {% endif %}
 </body>
 
 </html>
