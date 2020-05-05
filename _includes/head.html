@@ -38,6 +38,11 @@
     <!-- Lazy load -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.0/lazysizes.min.js" async></script>
 
+
+    {% if page.header_import %}
+        {% include_relative {{ page.header_import }} %}
+    {% endif %}
+
     <!-- ga & ba script hoook -->
     <script></script>
 </head>

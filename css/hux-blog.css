@@ -340,9 +340,6 @@ a img:hover,
 a img:focus {
   cursor: zoom-in;
 }
-article {
-  overflow: hidden;
-}
 blockquote {
   color: gray;
   font-style: italic;

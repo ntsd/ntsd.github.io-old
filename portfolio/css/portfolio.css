@@ -13,7 +13,7 @@ html{
 	font-size: 90%;
 }
 body{
-  background: #fafafa;background: #fafafa;
+  background: #fafafa;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
@@ -28,12 +28,6 @@ section {
 /*----------------------------------------------------------------------------------*/
 /*  Main Component
 /*-----------------------------------------------------------------------------------*/
-
-a {
-  color: rgb(0, 99, 104);
-  text-decoration: none !important; 
-  /* border-bottom: 1px solid #B9CFD0; */
-}
 
 h1,
 h2,
@@ -393,31 +387,4 @@ ul {
 #project  .project-post a:hover h2,
 #project  .project-post a:hover p.description{
 	transform: translateY(-10px);
-}
-
-/* footer */
-#footer {
-	text-align: center;
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 1;
-  color: #ffffff;
-  background: #2a2a2a;
-  display: table;
-}
-
-#footer .footer-top {
-  position: relative;
-  z-index: 1;
-  height: 30vh;
-  padding-top: 10vh;
-}
-
-#footer .footer-bottom {
-  background: #000000;
-  position: relative;
-  z-index: 1;
-  height: 10vh;
-  padding-top: 3vh;
 }

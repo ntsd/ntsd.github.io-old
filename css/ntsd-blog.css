@@ -79,3 +79,7 @@ header.intro-header .intro-header-inner {
 .post-container .pager li > a > span {
   color: #666;
 }
+footer {
+  background-color: white;
+  position: relative;
+}

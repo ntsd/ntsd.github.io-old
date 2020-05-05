@@ -11,7 +11,6 @@
         $(this).waypoint({
             handler: function(direction) {
                 $(this.element).find($.fn.waypointsSetup.animationClass).each(function() {
-                    // console.log(offsetPos + ' hit');
                     var el = $(this)
                     var animation = el.attr('data-animation')
                     if (animation == "random-animate" | animation == "" | animation == null) {
@@ -26,12 +25,6 @@
                             el.addClass('animated ' + animation)
                         }, delay)
                     }
-                    // else {
-                    //     setTimeout(function() {
-                    //         el.removeClass('animated ' + animation)
-                    //     }, delay)
-                    // }
-                    
                 })
             }
         }, {

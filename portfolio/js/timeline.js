@@ -7,12 +7,9 @@
 		setupScrollToTop();
      enableScrollAbortion();
 
-		// Trigger window.scroll, this will initiate some of the scripts
 		$(window).scroll();
   });
   
-  
-  // Allow user to cancel scroll animation by manually scrolling
   function enableScrollAbortion() {
     var $viewport = $('html, body');
     $viewport.on('scroll mousedown DOMMouseScroll mousewheel keyup', function(e) {
@@ -36,11 +33,6 @@
 			$('html, body').animate({
 				scrollTop: scrollTo
 			}, scrollSpeed);
-
-			// e.preventDefault();
-			// $('html, body').animate({
-			// 	scrollTop: 0
-			// }, scrollSpeed);
 		});
 	}
 
@@ -50,14 +42,14 @@
 		$(window).on('scroll resize', function() {
 
 			var currScroll = $(window).scrollTop() > $(document).scrollTop() ? $(window).scrollTop() : $(document).scrollTop(),
-				windowHeight = $(window).height(), // Needs to be here because window can resize
+				windowHeight = $(window).height(),
 				overScroll = Math.ceil(windowHeight*.20),
 				treshhold = (currScroll + windowHeight) - overScroll;
 
 			posts.each(function() {
 
 				var post = $(this),
-					postScroll = post.offset().top
+					postScroll = post.offset().top;
 
 				if(postScroll > treshhold) {
 					post.addClass('post-hidden');
@@ -90,10 +82,8 @@
 
 					if(scrollSplit > postOffset) {
 
-						// Add post-active class to fade in
 						post.addClass('post-active')
 
-						// Get post color
 						var color = post.data('stem-color') ? post.data('stem-color') : null,
 							allColors = 'color-green color-yellow color-white color-purple color-pink color-red color-blue color-grey color-black'
 
