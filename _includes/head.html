@@ -9,28 +9,28 @@
     {% seo %}
 
     <!-- preconnect & dns-prefetch -->
-    <link rel="preconnect" href="https://www.google-analytics.com" async>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" async>
+    <link rel="preconnect" href="https://www.google-analytics.com" async>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json" async>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' | prepend: site.baseurl }}" defer>
+    <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' | prepend: site.baseurl }}" async>
 
     <!-- Theme css -->
-    <link rel="stylesheet" href="{{ '/css/ntsd-blog.min.css' | prepend: site.baseurl }}" defer>
+    <link rel="stylesheet" href="{{ '/css/ntsd-blog.min.css' | prepend: site.baseurl }}" async>
 
     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" defer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" async>
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="{{ '/css/syntax.css' | prepend: site.baseurl }}" defer>
+    <link rel="stylesheet" href="{{ '/css/syntax.css' | prepend: site.baseurl }}" async>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" defer>
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" async>
     <!-- apple-touch-icon -->
-    <link rel="apple-touch-icon" href="{{ site.baseurl }}/favicon.ico" defer>
+    <link rel="apple-touch-icon" href="{{ site.baseurl }}/favicon.ico" async>
 
     {% if page.header_import %}
         {% include_relative {{ page.header_import }} %}
