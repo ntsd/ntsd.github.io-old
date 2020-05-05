@@ -15,19 +15,22 @@ const CACHE = CACHE_NAMESPACE + 'precache-then-runtime';
 const PRECACHE_LIST = [
   "./",
   "./offline.html",
+  // JS
   "./js/jquery.min.js",
-  "./js/hux-blog.min.js",
+  "./js/jquery.nav.min.js",
+  "./js/jquery.tagcloud.min.js",
   "./js/ntsd-blog.min.js",
-  "./js/snackbar.js",
-  "./img/home-bg.jpg",
-  "./img/404-bg.jpg",
-  "./css/hux-blog.min.css",
+  "./js/snackbar.min.js",
+  "//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js",
+  // CSS
   "./css/ntsd-blog.min.css",
   "./css/syntax.css",
   "./css/bootstrap.min.css",
-  "//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js",
   "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-  "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0"
+  "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0",
+  // Images
+  "./img/post-bg-os-metro.jpg",
+  "./img/404-bg.jpg",
 ]
 const HOSTNAME_WHITELIST = [
   self.location.hostname,

@@ -3,12 +3,24 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        // https://github.com/gruntjs/grunt-contrib-uglify
         uglify: {
-            main: {
-                src: 'js/<%= pkg.name %>.js',
-                dest: 'js/<%= pkg.name %>.min.js'
+            options: {
+                compress: {
+                  drop_console: true
+                }
+            },
+            my_target: {
+                files: {
+                    'js/<%= pkg.name %>.min.js': ['js/<%= pkg.name %>.js'],
+                    'js/sw-registration.min.js': ['js/sw-registration.js'],
+                    'js/snackbar.min.js': ['js/snackbar.js'],
+                    'js/jquery.nav.min.js': ['js/jquery.nav.js'],
+                    'js/jquery.tagcloud.min.js': ['js/jquery.tagcloud.js']
+                }
             }
         },
+        // https://github.com/gruntjs/grunt-contrib-less
         less: {
             expanded: {
                 options: {
@@ -16,17 +28,19 @@ module.exports = function(grunt) {
                 },
                 files: {
                     "css/<%= pkg.name %>.css": "less/<%= pkg.name %>.less",
-                    "css/hux-blog.css": "less/hux-blog.less"
                 }
             },
             minified: {
                 options: {
                     paths: ["css"],
-                    cleancss: true
+                    plugins: [
+                        new (require('less-plugin-clean-css'))({
+                            level: 2
+                        })
+                    ]
                 },
                 files: {
                     "css/<%= pkg.name %>.min.css": "less/<%= pkg.name %>.less",
-                    "css/hux-blog.min.css": "less/hux-blog.less"
                 }
             }
         },
