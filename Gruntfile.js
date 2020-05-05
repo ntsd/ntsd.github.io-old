@@ -3,11 +3,14 @@ module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        // https://github.com/gruntjs/grunt-contrib-uglify
+        // https://github.com/gruntjs/grunt-contrib-uglify/tree/harmony
         uglify: {
             options: {
                 compress: {
                   drop_console: true
+                },
+                mangle: {
+                    reserved: ['jQuery']
                 }
             },
             my_target: {
@@ -16,7 +19,8 @@ module.exports = function(grunt) {
                     'js/sw-registration.min.js': ['js/sw-registration.js'],
                     'js/snackbar.min.js': ['js/snackbar.js'],
                     'js/jquery.nav.min.js': ['js/jquery.nav.js'],
-                    'js/jquery.tagcloud.min.js': ['js/jquery.tagcloud.js']
+                    'js/jquery.tagcloud.min.js': ['js/jquery.tagcloud.js'],
+                    'sw.min.js': ['sw.js']
                 }
             }
         },
@@ -78,7 +82,7 @@ module.exports = function(grunt) {
     });
 
     // Load the plugins.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-uglify-es');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-banner');
     grunt.loadNpmTasks('grunt-contrib-watch');
