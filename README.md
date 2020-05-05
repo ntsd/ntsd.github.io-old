@@ -45,6 +45,28 @@ gem install jekyll-paginate
 
 This blog started in Jekyll 2 times when `jekyll-paginate` is standard. With Jekyll 3, it's a plugin we included in `_config.yml`.
 
+### Preconnect Disqus
+
+``` TXT
+Consider adding `preconnect` or `dns-prefetch` resource hints to establish early connections to important third-party origins. Learn more.
+URL
+Potential Savings
+https://x.disq.us
+640 ms
+https://match.adsrvr.org
+330 ms
+https://cm.g.doubleclick.net
+330 ms
+https://fcmatch.google.com
+330 ms
+https://fcmatch.youtube.com
+310 ms
+https://c.disquscdn.com
+300 ms
+https://disqus.com
+300 ms
+```
+
 ## License
 
 Apache License 2.0. Copyright (c) 2018 Jirawat Boonkumnerd
