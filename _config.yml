@@ -7,23 +7,20 @@ keyword: "Full-Stack Developer, Programming, Machine Learning, IoT"
 url: "https://ntsd.me" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
-# Publish posts or collection documents with a future date.
-future: true
+# Build settings
+permalink: /:title/
+highlighter: rouge # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
+paginate: 10
+exclude: ["less", "node_modules", "Gruntfile.js", "package.json", "README.md"]
+anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
+future: true # Publish posts or collection documents with a future date.
 
 # SNS settings
 RSS: false
 github_username: ntsd
-# twitter_username:
+# twitter_username: ntsd_me
 facebook_username: jo.ntsd
 linkedin_username: ntsd
-
-# Build settings
-# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
-highlighter: rouge
-permalink: pretty
-paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-anchorjs: true # if you want to customize anchor. check out line:181 of `post.html`
 
 # Config compress html
 # documents: https://jch.penibelst.de/

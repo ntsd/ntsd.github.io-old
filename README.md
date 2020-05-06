@@ -33,6 +33,15 @@ multilingual: false # for multiple language page
 ---
 ```
 
+## Todo
+
+- Sidebar social share on post
+- Update post description
+- Recommend post on bottom for closet relative
+- Breadcrumb
+- Post Link Keyword
+- Optimise Disqus
+
 ## Issues
 
 ### cannot load such file -- jekyll-paginate
