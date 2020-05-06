@@ -7,7 +7,7 @@ author: "ntsd"
 catalog: true
 categories:
     - Network
-header-img: "../img/in-post/2020-2-9-recompile-aria2-to-increment-max-connections-per-server/2020-2-9-recompile-aria2-to-increment-max-connections-per-server.jpg"
+header-img: "../img/in-post/2020-2-9-aria2-max-connections-per-server/header.jpg"
 tags:
     - Programming
     - C++
@@ -132,7 +132,7 @@ Basic Options
 
 You'll see the number of connections is 64.
 
-![the number of connections is 64](/img/in-post/2020-2-9-recompile-aria2-to-increment-max-connections-per-server/aria.png)
+![the number of connections is 64](/img/in-post/2020-2-9-aria2-max-connections-per-server/aria.png)
 
 Done, Now you can use the binary file and unlock aria 2 connections limit.
 

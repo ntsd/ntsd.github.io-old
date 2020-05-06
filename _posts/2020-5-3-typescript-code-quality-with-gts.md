@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Improve TypeScript code quality with Google TypeScript Style Guide"
-date:   2020-5-3 12:30:54
-subtitle: ""
+title: "Improve TypeScript code quality with Google TypeScript Style Guide"
+date: 2020-5-3 12:30:54
+subtitle: "Using Google TypeScript Style Guide on your TypeScript React project"
 author: "ntsd"
 catalog: true
 categories:
     - Programming
-header-img: "../img/in-post/2020-5-3-improve-typescript-code-quality-with-google-typescript-style/sarah-dorweiler.jpg"
+header-img: "../img/in-post/2020-5-3-typescript-code-quality-with-gts/clean.jpg"
 tags:
     - Programming
     - TypeScript
