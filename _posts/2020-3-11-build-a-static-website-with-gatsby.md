@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Build a static website with Gatsby"
+title:  "Build a static website with Gatsby and TypeScript"
 date:   2020-3-11 12:30:54
 subtitle: "A complete guide to build a high-performance static website with Gatsby and get 100% score on Google Lighthouse"
 author: "ntsd"
@@ -43,7 +43,7 @@ now you'll get the Gatsby default page
 
 ![now you'll get the Gatsby default page](/img/in-post/2020-3-11-build-a-static-website-with-gatsby/1.png)
 
-## Make TypeScript support
+## Add TypeScript support
 
 Install `gatsby-plugin-typescript` and `typeScript`  dependencies
 
@@ -57,7 +57,7 @@ Change all .js file to .tsx
 Add "gatsby-plugin-typescript" to gatsby-config.js
 
 ``` JS
-plugins: [`gatsby-plugin-netlify`]
+plugins: [`gatsby-plugin-typescript`]
 ```
 
 Add typescript eslint

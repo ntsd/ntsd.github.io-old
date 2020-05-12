@@ -1343,3 +1343,6 @@ footer {
   background-color: white;
   position: relative;
 }
+a {
+  word-wrap: break-word;
+}
