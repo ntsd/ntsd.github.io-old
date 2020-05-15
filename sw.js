@@ -26,8 +26,6 @@ const PRECACHE_LIST = [
   "./css/ntsd-blog.min.css",
   "./css/syntax.css",
   "./css/bootstrap.min.css",
-  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css",
-  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0",
   // Images
   "./img/post-bg-os-metro.jpg",
   "./img/404-bg.jpg",
