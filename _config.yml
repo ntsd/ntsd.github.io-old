@@ -82,7 +82,7 @@ facebook_comments: false
 disqus_username: "ntsd-github-io"
 
 # Google Analytics
-ga_track_id: 'UA-29710747-1' # Format: UA-xxxxxx-xx
+ga_track_id: 'UA-166826202-1' # Format: UA-xxxxxx-xx
 ga_domain: ntsd.me
 
 # Sidebar settings
