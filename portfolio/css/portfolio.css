@@ -92,11 +92,8 @@ ul {
   width: 100%;
   height: 100vh;
 	position: relative;
-  /* border-bottom: 1px solid #edeeee; */
-  /* background: #3f4041; */
-  background: #202020;
+  background: #111;
   z-index: 1;
-  /* background: url("img/home-bg.jpg") repeat scroll center center / cover; */
   color: #ffffff;
 }
 
@@ -219,10 +216,9 @@ ul {
 /*-----------------------------------------------------------------------------------*/
 
 #experience {
-  /* text-align: center; */
   width: 100%;
   /* min-height: 100vh; */
-  background: #202020;
+  background: #111;
   color: #ffffff;
   position: relative;
   z-index: 1;
@@ -250,7 +246,7 @@ ul {
   /* text-align: center; */
   width: 100%;
   /* min-height: 100vh; */
-  background: #202020;
+  background: #111;
   color: #ffffff;
   position: relative;
   z-index: 1;
