@@ -10,7 +10,9 @@
 
     <!-- preconnect & dns-prefetch -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    {% if site.ga_track_id %}
     <link rel="preconnect" href="https://www.google-analytics.com">
+    {% endif %}
     <link rel="preconnect" href="https://api.github.com">
 
     <!-- Web App Manifest -->
