@@ -6,7 +6,7 @@
                 <ul class="list-inline text-center">
                     {% if site.RSS %}
                     <li>
-                        <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
+                        <a href="{{ '/feed.xml' | prepend: site.baseurl }}">
                             <svg class="svg-icon logo-rss"></svg>
                         </a>
                     </li>
@@ -45,13 +45,16 @@
                         Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}
                     </div>
                     <div>
-                    Made with ❤️ by <a href="{{ site.url }}">ntsd</a> |
+                    Made with ❤️ by <a href="{{ site.url }}">ntsd</a> 
+                    {% if site.github_btn %} 
+                    |
                     <iframe
-                        title="ntsd.github.io"
+                        title="{{ site.github_btn }}"
                         style="margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="80px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=ntsd&repo=ntsd.github.io&type=star&count=true" >
+                        src="https://ghbtns.com/github-btn.html?user={{ site.github_username }}&repo={{ site.github_btn }}&type=star&count=true" >
                     </iframe>
+                    {% endif %}
                     </div>
                 </div>
             </div>
@@ -61,15 +64,9 @@
 
 <!-- Service Worker -->
 {% if site.service-worker %}
-<script src="{{ "/js/snackbar.min.js " | prepend: site.baseurl }}" defer></script>
-<script src="{{ "/js/sw-registration.min.js " | prepend: site.baseurl }}" defer></script>
+<script src="{{ '/js/snackbar.min.js' | prepend: site.baseurl }}" defer></script>
+<script src="{{ '/js/sw-registration.min.js' | prepend: site.baseurl }}" defer></script>
 {% endif %}
-
-<!-- jQuery -->
-<script src="{{ "/js/jquery.min.js " | prepend: site.baseurl }}"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="{{ "/js/ntsd-blog.min.js " | prepend: site.baseurl }}" defer></script>
 
 <!-- async load function -->
 <script>
@@ -81,38 +78,47 @@
       if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
       s.parentNode.insertBefore(o, s);
     }
-</script>
-
-<!--
-     Because of the native support for backtick-style fenced code blocks
-     right within the Markdown is landed in Github Pages,
-     From V1.6, There is no need for Highlight.js,
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
-     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
--->
-<script>
-    async("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js", function(){
-        hljs.initHighlightingOnLoad();
-    })
-</script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/default.min.css" rel="stylesheet" defer>
-
-<!-- jquery.tagcloud.js -->
-<script>
-    /* only load tagcloud.js in tag.html */
-    if ($('#tag_cloud').length !== 0) {
-        async('{{ "/js/jquery.tagcloud.min.js" | prepend: site.baseurl }}', function() {
-            $.fn.tagcloud.defaults = {
-                /* size: {start: 1, end: 1, unit: 'em'}, */
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        });
+    function asyncStyle(u) {
+      var d = document, t = 'link',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.href = u;
+      o.rel="stylesheet";
+      s.parentNode.insertBefore(o, s);
     }
 </script>
+
+<!-- jQuery -->
+<script src="{{ '/js/jquery.min.js' | prepend: site.baseurl }}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{{ '/js/ntsd-blog.min.js' | prepend: site.baseurl }}" defer></script>
+
+<!-- 
+    Prism JS 
+    prism generate url
+    https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+bash+c+cpp+css-extras+graphql+java+json+python+regex+scss+typescript+yaml&plugins=inline-color+toolbar+copy-to-clipboard    
+-->
+{% if page.collection == "posts" %}
+<script>
+    async("{{ '/js/prism.min.js' | prepend: site.baseurl }}");
+    asyncStyle("{{ '/css/prism.min.css' | prepend: site.baseurl }}");
+</script>
+{% endif %}
+
+<!-- jquery.tagcloud.js -->
+{% if page.name == "tags.html" %}
+<script>
+    /* only load tagcloud.js in tag.html */
+    async('{{ "/js/jquery.tagcloud.min.js" | prepend: site.baseurl }}', function() {
+        $.fn.tagcloud.defaults = {
+            /* size: {start: 1, end: 1, unit: 'em'}, */
+            color: {start: '#bbbbee', end: '#0085a1'},
+        };
+        $('#tag_cloud a').tagcloud();
+    });
+</script>
+{% endif %}
 
 <!--fastClick.js -->
 <script>

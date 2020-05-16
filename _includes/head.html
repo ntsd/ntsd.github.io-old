@@ -13,7 +13,9 @@
     {% if site.ga_track_id %}
     <link rel="preconnect" href="https://www.google-analytics.com">
     {% endif %}
+    {% if site.github_btn %}
     <link rel="preconnect" href="https://api.github.com">
+    {% endif %}
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json" defer>
@@ -23,9 +25,6 @@
 
     <!-- Theme css -->
     <link rel="stylesheet" href="{{ '/css/ntsd-blog.min.css' | prepend: site.baseurl }}" defer>
-
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="{{ '/css/syntax.css' | prepend: site.baseurl }}" defer>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" defer>

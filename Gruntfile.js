@@ -45,6 +45,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     "css/<%= pkg.name %>.min.css": "less/<%= pkg.name %>.less",
+                    "css/prism.min.css": "css/prism.css"
                 }
             }
         },
