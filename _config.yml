@@ -76,10 +76,10 @@ kramdown:
 
 # Facebook comments setting
 facebook_app_id: 523337598616322
-facebook_comments: false
+facebook_comments: true
 
 # Disqus settings
-disqus_username: "ntsd-github-io"
+# disqus_username: "ntsd-github-io"
 
 # Google Analytics
 # ga_track_id: 'UA-166826202-1' # Format: UA-xxxxxx-xx
