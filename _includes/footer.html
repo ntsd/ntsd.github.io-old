@@ -45,13 +45,16 @@
                         Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}
                     </div>
                     <div>
-                    Made with ❤️ by <a href="{{ site.url }}">ntsd</a> |
+                    Made with ❤️ by <a href="{{ site.url }}">ntsd</a> 
+                    {% if site.github_btn %} 
+                    |
                     <iframe
-                        title="ntsd.github.io"
+                        title="{{ site.github_btn }}"
                         style="margin-bottom:-5px;"
                         frameborder="0" scrolling="0" width="80px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=ntsd&repo=ntsd.github.io&type=star&count=true" >
+                        src="https://ghbtns.com/github-btn.html?user={{ site.github_username }}&repo={{ site.github_btn }}&type=star&count=true" >
                     </iframe>
+                    {% endif %}
                     </div>
                 </div>
             </div>

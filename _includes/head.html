@@ -13,7 +13,9 @@
     {% if site.ga_track_id %}
     <link rel="preconnect" href="https://www.google-analytics.com">
     {% endif %}
+    {% if site.github_btn %}
     <link rel="preconnect" href="https://api.github.com">
+    {% endif %}
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json" defer>
