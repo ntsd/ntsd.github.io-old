@@ -24,7 +24,6 @@ const PRECACHE_LIST = [
   "https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js",
   // CSS
   "./css/ntsd-blog.min.css",
-  "./css/syntax.css",
   "./css/bootstrap.min.css",
   // Images
   "./img/post-bg-os-metro.jpg",
