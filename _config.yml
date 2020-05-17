@@ -1,8 +1,8 @@
 # Site settings
-title: NTSD Blog
+title: Jirawat Boonkumnerd
 header-img: img/post-bg-os-metro.jpg
 email: jo06942@gmail.com
-description: "Jirawat Boonkumnerd"
+description: "A Software Engineer"
 keyword: "Full-Stack Developer, Programming, Machine Learning, IoT"
 url: "https://ntsd.me" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
