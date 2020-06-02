@@ -99,6 +99,7 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 # Quotes quotes will show when description or subtitle is null
+show_quotes: false
 quotes: [
     "“Choose a job that you love and you will never have to work a day in your life” – Confucius",
     "“I have not failed. I’ve just found 10,000 ways that won’t work.” – Thomas Edison",

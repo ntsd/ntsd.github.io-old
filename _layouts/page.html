@@ -9,12 +9,15 @@ layout: default
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading">
                     <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-                    <!--<hr class="small">-->
                     {% if page.description %}
                         <span class="subheading">{{ page.description }}</span>
                     {% else %}
-                        {% assign random = "now" | date: "%N" | modulo: site.quotes.size %}
-                        <span>{{site.quotes[random]}}</span>
+                        {% if site.show_quotes %}
+                            {% assign random = "now" | date: "%N" | modulo: site.quotes.size %}
+                            <span class="subheading">{{site.quotes[random]}}</span>
+                        {% else %}
+                            <span class="subheading">{{site.description}}</span>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>

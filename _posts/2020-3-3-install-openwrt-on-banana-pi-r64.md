@@ -189,7 +189,7 @@ Now you'll get U-BOOT installed on eMMC storage
 ### Preparation to build OpenWRT image
 
 follow the link for more information
-https://openwrt.org/docs/guide-developer/buildroot.exigence.macosx
+<https://openwrt.org/docs/guide-developer/buildroot.exigence.macosx>
 
 #### Setup MacOSX as an OpenWrt build environment
 
@@ -281,7 +281,8 @@ Finally, I got The OpenWRT image installed
 ![OpenWRT installed](/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/7.png)
 
 ## References
-- http://wiki.banana-pi.org/Banana_Pi_BPI-R64
-- http://forum.banana-pi.org/t/bpi-r64-loading-openwrt-built-files-into-the-board/9960
-- http://forum.banana-pi.org/t/bpi-r64-quick-start-boot-from-emmc/9809
-- https://openwrt.org/docs/guide-developer/
+
+- <http://wiki.banana-pi.org/Banana_Pi_BPI-R64>
+- <http://forum.banana-pi.org/t/bpi-r64-loading-openwrt-built-files-into-the-board/9960>
+- <http://forum.banana-pi.org/t/bpi-r64-quick-start-boot-from-emmc/9809>
+- <https://openwrt.org/docs/guide-developer>
