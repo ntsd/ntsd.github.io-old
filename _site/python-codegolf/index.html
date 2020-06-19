@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="en"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" /><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="keywords" content="Full-Stack Developer, Programming, Machine Learning, IoT"><meta name="theme-color" content="#000000"><title>Python Code Golf Cheat Sheet | Jirawat Boonkumnerd</title><meta name="generator" content="Jekyll v4.0.0" /><meta property="og:title" content="Python Code Golf Cheat Sheet" /><meta name="author" content="ntsd" /><meta property="og:locale" content="en_US" /><meta name="description" content="Operator" /><meta property="og:description" content="Operator" /><link rel="canonical" href="https://ntsd.me/python-codegolf/" /><meta property="og:url" content="https://ntsd.me/python-codegolf/" /><meta property="og:site_name" content="Jirawat Boonkumnerd" /><meta property="og:image" content="https://ntsd.me/pwa/icons/512.png" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2019-10-06T19:30:54+07:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:image" content="https://ntsd.me/pwa/icons/512.png" /><meta property="twitter:title" content="Python Code Golf Cheat Sheet" /><meta name="twitter:site" content="@ntsd_me" /><meta name="twitter:creator" content="@ntsd" /><meta property="fb:admins" content="jo.ntsd" /><meta property="article:publisher" content="ntsd.me" /><meta property="fb:app_id" content="523337598616322" /> <script type="application/ld+json"> {"dateModified":"2019-10-06T19:30:54+07:00","image":"https://ntsd.me/pwa/icons/512.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://ntsd.me/python-codegolf/"},"url":"https://ntsd.me/python-codegolf/","author":{"@type":"Person","name":"ntsd"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://ntsd.me/pwa/icons/512.png"},"name":"ntsd"},"description":"Operator","headline":"Python Code Golf Cheat Sheet","@type":"BlogPosting","datePublished":"2019-10-06T19:30:54+07:00","@context":"https://schema.org"}</script><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="manifest" href="/pwa/manifest.json" defer><link rel="stylesheet" href="/css/bootstrap.min.css" defer><link rel="stylesheet" href="/css/ntsd-blog.min.css" defer><link rel="shortcut icon" href="/favicon.ico" defer><link rel="apple-touch-icon" href="/favicon.ico" defer> <script></script><nav class="navbar navbar-default navbar-custom navbar-fixed-top"><div class="container-fluid"><div class="navbar-header page-scroll"> <button type="button" class="navbar-toggle"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="/">Jirawat Boonkumnerd</a></div><div id="huxblog_navbar"><div class="navbar-collapse"><ul class="nav navbar-nav navbar-right"><li> <a href="/">Home</a><li> <a href="/categories/">Categories</a><li> <a href="/portfolio/">Portfolio</a><li> <a href="/tags/">Tags</a></ul></div></div></div></nav><script> var $body = document.body; var $toggle = document.querySelector('.navbar-toggle'); var $navbar = document.querySelector('#huxblog_navbar'); var $collapse = document.querySelector('.navbar-collapse'); var __HuxNav__ = { close: function(){ $navbar.className = " "; setTimeout(function() { if($navbar.className.indexOf('in') < 0) { $collapse.style.height = "0px"; } }, 400); }, open: function() { $collapse.style.height = "auto"; $navbar.className += " in"; } }; $toggle.addEventListener('click', function(e) { if ($navbar.className.indexOf('in') > 0) { __HuxNav__.close(); } else{ __HuxNav__.open(); } }); document.addEventListener('click', function(e){ if(e.target == $toggle) return; if(e.target.className == 'icon-bar') return; __HuxNav__.close(); }); </script><style type="text/css"> header.intro-header { position: relative; background-image: url('/../img/in-post/2019-10-6-python-codegolf/post-code-golf.jpg'); }</style><header class="intro-header" ><div class="intro-header-inner"><div class="header-mask"></div><div class="container"><div class="row"><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><div class="post-heading"> <span class="categories"> <a class="category" href="/categories/#Programming" title="Programming">Programming</a> </span> <span class="tags"> <a class="tag" href="/tags/#Programming" title="Programming">Programming</a> <a class="tag" href="/tags/#Python" title="Python">Python</a> <a class="tag" href="/tags/#Code golf" title="Code golf">Code golf</a> </span><h1>Python Code Golf Cheat Sheet</h1><h2 class="subheading">Simple tricks to code-golf in Python</h2><span class="meta">Posted by ntsd on October 6, 2019</span></div></div></div></div></div></header><article><div class="container"><div class="row"><div class=" col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 post-container"><h2 id="operator">Operator</h2><h3 id="negating-boolean">Negating Boolean</h3><pre><code class="language-Python">if not C:
+if C&lt;1:
+if~-C:
+</code></pre><h3 id="and-operator">And operator</h3><pre><code class="language-Python">if a and b:
+if a*b:
+
+if i==4 and j==4:
+if i==4and j==4:
+if(i,j)==(4,4):
+if i==j==4:
+</code></pre><h3 id="increment-or-decrement-1-in-statement">Increment or decrement 1 in statement</h3><pre><code class="language-Python">c/(n-1)
+c/~-n
+
+c/(n+1)
+c/-~n
+
+while n-1:
+while~-n:
+
+or n+1
+or-~n
+</code></pre><h3 id="while-n1">While n!=1</h3><pre><code class="language-Python">while n!=1:
+while n-1:
+while~-n:
+</code></pre><h3 id="shorter-than-the-list-selection">shorter than the list selection</h3><pre><code class="language-Python">[0,y][b] -&gt; y*b
+[1,y][b] -&gt; y**b
+[x,1][b] -&gt; b or x
+[x,x+1][b] -&gt; x+b
+[x,x-1][b] -&gt; x-b
+[1,-1][b] -&gt; 1|-b
+[x,~x][b] -&gt; x^-b
+</code></pre><h3 id="ceil-and-floor">Ceil and Floor</h3><pre><code class="language-Python">math.floor(n)
+n//1
+
+math.ceil(n)
+-(-n//1)
+</code></pre><h2 id="types">Types</h2><h3 id="check-type-of-a-variable">Check type of a variable</h3><pre><code class="language-Python">x*0is 0 # integer
+x*0=="" # string
+x*0==[] # array
+</code></pre><h3 id="convert-integer-to-string">Convert integer to string</h3><pre><code class="language-Python">str(n)
+`n`
+</code></pre><h3 id="join-list-of-string-or-integer">Join list of string or integer</h3><pre><code class="language-Python">L=['a', 'b', 'c']
+''.join(L)
+`L`[2::5]
+
+L=[1, 2, 3]
+`L`[1::3]
+</code></pre><h3 id="2-string-same-length-or-1-length-diff">2 String same length or 1 length diff</h3><pre><code class="language-Python">'ftarlusee'[C::2]
+</code></pre><h3 id="list-all-substrings">List all substrings</h3><pre><code class="language-Python"># with repeat
+f=lambda s:[*s]and[s]+f(s[1:])+f(s[:-1])
+
+# avoid repeat
+f=lambda s:{*s}and{s}|f(s[1:])|f(s[:-1])
+</code></pre><h2 id="iterable--iterator">Iterable &amp; Iterator</h2><h3 id="list-of-range">List of range</h3><pre><code class="language-Python">L=list(range(10))
+*L,=range(10)
+</code></pre><h3 id="get-last-and-first-element-from-a-list">Get last and first element from a list</h3><pre><code class="language-Python">e=L[-1]
+*_,e=L
+
+e=(L)[0]
+e,*_=L
+</code></pre><h3 id="append-and-extend-to-list">Append and Extend to list</h3><pre><code class="language-Python">L.append(e)  
+L+=e,
+
+L.extend(e)
+L+=e
+</code></pre><h3 id="for-in-range">For in range</h3><pre><code class="language-Python">for i in range(x):pass
+
+# if x less than 4
+for x in 0,1,2:pass
+
+# if don't use i
+for _ in[0]*x:pass
+
+# for use twice
+r=0,
+for _ in r*x:pass
+for _ in r*-~x:pass
+
+# use exec with multiply string
+exec'pass;'*x
+</code></pre><h3 id="multiple-numerical-loops">Multiple numerical loops</h3><pre><code class="language-Python">for i in range(m):
+ for j in range(n):
+  do_stuff(i,j)
+
+for k in range(m*n):
+ do_stuff(k/n,k%n)
+
+# Three loop
+for i in range(m):
+ for j in range(n):
+  for l in range(o):
+    do_stuff(i,j,l)
+
+for k in range(m*n*b):
+ do_stuff(k/n/o,k%(n*o)/o,k%o)
+</code></pre><h3 id="check-element-in-iterable">Check element in iterable</h3><pre><code class="language-Python">if e in S
+if{e}&amp;S
+</code></pre><h3 id="reverse-list">Reverse List</h3><pre><code class="language-Python">L.reverse()
+L[::-1]
+</code></pre><h3 id="check-negative-integer-in-a-list">Check negative integer in a list</h3><pre><code class="language-Python">min(L)&lt;0
+'-'in`L`
+</code></pre><h3 id="checking-the-length-of-a-list">Checking the length of a list</h3><pre><code class="language-Python">a==[] # a is empty
+[]==a # for [] in the front and reduce 1 space
+a # a is not empty
+a&gt;a[:i] # len(a) &lt; i
+</code></pre><h3 id="copyclone-a-list">Copy/Clone a list</h3><pre><code class="language-Python">a=x[:]
+b=[*x]
+c=x*1
+</code></pre><h3 id="multiple-if-statements-in-comprehensions">Multiple if statements in comprehensions</h3><pre><code class="language-Python">[a for a in 'abc'if cond1()and cond2()or cond3()and cond4()and cond5()]
+[a for a in 'abc'if cond1()if cond2()or cond3()if cond4()if cond5()]
+</code></pre><h3 id="split-into-chunks">Split into chunks</h3><pre><code class="language-Python">l=(n for n in range(18))
+zip(*[l]*4)
+</code></pre><h3 id="unpack-generator">Unpack generator</h3><pre><code class="language-Python">set(G)
+{*G}
+
+list(G)
+[*G]
+*L,=G
+
+tuple(G)
+(*G,)
+T=*G,
+</code></pre><h2 id="others">Others</h2><h3 id="reading-from-stdin">Reading from stdin</h3><pre><code class="language-Python">import os;A=os.read(0,9**9)
+import os;A=os.read(0,99) # input is always less than 100 bytes.
+</code></pre><h3 id="multiline-input-to-list">Multiline input to list</h3><pre><code class="language-Python">list(sys.stdin.readlines())
+
+eof='' # End of line you want to stop
+list(iter(input,eof))
+</code></pre><h3 id="import-when-use-once">Import when use once</h3><pre><code class="language-Python">import itertools
+itertools.groupby()
+
+__import__("itertools").groupby()
+</code></pre><h2 id="reference">Reference</h2><ul><li><p><a href="https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python">https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python</a></p><li><p><a href="https://noe.mearie.org/python_code_golfing_tips/">https://noe.mearie.org/python_code_golfing_tips/</a></p></ul><hr style="visibility: hidden;"><ul class="pager"><li class="previous"> <a href="/legends-of-code-and-magic-play-bot-programming-with-basic-algorithms/" data-toggle="tooltip" data-placement="top" title="Legends of Code and Magic เล่น Bot Programming ด้วย Basic Algorithms"> Previous<br> <span>Legends of Code and Magic เล่น Bot Programming ด้วย Basic Algorithms</span> </a><li class="next"> <a href="/aria2-max-connections-per-server/" data-toggle="tooltip" data-placement="top" title="Recompile aria2 to increment max connections per server"> Next<br> <span>Recompile aria2 to increment max connections per server</span> </a></ul></div><div class=" col-lg-2 col-lg-offset-0 visible-lg-block sidebar-container catalog-container"><div class="side-catalog"><h5> <a class="catalog-toggle" href="#">Contents</a></h5><ul class="catalog-body"></ul></div></div><div class=" col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 sidebar-container"><section><hr class="hidden-sm hidden-xs"><h5><a href="/tags/">FEATURED TAGS</a></h5><div class="tags"> <a href="/tags/#General" title="General" rel="1"> General </a> <a href="/tags/#Artificial Intelligence" title="Artificial Intelligence" rel="1"> Artificial Intelligence </a> <a href="/tags/#Programming" title="Programming" rel="6"> Programming </a> <a href="/tags/#Python" title="Python" rel="2"> Python </a> <a href="/tags/#Code golf" title="Code golf" rel="1"> Code golf </a> <a href="/tags/#C++" title="C++" rel="1"> C++ </a> <a href="/tags/#aria2" title="aria2" rel="1"> aria2 </a> <a href="/tags/#Network" title="Network" rel="2"> Network </a> <a href="/tags/#OpenWRT" title="OpenWRT" rel="1"> OpenWRT </a> <a href="/tags/#Router" title="Router" rel="1"> Router </a> <a href="/tags/#Embedded" title="Embedded" rel="1"> Embedded </a> <a href="/tags/#Gatsby" title="Gatsby" rel="1"> Gatsby </a> <a href="/tags/#React" title="React" rel="1"> React </a> <a href="/tags/#GraphQL" title="GraphQL" rel="1"> GraphQL </a> <a href="/tags/#Progressive Web App" title="Progressive Web App" rel="1"> Progressive Web App </a> <a href="/tags/#TypeScript" title="TypeScript" rel="2"> TypeScript </a> <a href="/tags/#Facebook Developer" title="Facebook Developer" rel="1"> Facebook Developer </a> <a href="/tags/#ESLint" title="ESLint" rel="1"> ESLint </a></div></section></div></div></div></article><script> function async(u, c) { var d = document, t = 'script', o = d.createElement(t), s = d.getElementsByTagName(t)[0]; o.src = u; if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); } s.parentNode.insertBefore(o, s); } </script> <script> async("https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){ anchors.options = { visible: 'always', placement: 'right', icon: '#' }; anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5'); }) </script><style> /* place left on bigger screen */ @media all and (min-width: 800px) { .anchorjs-link{ position: absolute; left: -0.75em; font-size: 1.1em; margin-top : -0.1em; } }</style><footer><div class="container"><div class="row"><div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"><ul class="list-inline text-center"><li> <a target="_blank" href="https://www.facebook.com/jo.ntsd" aria-label="Facebook" rel="noopener noreferrer"> <svg class="svg-icon logo-facebook"></svg> </a><li> <a target="_blank" href="https://github.com/ntsd" aria-label="Github" rel="noopener noreferrer"> <svg class="svg-icon logo-github"></svg> </a><li> <a target="_blank" href="https://www.linkedin.com/in/ntsd" aria-label="Linkedin" rel="noopener noreferrer"> <svg class="svg-icon logo-linkedin"></svg> </a></ul><div class="copyright"><div> Copyright &copy; Jirawat Boonkumnerd 2020</div><div> Made with ❤️ by <a href="https://ntsd.me">ntsd</a></div></div></div></div></div></footer><script src="/js/snackbar.min.js" defer></script> <script src="/js/sw-registration.min.js" defer></script> <script> function async(u, c) { var d = document, t = 'script', o = d.createElement(t), s = d.getElementsByTagName(t)[0]; o.src = u; if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); } s.parentNode.insertBefore(o, s); } function asyncStyle(u) { var d = document, t = 'link', o = d.createElement(t), s = d.getElementsByTagName(t)[0]; o.href = u; o.rel="stylesheet"; s.parentNode.insertBefore(o, s); } </script> <script src="/js/jquery.min.js"></script> <script src="/js/ntsd-blog.min.js" defer></script> <script> async("/js/prism.min.js"); asyncStyle("/css/prism.min.css"); </script> <script> async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function() { var $nav = document.querySelector("nav"); if ($nav) FastClick.attach($nav); }); </script> <script type="text/javascript"> function generateCatalog (selector) { /* interop with multilangual */ if ('' == 'true') { _containerSelector = 'div.post-container.active'; } else { _containerSelector = 'div.post-container'; } /* init */ var P = $(_containerSelector),a,n,t,l,i,c; /* side catalog level */ a = P.find('h1,h2'); /* clean */ $(selector).html(''); /* appending */ a.each(function () { n = $(this).prop('tagName').toLowerCase(); i = "#"+$(this).prop('id'); t = $(this).text(); c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>'); l = $('<li class="'+n+'_nav">').append(c); $(selector).append(l); }); return true; } generateCatalog(".catalog-body"); /* toggle side catalog */ $(".catalog-toggle").click((function(e) { e.preventDefault(); $('.side-catalog').toggleClass("fold"); })); /* Doc: https://github.com/davist11/jQuery-One-Page-Nav Fork by Hux to support padding */ async("/js/jquery.nav.min.js", function () { $('.catalog-body').onePageNav({ currentClass: "active", changeHash: !1, easing: "swing", filter: "", scrollSpeed: 700, scrollOffset: 0, scrollThreshold: .2, begin: null, end: null, scrollChange: null, padding: 80 }); }); </script>

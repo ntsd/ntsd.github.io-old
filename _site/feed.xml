@@ -1,0 +1,1715 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jirawat Boonkumnerd</title>
+    <description>A Software Engineer</description>
+    <link>https://ntsd.me/</link>
+    <atom:link href="https://ntsd.me/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 19 Jun 2020 07:11:06 +0700</pubDate>
+    <lastBuildDate>Fri, 19 Jun 2020 07:11:06 +0700</lastBuildDate>
+    <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Improve TypeScript code quality with Google TypeScript Style Guide</title>
+        <description>&lt;p&gt;GTS is Google’s TypeScript style guide, and the configuration for formatter, linter, and automatic code fixer. No lint rules to edit, no configuration to update, no more bike shedding over syntax.&lt;/p&gt;
+
+&lt;h2 id=&quot;prepare-a-typescript-project&quot;&gt;Prepare a TypeScript Project&lt;/h2&gt;
+
+&lt;p&gt;For this tutorial I’ll initialize a TypeScript React project using Create React App.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Bash&quot;&gt;# Install create-react-app cli
+npm install -g create-react-app
+
+# Initialize Create React App project
+npx create-react-app my-app --template typescript
+
+# Change directory to the app
+cd my-app
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;installing-gts&quot;&gt;Installing GTS&lt;/h2&gt;
+
+&lt;p&gt;To install GTS you can install it global and run init script.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Bash&quot;&gt;# Install gts cli
+npm install -g gts
+
+# Add gts to the project
+npx gts init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After you overwrite the &lt;code class=&quot;highlighter-rouge&quot;&gt;tsconfig.json&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then you can bring back &lt;code class=&quot;highlighter-rouge&quot;&gt;compilerOptions&lt;/code&gt; for React to make it support JSX and DOM format.&lt;/p&gt;
+
+&lt;p&gt;Full &lt;code class=&quot;highlighter-rouge&quot;&gt;tsconfig.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JSON&quot;&gt;{
+  &quot;extends&quot;: &quot;./node_modules/gts/tsconfig-google.json&quot;,
+  &quot;compilerOptions&quot;: {
+    &quot;rootDir&quot;: &quot;.&quot;,
+    &quot;outDir&quot;: &quot;build&quot;,
+    &quot;target&quot;: &quot;es5&quot;,
+    &quot;lib&quot;: [
+      &quot;dom&quot;,
+      &quot;dom.iterable&quot;,
+      &quot;esnext&quot;
+    ],
+    &quot;allowJs&quot;: true,
+    &quot;skipLibCheck&quot;: true,
+    &quot;esModuleInterop&quot;: true,
+    &quot;allowSyntheticDefaultImports&quot;: true,
+    &quot;strict&quot;: true,
+    &quot;forceConsistentCasingInFileNames&quot;: true,
+    &quot;module&quot;: &quot;esnext&quot;,
+    &quot;moduleResolution&quot;: &quot;node&quot;,
+    &quot;resolveJsonModule&quot;: true,
+    &quot;isolatedModules&quot;: true,
+    &quot;noEmit&quot;: true,
+    &quot;jsx&quot;: &quot;react&quot;
+  },
+  &quot;include&quot;: [
+    &quot;src&quot;
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can edit &lt;code class=&quot;highlighter-rouge&quot;&gt;compilerOptions&lt;/code&gt; rules by yourself and you can &lt;code class=&quot;highlighter-rouge&quot;&gt;cat ./node_modules/gts/tsconfig-google.json&lt;/code&gt; to view GTS current setting.&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-eslint-plugin-react&quot;&gt;Installing eslint-plugin-react&lt;/h2&gt;
+
+&lt;p&gt;GTS will create you the &lt;code class=&quot;highlighter-rouge&quot;&gt;.eslintrc.json&lt;/code&gt; file but the default rules is not support for React App.&lt;/p&gt;
+
+&lt;p&gt;You can view the current GTS ESLint config by &lt;code class=&quot;highlighter-rouge&quot;&gt;cat ./node_modules/gts/.eslintrc.json&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This step is how to add React plugin for ESLint.&lt;/p&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;highlighter-rouge&quot;&gt;eslint-plugin-react&lt;/code&gt; Eslint Plugin.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Bash&quot;&gt;npm install eslint-plugin-react --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;plugin:react/recommended&quot;&lt;/code&gt; to extends to load the plugin.&lt;/p&gt;
+
+&lt;p&gt;Add the following &lt;code class=&quot;highlighter-rouge&quot;&gt;env&lt;/code&gt; config.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;browser&quot;: true&lt;/code&gt; to allow browser JavaScript (window, document).&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;jest&quot;: true&lt;/code&gt; to allow Global Jest script.&lt;/p&gt;
+
+&lt;p&gt;Full &lt;code class=&quot;highlighter-rouge&quot;&gt;.eslintrc.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JSON&quot;&gt;{
+  &quot;extends&quot;: [
+    &quot;./node_modules/gts/&quot;,
+    &quot;plugin:react/recommended&quot;
+  ],
+  &quot;env&quot;: {
+    &quot;browser&quot;: true,
+    &quot;jest&quot;: true
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;fix-eslint-and-tsconfig&quot;&gt;Fix ESLint and TSConfig&lt;/h2&gt;
+
+&lt;p&gt;If you’re using VS Code with ESLint Extension you’ll see errors in your code.&lt;/p&gt;
+
+&lt;p&gt;You can run &lt;code class=&quot;highlighter-rouge&quot;&gt;npx gts check&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;npm run check&lt;/code&gt; to check current ESLint and TypeScript error&lt;/p&gt;
+
+&lt;p&gt;For automatic fix code format you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;npx gts fix&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;npm run fix&lt;/code&gt;. But for some error you need to fix it yourself because sometimes auto format is not support a type of ESLint error.&lt;/p&gt;
+
+&lt;h2 id=&quot;add-husky-and-git-pre-commit&quot;&gt;Add Husky and Git pre-commit&lt;/h2&gt;
+
+&lt;p&gt;To make sure you and your team will not put a dirty code to git. You’ll need Husky to make Git pre-commit to check before you commit.&lt;/p&gt;
+
+&lt;p&gt;Install Husky dependency&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Bash&quot;&gt;npm install husky --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then add husky hook command to &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JSON&quot;&gt;{
+  &quot;husky&quot;: {
+    &quot;hooks&quot;: {
+      &quot;pre-commit&quot;: &quot;gts check&quot;,
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now every time you commit It will run &lt;code class=&quot;highlighter-rouge&quot;&gt;gts check&lt;/code&gt; command before you commit and it will fail if there’s an error.&lt;/p&gt;
+
+&lt;p&gt;Done! Enjoy your code.&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/google/gts&quot;&gt;https://github.com/google/gts&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sun, 03 May 2020 19:30:54 +0700</pubDate>
+        <link>https://ntsd.me/typescript-code-quality-with-gts/</link>
+        <guid isPermaLink="true">https://ntsd.me/typescript-code-quality-with-gts/</guid>
+        
+        <category>Programming</category>
+        
+        <category>TypeScript</category>
+        
+        <category>ESLint</category>
+        
+        
+        <category>Programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Add Facebook comments to a website in 5 minutes</title>
+        <description>&lt;h2 id=&quot;create-a-facebook-app&quot;&gt;Create a Facebook App&lt;/h2&gt;
+
+&lt;p&gt;before creating the Facebook comments you need to have your Facebook App first if you already have you just skip this step.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go to &lt;a href=&quot;https://developers.facebook.com/apps/&quot;&gt;https://developers.facebook.com/apps/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;click &lt;code class=&quot;highlighter-rouge&quot;&gt;Add a New App&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;fill &lt;code class=&quot;highlighter-rouge&quot;&gt;Display Name&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Contact Email&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;click &lt;code class=&quot;highlighter-rouge&quot;&gt;Create App ID&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-3-23-add-facebook-comments-to-your-website/0.png&quot; alt=&quot;Create a Facebook App&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;generate-comments-plugin-code&quot;&gt;Generate Comments Plugin Code&lt;/h2&gt;
+
+&lt;p&gt;Generate code and import Facebook SDK from the Facebook developer page&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;go to &lt;a href=&quot;https://developers.facebook.com/docs/plugins/comments&quot;&gt;https://developers.facebook.com/docs/plugins/comments&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;add initial URL at field &lt;code class=&quot;highlighter-rouge&quot;&gt;URL to comment on&lt;/code&gt; don’t worry you can change it later&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;set the width to 100%&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;set number of posts mean number of posts will show immediately and for other user need to click show more for it&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;click get code
+&lt;img src=&quot;/img/in-post/2020-3-23-add-facebook-comments-to-your-website/1.png&quot; alt=&quot;get Facebook comment code&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;select your app ID you need to use the API for and select language you want for the SDK
+&lt;img src=&quot;/img/in-post/2020-3-23-add-facebook-comments-to-your-website/2.png&quot; alt=&quot;select your app ID you need to use the API for and select language you want for the SDK&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;copy these code and drop to your page&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;change &lt;code class=&quot;highlighter-rouge&quot;&gt;data-herf&lt;/code&gt; to your page URL&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 23 Mar 2020 19:30:54 +0700</pubDate>
+        <link>https://ntsd.me/add-facebook-comments-to-your-website/</link>
+        <guid isPermaLink="true">https://ntsd.me/add-facebook-comments-to-your-website/</guid>
+        
+        <category>Programming</category>
+        
+        <category>Facebook Developer</category>
+        
+        
+        <category>Programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Build a static website with Gatsby and TypeScript</title>
+        <description>&lt;h2 id=&quot;install-gatsby&quot;&gt;Install Gatsby&lt;/h2&gt;
+
+&lt;p&gt;if you’re a beginner you should follow the getting start from Gatsby&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.org/docs/quick-start/&quot;&gt;https://www.gatsbyjs.org/docs/quick-start/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ll skip this step because it’s too easy just follow the guide&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Shell&quot;&gt;# Install the Gatsby CLI
+npm install -g gatsby-cli
+
+# Create a new site
+gatsby new gatsby-site
+
+# Change directories into site folder
+cd gatsby-site
+
+# gatsby develop
+gatsby develop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;now you’ll get the Gatsby default page&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-3-11-build-a-static-website-with-gatsby/1.png&quot; alt=&quot;now you'll get the Gatsby default page&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;add-typescript-support&quot;&gt;Add TypeScript support&lt;/h2&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;highlighter-rouge&quot;&gt;gatsby-plugin-typescript&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;typeScript&lt;/code&gt;  dependencies&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Shell&quot;&gt;npm install gatsby-plugin-typescript
+npm install -D typescript
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Change all .js file to .tsx&lt;/p&gt;
+
+&lt;p&gt;Add “gatsby-plugin-typescript” to gatsby-config.js&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JS&quot;&gt;plugins: [`gatsby-plugin-typescript`]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add typescript eslint&lt;/p&gt;
+
+&lt;p&gt;new files &lt;code class=&quot;highlighter-rouge&quot;&gt;tsconfig.json&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;.eslintrc.js&lt;/code&gt; to the root project directory&lt;/p&gt;
+
+&lt;p&gt;To generate &lt;code class=&quot;highlighter-rouge&quot;&gt;tsconfig.json&lt;/code&gt; you can use this script to generate a sample config&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Shell&quot;&gt;./node_modules/typescript/bin/tsc --init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;tsconfig.json&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JS&quot;&gt;{
+  &quot;compilerOptions&quot;: {
+    &quot;module&quot;: &quot;commonjs&quot;,
+    &quot;target&quot;: &quot;esnext&quot;,
+    &quot;jsx&quot;: &quot;preserve&quot;,
+    &quot;lib&quot;: [&quot;dom&quot;, &quot;esnext&quot;],
+    &quot;strict&quot;: true,
+    &quot;noEmit&quot;: true,
+    &quot;isolatedModules&quot;: true,
+    &quot;esModuleInterop&quot;: true,
+    &quot;noUnusedLocals&quot;: false,
+    &quot;allowJs&quot;: true
+  },
+  &quot;exclude&quot;: [&quot;node_modules&quot;, &quot;public&quot;, &quot;.cache&quot;]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;edit &lt;code class=&quot;highlighter-rouge&quot;&gt;.eslintrc.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;you can enable or disable rules as you want&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JS&quot;&gt;module.exports = {
+  parser: '@typescript-eslint/parser', // Specifies the ESLint parser
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended'
+  ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
+  env: {
+    browser: true,
+    node: true,
+    es6: true
+  },
+  plugins: ['@typescript-eslint', 'react'],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
+    sourceType: 'module' // Allows for the use of imports
+  },
+  rules: {
+    'react/prop-types': 'off', // Disable prop-types as we use TypeScript for type checking
+    '@typescript-eslint/explicit-function-return-type': 'off'
+  },
+  overrides: [
+    // Override some TypeScript rules just for .js files
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off'
+      }
+    }
+  ]
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;highlighter-rouge&quot;&gt;eslint&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;typescript&lt;/code&gt; packages to dev dependencies&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Shell&quot;&gt;npm install -D @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now you need to refactor all codes to fix TypeScript lint errors&lt;/p&gt;
+
+&lt;h2 id=&quot;setup-progressive-web-app&quot;&gt;Setup Progressive Web App&lt;/h2&gt;
+
+&lt;p&gt;Install &lt;code class=&quot;highlighter-rouge&quot;&gt;gatsby-plugin-manifest&lt;/code&gt; plugin to allow gatsby use &lt;a href=&quot;https://www.w3.org/TR/appmanifest/&quot;&gt;Web App Manifest&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Web App Manifest will allow users to save PWA app to the home screen&lt;/p&gt;
+
+&lt;p&gt;and it includes information like the Web App’s name, icons, start_url, background-color and &lt;a href=&quot;https://web.dev/add-manifest/&quot;&gt;more&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Shell&quot;&gt;npm install gatsby-plugin-manifest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then you can config Web App Manifest in &lt;code class=&quot;highlighter-rouge&quot;&gt;gatsby-config.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-JS&quot;&gt;module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+  ],
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;gatsby-plugin-offline&lt;/code&gt; to make the site work offline&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Shell&quot;&gt;npm install --save gatsby-plugin-offline
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;gatsby-plugin-offline&lt;/code&gt; to plugins in &lt;code class=&quot;highlighter-rouge&quot;&gt;gatsby-config.js&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Gatsby will generate &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API&quot;&gt;Service Worker&lt;/a&gt; to make it offline support and cache the page&lt;/p&gt;
+
+&lt;p&gt;you can read the &lt;a href=&quot;https://www.gatsbyjs.org/packages/gatsby-plugin-offline#available-options&quot;&gt;available options&lt;/a&gt; to change the config&lt;/p&gt;
+
+&lt;h2 id=&quot;deploy-to-netlify&quot;&gt;Deploy to Netlify&lt;/h2&gt;
+
+&lt;p&gt;In your Netlify dashboard New site from Git&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-3-11-build-a-static-website-with-gatsby/2.png&quot; alt=&quot;New site from Git&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;choose your repository in Github or Gitlab to deploy&lt;/p&gt;
+
+&lt;p&gt;and the default setting should work&lt;/p&gt;
+
+&lt;p&gt;set Build command to &lt;code class=&quot;highlighter-rouge&quot;&gt;gatsby build&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;set Publish directory to &lt;code class=&quot;highlighter-rouge&quot;&gt;public/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-3-11-build-a-static-website-with-gatsby/3.png&quot; alt=&quot;Setup netlify&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finish!! the web will deploy to Netlify static host&lt;/p&gt;
+
+&lt;p&gt;The web will automatically deploy when you update the master branch&lt;/p&gt;
+
+&lt;p&gt;Audits Google Lighthouse score with Google Chrome&lt;/p&gt;
+
+&lt;p&gt;open inspect mode&lt;/p&gt;
+
+&lt;p&gt;go to audits tab&lt;/p&gt;
+
+&lt;p&gt;click generate report&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-3-11-build-a-static-website-with-gatsby/4.png&quot; alt=&quot;Setup netlify&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Wow! you get max score&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;https://www.gatsbyjs.org/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.logrocket.com/set-up-a-typescript-gatsby-app/&quot;&gt;https://blog.logrocket.com/set-up-a-typescript-gatsby-app/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 11 Mar 2020 19:30:54 +0700</pubDate>
+        <link>https://ntsd.me/build-a-static-website-with-gatsby/</link>
+        <guid isPermaLink="true">https://ntsd.me/build-a-static-website-with-gatsby/</guid>
+        
+        <category>Programming</category>
+        
+        <category>Gatsby</category>
+        
+        <category>React</category>
+        
+        <category>GraphQL</category>
+        
+        <category>Progressive Web App</category>
+        
+        <category>TypeScript</category>
+        
+        
+        <category>Programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Build and Install OpenWRT on Banana Pi R64</title>
+        <description>&lt;p&gt;This tutorial is a getting start to build OpenWRT image and install on Banana Pi R64, This guide also works with the Banana Pi R2 but it will be a difference in some steps.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-banana-pi-r64&quot;&gt;What is Banana Pi R64&lt;/h2&gt;
+
+&lt;p&gt;The Banana Pi R64 is a router-based development board running with ARM Chipset MediaTek MT7622. So you can install operating systems which support to this ARM CPU including OpenWrt, Ubuntu, or many Linux distributions. It has many interfaces support such as on board Wifi/Bluetooth, 1GB Ethernet, USB 3.0, 40 GPIO, etc. Banana Pi R64 can add a Mini-PCI Express Modules and PoE module. And It also has a performance, resource, and interfaces good enough to be a high-end router.&lt;/p&gt;
+
+&lt;h3 id=&quot;banana-pi-r64-specifications&quot;&gt;Banana Pi R64 Specifications&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;MediaTek MT7622,1.35GHZ 64 bit dual-core ARM Cortex-A53&lt;/li&gt;
+  &lt;li&gt;1G DDR3 SDRAM&lt;/li&gt;
+  &lt;li&gt;Mini PCIE interface support 4G module&lt;/li&gt;
+  &lt;li&gt;Built-in 4x4n 802.11n/Bluetooth 5.0 system-on-chip&lt;/li&gt;
+  &lt;li&gt;MTK7615 4x4ac wifi on board&lt;/li&gt;
+  &lt;li&gt;Support 1 SATA interface&lt;/li&gt;
+  &lt;li&gt;MicroSD slot supports up to 256GB expansion&lt;/li&gt;
+  &lt;li&gt;8G eMMC flash (option 16/32/64G)&lt;/li&gt;
+  &lt;li&gt;5 port 10/100/1000 Mb Ethernet port&lt;/li&gt;
+  &lt;li&gt;1 Port USB 3.0&lt;/li&gt;
+  &lt;li&gt;Slow I/O:ADC, Audio Amplifier, GPIO, I2C, I2S, IR, PMIC I/F, PWM, RTC, SPI, UART&lt;/li&gt;
+  &lt;li&gt;POE function support&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;requirements&quot;&gt;Requirements&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;macOS (I used 10.15.3) *for Ubuntu, will easier to build the image&lt;/li&gt;
+  &lt;li&gt;Banana Pi R64&lt;/li&gt;
+  &lt;li&gt;MicroSD Card&lt;/li&gt;
+  &lt;li&gt;MicroSD Card Reader&lt;/li&gt;
+  &lt;li&gt;USB to UART&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;preparation&quot;&gt;Preparation&lt;/h2&gt;
+
+&lt;h3 id=&quot;install-usb-to-uart-driver&quot;&gt;Install USB to UART Driver&lt;/h3&gt;
+
+&lt;p&gt;Just follow this link if you’re using FTDI&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://learn.sparkfun.com/tutorials/how-to-install-ftdi-drivers/all&quot;&gt;https://learn.sparkfun.com/tutorials/how-to-install-ftdi-drivers/all&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;here is for CP2102&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers&quot;&gt;https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;terminal-software-for-serial&quot;&gt;Terminal software for serial&lt;/h3&gt;
+
+&lt;p&gt;you can use whatever serial console Putty, screen, minicom&lt;/p&gt;
+
+&lt;p&gt;for this tutorial I use &lt;code class=&quot;highlighter-rouge&quot;&gt;screen&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;download-images&quot;&gt;Download images&lt;/h3&gt;
+
+&lt;h4 id=&quot;sd-card-image&quot;&gt;SD card image&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/open?id=1Ap7lt-pjpG-pAOAEqpH13-SMOSkRkZI0&quot;&gt;https://drive.google.com/open?id=1Ap7lt-pjpG-pAOAEqpH13-SMOSkRkZI0&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;emmc-all-in-one-single-image&quot;&gt;eMMC all-in-one single image&lt;/h4&gt;
+
+&lt;p&gt;includes GPT, ATF, u-boot, and Linux kernel image&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/open?id=1w8kO3klbPfdHK6lTI8Ub8sR_7ViISORM&quot;&gt;https://drive.google.com/open?id=1w8kO3klbPfdHK6lTI8Ub8sR_7ViISORM&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;emmc-preloader&quot;&gt;eMMC preloader&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/open?id=1Fy__GpNSWRcITEmzH4Z_jxnjrCS3BpQJ&quot;&gt;https://drive.google.com/open?id=1Fy__GpNSWRcITEmzH4Z_jxnjrCS3BpQJ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;setup-boot-from-emmc&quot;&gt;Setup boot from eMMC&lt;/h2&gt;
+
+&lt;p&gt;this step will allow you to build image to eMMC storage on the board instead sd card&lt;/p&gt;
+
+&lt;h3 id=&quot;write-sd-card-image-into-sd-card&quot;&gt;Write SD card image into SD card&lt;/h3&gt;
+
+&lt;p&gt;You need to boot via sd card first to write preloader and eMMC all-in-one single image&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dd if=sdcardimage.img of=/dev/sdX&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;replace &lt;code class=&quot;highlighter-rouge&quot;&gt;sdX&lt;/code&gt; with your drive&lt;/p&gt;
+
+&lt;h3 id=&quot;run-tftp-server&quot;&gt;Run TFTP server&lt;/h3&gt;
+
+&lt;p&gt;You can your system TFTP Server but for easy on and off the service so I use 3rd party TFTP Server.&lt;/p&gt;
+
+&lt;h4 id=&quot;tftp-server&quot;&gt;TFTP server&lt;/h4&gt;
+
+&lt;p&gt;you can download here &lt;a href=&quot;http://ww2.unime.it/flr/tftpserver&quot;&gt;http://ww2.unime.it/flr/tftpserver&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;macos-build-in-tftp-optional&quot;&gt;MacOS build-in tftp (optional)&lt;/h4&gt;
+
+&lt;p&gt;If you don’t like to install 3rd party software you can use system TFTP Service&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;launchctl load &lt;span class=&quot;nt&quot;&gt;-F&lt;/span&gt; /System/Library/LaunchDaemons/tftp.plist
+
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;launchctl start com.apple.tftpd
+
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/tftpboot &lt;span class=&quot;nb&quot;&gt;touch&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# make initial tftp directory&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;copy-file-to-tftp-folder&quot;&gt;Copy file to tftp folder&lt;/h4&gt;
+
+&lt;p&gt;change mode your directory to allow other users to read and write files&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;777 /private/tftpboot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;copy the binary file into TFTP root directory&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/1.png&quot; alt=&quot;copy the binary file into TFTP root directory&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;connect-to-board-by-uart&quot;&gt;Connect to board by UART&lt;/h3&gt;
+
+&lt;p&gt;use serial 115200 baud for Bananapi r64&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo screen /dev/cu.usbserial-A50285BI 115200&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;replace &lt;code class=&quot;highlighter-rouge&quot;&gt;cu.usbserial-A50285BI&lt;/code&gt; with your serial driver&lt;/p&gt;
+
+&lt;h3 id=&quot;set-u-boot-env&quot;&gt;Set u-boot env&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;setenv ipaddr 192.168.1.126 &lt;span class=&quot;c&quot;&gt;# your bpi ip address&lt;/span&gt;
+setenv serverip 192.168.1.1 &lt;span class=&quot;c&quot;&gt;# your tfto server&lt;/span&gt;
+setenv netmask 255.255.255.0
+saveenv
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;check u-boot env&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;printenv&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;return to u-boot menu&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bootmenu&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;write-emmc-image-to-flash-via-tftp&quot;&gt;Write eMMC image to flash via TFTP&lt;/h3&gt;
+
+&lt;p&gt;Put Ethernet to WLAN port for connect to the router&lt;/p&gt;
+
+&lt;p&gt;make sure your TFTP server in the same network with your bpi board&lt;/p&gt;
+
+&lt;h4 id=&quot;install-emmc-flash-image-to-flash&quot;&gt;Install eMMC flash image to flash&lt;/h4&gt;
+
+&lt;p&gt;in u-boot menu choose “b. System Load flash image then write to Flash via TFTP”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/2.png&quot; alt=&quot;b. System Load flash image then write to Flash via TFTP&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Set TFTP server IP and flash image file name&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/3.png&quot; alt=&quot;Set TFTP server ip and flash image file name&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;install-preloader-to-flash&quot;&gt;Install preloader to flash&lt;/h4&gt;
+
+&lt;p&gt;back to U-Boot menu choose “7. System Load Preloader then write to Flash via TFTP”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/4.png&quot; alt=&quot;7. System Load Preloader then write to Flash via TFTP&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Set TFTP server IP address and preloader file name&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/5.png&quot; alt=&quot;Set TFTP server ip and preloader file name&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Remove sd card and power-off The Banana pi, Remove SD card, and Power on.&lt;/p&gt;
+
+&lt;p&gt;Now you’ll get U-BOOT installed on eMMC storage&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/6.png&quot; alt=&quot;U-BOOT install on eMMC on board storage&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;build-your-openwrt-image&quot;&gt;Build your OpenWRT image&lt;/h2&gt;
+
+&lt;h3 id=&quot;preparation-to-build-openwrt-image&quot;&gt;Preparation to build OpenWRT image&lt;/h3&gt;
+
+&lt;p&gt;follow the link for more information
+&lt;a href=&quot;https://openwrt.org/docs/guide-developer/buildroot.exigence.macosx&quot;&gt;https://openwrt.org/docs/guide-developer/buildroot.exigence.macosx&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;setup-macosx-as-an-openwrt-build-environment&quot;&gt;Setup MacOSX as an OpenWrt build environment&lt;/h4&gt;
+
+&lt;p&gt;Install these package by Homebrew&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;coreutils diffutils findutils gawk gnu-getopt gnu-tar &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;wget quilt xz
+
+&lt;span class=&quot;c&quot;&gt;# Link gnu-getopt to local gnugetopt&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;brew &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt; gnu-getopt&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;/bin/getopt &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;brew &lt;span class=&quot;nt&quot;&gt;--prefix&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;/bin/gnugetopt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;add gnu-getopt to your path&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/usr/local/opt/gnu-getopt/bin:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;create-case-insensitive-filesystem&quot;&gt;Create case-insensitive filesystem&lt;/h4&gt;
+
+&lt;p&gt;OS X by default comes with a case-insensitive filesystem. OpenWrt won’t build on that. As a workaround, create a (Sparse) case-sensitive disk-image that you then mount in the finder and use as build directory&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hdiutil create &lt;span class=&quot;nt&quot;&gt;-size&lt;/span&gt; 20g &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; SPARSE &lt;span class=&quot;nt&quot;&gt;-fs&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Case-sensitive HFS+&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-volname&lt;/span&gt; OpenWrt OpenWrt.sparseimage
+
+&lt;span class=&quot;c&quot;&gt;# mount the image&lt;/span&gt;
+hdiutil attach OpenWrt.sparseimage
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;change directory to /Volumes/OpenWrt&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cd /Volumes/OpenWrt&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;build-openwrt-image-for-mt7622&quot;&gt;Build OpenWRT Image for MT7622&lt;/h3&gt;
+
+&lt;h4 id=&quot;clone-openwrt-project&quot;&gt;Clone OpenWRT project&lt;/h4&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git clone https://github.com/openwrt/openwrt.git&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;set-parametres&quot;&gt;Set parametres&lt;/h4&gt;
+
+&lt;p&gt;Target System: MediaTek Ralink ARM&lt;/p&gt;
+
+&lt;p&gt;Subtarget: MT7622&lt;/p&gt;
+
+&lt;p&gt;Target Profile: Banana Pi R64&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;openwrt
+
+./scripts/feeds update &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
+./scripts/feeds &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
+
+make menuconfig
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Set config and include built-in dependency that you want (Luci is not included by default)&lt;/p&gt;
+
+&lt;p&gt;then save to &lt;code class=&quot;highlighter-rouge&quot;&gt;.config&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;build-openwrt-image&quot;&gt;Build OpenWRT image&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# for 10.15 need set deploy target it to 10.14&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;MACOSX_DEPLOYMENT_TARGET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;10.14
+
+&lt;span class=&quot;c&quot;&gt;# Start make&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# vadd v1 mean verbose Level 1 (warnings/errors), level 99 (stdout+stderr)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# add -j4 mean use quard core&lt;/span&gt;
+make &lt;span class=&quot;nt&quot;&gt;-j4&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;V&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Kernel image file will be at ./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin&lt;/p&gt;
+
+&lt;h4 id=&quot;install-openwrt-image-to-bananapi-via-tftp&quot;&gt;Install OpenWRT Image to Bananapi via TFTP&lt;/h4&gt;
+
+&lt;p&gt;Copy the kernel image to TFTP folder&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cp ./bin/targets/mediatek/mt7622/openwrt-mediatek-mt7622-bpi_bananapi-r64-initramfs-kernel.bin /private/tftpboot/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Enter to the U-Boot menu&lt;/p&gt;
+
+&lt;p&gt;Install kernel image from TFTP&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/8.png&quot; alt=&quot;Install kernel image from TFTP&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, I got The OpenWRT image installed&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-1-3-install-openwrt-on-banana-pi-r64/7.png&quot; alt=&quot;OpenWRT installed&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://wiki.banana-pi.org/Banana_Pi_BPI-R64&quot;&gt;http://wiki.banana-pi.org/Banana_Pi_BPI-R64&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://forum.banana-pi.org/t/bpi-r64-loading-openwrt-built-files-into-the-board/9960&quot;&gt;http://forum.banana-pi.org/t/bpi-r64-loading-openwrt-built-files-into-the-board/9960&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://forum.banana-pi.org/t/bpi-r64-quick-start-boot-from-emmc/9809&quot;&gt;http://forum.banana-pi.org/t/bpi-r64-quick-start-boot-from-emmc/9809&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://openwrt.org/docs/guide-developer&quot;&gt;https://openwrt.org/docs/guide-developer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 03 Mar 2020 19:30:54 +0700</pubDate>
+        <link>https://ntsd.me/install-openwrt-on-banana-pi-r64/</link>
+        <guid isPermaLink="true">https://ntsd.me/install-openwrt-on-banana-pi-r64/</guid>
+        
+        <category>OpenWRT</category>
+        
+        <category>Router</category>
+        
+        <category>Network</category>
+        
+        <category>Embedded</category>
+        
+        
+        <category>Network</category>
+        
+      </item>
+    
+      <item>
+        <title>Recompile aria2 to increment max connections per server</title>
+        <description>&lt;p&gt;There’s maximum 16 connection hard code in aria2 so when I want to split more connection I need to edit a line of code and recompile it&lt;/p&gt;
+
+&lt;h2 id=&quot;edit-max-connections-per-server&quot;&gt;Edit max connections per server&lt;/h2&gt;
+
+&lt;p&gt;Edit number arguments in NumberOptionHandler for MAX_CONNECTION_PER_SERVER in file “OptionHandlerFactory.cc”&lt;/p&gt;
+
+&lt;p&gt;from 16 to 64 the number is as you want.&lt;/p&gt;
+
+&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;OptionHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;op&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NumberOptionHandler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PREF_MAX_CONNECTION_PER_SERVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                                              &lt;span class=&quot;n&quot;&gt;TEXT_MAX_CONNECTION_PER_SERVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                                              &lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'x'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;build-the-aria-2&quot;&gt;Build the aria 2&lt;/h2&gt;
+
+&lt;p&gt;Install following packages.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;libxml2-dev&lt;/li&gt;
+  &lt;li&gt;libcppunit-dev&lt;/li&gt;
+  &lt;li&gt;autoconf (gettext)&lt;/li&gt;
+  &lt;li&gt;automake&lt;/li&gt;
+  &lt;li&gt;autotools-dev&lt;/li&gt;
+  &lt;li&gt;autopoint&lt;/li&gt;
+  &lt;li&gt;libtool&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can install by run this command.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;gettext automake autoconf libtool libxml2 cppunit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you install LibXML with brew you also need to link it to &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/include/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/local/opt/libxml2/include/libxml2/libxml /usr/local/include/libxml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add Gettext and libxml2 to your path for me it’s &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.zshrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# gettext&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;:/usr/local/opt/gettext/bin
+
+&lt;span class=&quot;c&quot;&gt;# libxml2&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/usr/local/opt/libxml2/bin:&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-L/usr/local/opt/libxml2/lib&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPPFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-I/usr/local/opt/libxml2/include&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Generate configs.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;autoreconf &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Run config you that you just create.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./configure
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I’ll just using the default configuration.&lt;/p&gt;
+
+&lt;p&gt;If you want more details of it you can just copy steps from homebrew script here &lt;a href=&quot;https://github.com/Homebrew/homebrew-core/blob/master/Formula/aria2.rb&quot;&gt;https://github.com/Homebrew/homebrew-core/blob/master/Formula/aria2.rb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Generate make file.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Test all code (you can skip this step).&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make check
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Run make install to generate the binary file.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;make &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then you’ll get new aria2c binary file complied in &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/bin/&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;p&gt;You can check by the command.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-latr&lt;/span&gt; /usr/local/bin/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;test-the-compiled-aria2-binary-file&quot;&gt;Test the compiled aria2 binary file&lt;/h2&gt;
+
+&lt;p&gt;Make sure &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/bin/&lt;/code&gt; is in your path.&lt;/p&gt;
+
+&lt;p&gt;Now you can test the aria2c binary file that you just compile.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;aria2c -k 1M -s 64 -x 64 http://ipv4.download.thinkbroadband.com/1GB.zip&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Basic Options&lt;/p&gt;
+
+&lt;p&gt;-k, –min-split-size=&amp;lt;SIZE&amp;gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;minimum split size&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;-s, –split=&amp;lt;N&amp;gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;split file to N part&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;-x, –max-connection-per-server=&amp;lt;NUM&amp;gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;maximum number connections to one server.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You’ll see the number of connections is 64.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-2-9-aria2-max-connections-per-server/aria.png&quot; alt=&quot;the number of connections is 64&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Done, Now you can use the binary file and unlock aria 2 connections limit.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;references&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/aria2/aria2&quot;&gt;https://github.com/aria2/aria2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/aria2/aria2/issues/580&quot;&gt;https://github.com/aria2/aria2/issues/580&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/aria2/aria2/issues/810&quot;&gt;https://github.com/aria2/aria2/issues/810&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://aria2.github.io/manual/en/html/README.html#how-to-build&quot;&gt;https://aria2.github.io/manual/en/html/README.html#how-to-build&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 09 Feb 2020 19:30:54 +0700</pubDate>
+        <link>https://ntsd.me/aria2-max-connections-per-server/</link>
+        <guid isPermaLink="true">https://ntsd.me/aria2-max-connections-per-server/</guid>
+        
+        <category>Programming</category>
+        
+        <category>C++</category>
+        
+        <category>aria2</category>
+        
+        <category>Network</category>
+        
+        
+        <category>Network</category>
+        
+      </item>
+    
+      <item>
+        <title>Python Code Golf Cheat Sheet</title>
+        <description>&lt;h2 id=&quot;operator&quot;&gt;Operator&lt;/h2&gt;
+
+&lt;h3 id=&quot;negating-boolean&quot;&gt;Negating Boolean&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;if not C:
+if C&amp;lt;1:
+if~-C:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;and-operator&quot;&gt;And operator&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;if a and b:
+if a*b:
+
+if i==4 and j==4:
+if i==4and j==4:
+if(i,j)==(4,4):
+if i==j==4:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;increment-or-decrement-1-in-statement&quot;&gt;Increment or decrement 1 in statement&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;c/(n-1)
+c/~-n
+
+c/(n+1)
+c/-~n
+
+while n-1:
+while~-n:
+
+or n+1
+or-~n
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;while-n1&quot;&gt;While n!=1&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;while n!=1:
+while n-1:
+while~-n:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;shorter-than-the-list-selection&quot;&gt;shorter than the list selection&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;[0,y][b] -&amp;gt; y*b
+[1,y][b] -&amp;gt; y**b
+[x,1][b] -&amp;gt; b or x
+[x,x+1][b] -&amp;gt; x+b
+[x,x-1][b] -&amp;gt; x-b
+[1,-1][b] -&amp;gt; 1|-b
+[x,~x][b] -&amp;gt; x^-b
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;ceil-and-floor&quot;&gt;Ceil and Floor&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;math.floor(n)
+n//1
+
+math.ceil(n)
+-(-n//1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;types&quot;&gt;Types&lt;/h2&gt;
+
+&lt;h3 id=&quot;check-type-of-a-variable&quot;&gt;Check type of a variable&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;x*0is 0 # integer
+x*0==&quot;&quot; # string
+x*0==[] # array
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;convert-integer-to-string&quot;&gt;Convert integer to string&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;str(n)
+`n`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;join-list-of-string-or-integer&quot;&gt;Join list of string or integer&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;L=['a', 'b', 'c']
+''.join(L)
+`L`[2::5]
+
+L=[1, 2, 3]
+`L`[1::3]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;2-string-same-length-or-1-length-diff&quot;&gt;2 String same length or 1 length diff&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;'ftarlusee'[C::2]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;list-all-substrings&quot;&gt;List all substrings&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;# with repeat
+f=lambda s:[*s]and[s]+f(s[1:])+f(s[:-1])
+
+# avoid repeat
+f=lambda s:{*s}and{s}|f(s[1:])|f(s[:-1])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;iterable--iterator&quot;&gt;Iterable &amp;amp; Iterator&lt;/h2&gt;
+
+&lt;h3 id=&quot;list-of-range&quot;&gt;List of range&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;L=list(range(10))
+*L,=range(10)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;get-last-and-first-element-from-a-list&quot;&gt;Get last and first element from a list&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;e=L[-1]
+*_,e=L
+
+e=(L)[0]
+e,*_=L
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;append-and-extend-to-list&quot;&gt;Append and Extend to list&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;L.append(e)  
+L+=e,
+
+L.extend(e)
+L+=e
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;for-in-range&quot;&gt;For in range&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;for i in range(x):pass
+
+# if x less than 4
+for x in 0,1,2:pass
+
+# if don't use i
+for _ in[0]*x:pass
+
+# for use twice
+r=0,
+for _ in r*x:pass
+for _ in r*-~x:pass
+
+# use exec with multiply string
+exec'pass;'*x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;multiple-numerical-loops&quot;&gt;Multiple numerical loops&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;for i in range(m):
+ for j in range(n):
+  do_stuff(i,j)
+
+for k in range(m*n):
+ do_stuff(k/n,k%n)
+
+# Three loop
+for i in range(m):
+ for j in range(n):
+  for l in range(o):
+    do_stuff(i,j,l)
+
+for k in range(m*n*b):
+ do_stuff(k/n/o,k%(n*o)/o,k%o)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;check-element-in-iterable&quot;&gt;Check element in iterable&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;if e in S
+if{e}&amp;amp;S
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;reverse-list&quot;&gt;Reverse List&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;L.reverse()
+L[::-1]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;check-negative-integer-in-a-list&quot;&gt;Check negative integer in a list&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;min(L)&amp;lt;0
+'-'in`L`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;checking-the-length-of-a-list&quot;&gt;Checking the length of a list&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;a==[] # a is empty
+[]==a # for [] in the front and reduce 1 space
+a # a is not empty
+a&amp;gt;a[:i] # len(a) &amp;lt; i
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;copyclone-a-list&quot;&gt;Copy/Clone a list&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;a=x[:]
+b=[*x]
+c=x*1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;multiple-if-statements-in-comprehensions&quot;&gt;Multiple if statements in comprehensions&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;[a for a in 'abc'if cond1()and cond2()or cond3()and cond4()and cond5()]
+[a for a in 'abc'if cond1()if cond2()or cond3()if cond4()if cond5()]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;split-into-chunks&quot;&gt;Split into chunks&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;l=(n for n in range(18))
+zip(*[l]*4)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;unpack-generator&quot;&gt;Unpack generator&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;set(G)
+{*G}
+
+list(G)
+[*G]
+*L,=G
+
+tuple(G)
+(*G,)
+T=*G,
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;others&quot;&gt;Others&lt;/h2&gt;
+
+&lt;h3 id=&quot;reading-from-stdin&quot;&gt;Reading from stdin&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;import os;A=os.read(0,9**9)
+import os;A=os.read(0,99) # input is always less than 100 bytes.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;multiline-input-to-list&quot;&gt;Multiline input to list&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;list(sys.stdin.readlines())
+
+eof='' # End of line you want to stop
+list(iter(input,eof))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;import-when-use-once&quot;&gt;Import when use once&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;import itertools
+itertools.groupby()
+
+__import__(&quot;itertools&quot;).groupby()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python&quot;&gt;https://codegolf.stackexchange.com/questions/54/tips-for-golfing-in-python&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://noe.mearie.org/python_code_golfing_tips/&quot;&gt;https://noe.mearie.org/python_code_golfing_tips/&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 06 Oct 2019 19:30:54 +0700</pubDate>
+        <link>https://ntsd.me/python-codegolf/</link>
+        <guid isPermaLink="true">https://ntsd.me/python-codegolf/</guid>
+        
+        <category>Programming</category>
+        
+        <category>Python</category>
+        
+        <category>Code golf</category>
+        
+        
+        <category>Programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Legends of Code and Magic เล่น Bot Programming ด้วย Basic Algorithms</title>
+        <description>&lt;p&gt;Codingame เป็นเว็บที่มีเว็บโปรแกรมมิ่งแนว Bot Programming ที่ให้ผู้เล่นเขียนโค๊ดเพื่อให้บอทไปสู้กับบอทคนอื่น&lt;/p&gt;
+
+&lt;p&gt;สามารถเล่นได้ที่นี่ &lt;a href=&quot;https://www.codingame.com/contests/legends-of-code-and-magic-marathon&quot;&gt;Link&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;สำหรับคนที่ยังไม่ค่อยเข้าใจระบบเกม ให้ลองเลื่อนลงไปดู Game loops and Input ก่อน&lt;/p&gt;
+
+&lt;h2 id=&quot;requirement-skills&quot;&gt;Requirement skills&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Programming (Python Syntax)&lt;/li&gt;
+  &lt;li&gt;Basic Algorithms&lt;/li&gt;
+  &lt;li&gt;OOP นิดหน่อย&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;LEGENDS OF CODE AND MAGIC เป็นเกมนี้จะเป็นบอร์ดเกมคล้าย Hearthstone&lt;/p&gt;
+
+&lt;p&gt;ตัวอย่างเกม &lt;a href=&quot;https://www.codingame.com/replay/328489470&quot;&gt;https://www.codingame.com/replay/328489470&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;มีผู้เล่นสองคนใช้ไพ่ต่อสู้กันใครเลือดหมดก่อนแพ้&lt;/p&gt;
+
+&lt;p&gt;โดยจะแบ่งเป็น 2 phases&lt;/p&gt;
+
+&lt;p&gt;phase แรกจะเป็นการเลือกไพ่ 1 ใน 3 จากไพ่ที่สุ่มมา จนครบ 30 ใบ&lt;/p&gt;
+
+&lt;p&gt;phase ที่สองจะเป็นการ Battle&lt;/p&gt;
+
+&lt;p&gt;โดยใน battle phase จะมีมานาเริ่มต้น 1 และเพิ่ม 1 ทุกๆเทริน&lt;/p&gt;
+
+&lt;p&gt;โดยมานาสามารถนำไปจ่ายเพื่อใช้ไพ่&lt;/p&gt;
+
+&lt;p&gt;ในเกมจะมีไพ่ 2 ชนิด คือไพ่ creatures กับ items
+แต่ผมจะอธิบายแค่ creature&lt;/p&gt;
+
+&lt;p&gt;เมื่อใช้ไพ่ creature จากบนมือจะลงไปบนบอร์ด โดย creature สามารถโจมตีได้เมื่ออยู่บนบอร์ด&lt;/p&gt;
+
+&lt;p&gt;เลือดจะลดหากโจมตี creature ด้วยกันเอง&lt;/p&gt;
+
+&lt;h2 id=&quot;creature-abilities&quot;&gt;creature abilities&lt;/h2&gt;
+
+&lt;p&gt;creature จะมีความสามามารถพิเศษแตกต่างกันดังนี้&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Text&quot;&gt;Breakthrough: Creatures with Breakthrough can deal extra damage to the opponent when they attack enemy creatures. If their attack damage is greater than the defending creature's defense, the excess damage is dealt to the opponent.
+Charge: Creatures with Charge can attack the turn they are summoned.
+Drain: Creatures with Drain heal the player of the amount of the damage they deal (when attacking only).
+Guard: Enemy creatures must attack creatures with Guard first.
+Lethal: Creatures with Lethal kill the creatures they deal damage to.
+Ward: Creatures with Ward ignore once the next damage they would receive from any source. The &quot;shield&quot; given by the Ward ability is then lost.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;class&quot;&gt;Class&lt;/h2&gt;
+
+&lt;h3 id=&quot;import-อะไรให้พร้อม&quot;&gt;import อะไรให้พร้อม&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;import sys # ใช้เพื่อ print log
+from copy import deepcopy  # deepcopy เพื่อให้ object ต่างๆ ไม่ reference เวลา simulate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;class-player&quot;&gt;class Player&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;class Player:
+    def __init__(self):
+        self.mana_curve = [0, 7, 6, 5, 4, 3, 0, 0, 0, 0, 0, 0, 0] # mana curve ใช่เพื่อเลือไพ่ให้ได้ curve ตามต้องการ
+    def setEnemy(self, player):
+        self.op = player
+    def update(self, player_health, player_mana, player_deck, player_rune): # ใช้เพื่ออัพเดตค่าทุกๆเทริน
+        self.__dict__.update(l for l in locals().items() if l[0] != 'self') # map local vars ใส่ self vars
+        self.hands = []
+        self.boards = []
+    def addHand(self, card): # ใช้เพื่อเพิ่มไพ่ในมือ
+        self.hands.append(card)
+    def addBoard(self, card):  # ใช้เพื่อเพิ่มไพ่บอร์ด
+        self.boards.append(card)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;class-card&quot;&gt;class Card&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;class Card:
+    def __init__(self, card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw):
+        self.__dict__.update(l for l in locals().items() if l[0] != 'self')
+        self.action = 1
+        self.shield = 1 if 'W' in abilities else 0
+        self.lethal = 1 if 'L' in abilities else 0
+        self.guard = 1 if 'G' in abilities else 0
+        self.charge = 1 if 'C' in abilities else 0
+        self.drain = 1 if 'D' in abilities else 0
+        self.breakthrough = 1 if 'B'in abilities else 0
+        self.live = 1
+    def __hash__(self): # ใช้เพื่อ hash เปรียบเทียบ object ด้วย id
+         return hash(self.instance_id)
+    def __eq__(self, other): # ใช้เพื่อเปรียบเทียบ Equal ของ Object
+        return (
+            self.__class__ == other.__class__ and
+            self.instance_id == other.instance_id
+        )
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;class-creature&quot;&gt;class Creature&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;class Creature(Card): # inheritance Card เพื่อบอกว่าเป็น Subclass ของ Card
+    def attackTarget(self, target): # ใช้เมื่อโจมตี Creature ตัวอื่น
+        self.action = 0
+        if self.shield: # เมื่อดาเมจโดน shield จะหาย
+            self.shield = 0
+        else:
+            self.defense -= target.attack # เลือดลดด้วยพลังโจมตีของเป้าหมาย
+            if self.defense &amp;lt;=0 or (target.lethal and type(target) is Creature):
+                self.live = 0 # เมื่อเลือดหมด
+        if target.shield: # damage to target
+            target.shield = 0
+        else:
+            target.defense -= self.attack # เลือดเป้าหมายลดด้วยพลังโจมตีของผู้ตี
+            if target.defense &amp;lt;=0 or (self.lethal and type(target) is Creature):
+                target.live = 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;class-item&quot;&gt;class Item&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;class Item(Card):
+    def use(self, target):
+        pass
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;algorithms&quot;&gt;Algorithms&lt;/h2&gt;
+
+&lt;p&gt;โดยวิธีที่ผมใช้เป็น Basic Algorithms ในการสร้าง Rules ต่างๆ ในการเล่นเกม เพื่อทำให้ชนะการเล่น โดยผมจะใส่เป็น Method ของ Player ดังนี้&lt;/p&gt;
+
+&lt;h3 id=&quot;draft-card&quot;&gt;Draft Card&lt;/h3&gt;
+
+&lt;p&gt;โดยผมจะเลือกตาม mana curve เป็นหลักและ value ของไพ่ โดยผมใช้ attack * defence เป็น vaule ของไพ่&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;def draft(self, draft_list): # เลือกไพ่ 1 ใน 3
+        max_value = 0
+        card_no=0
+        for i, card in enumerate(draft_list):
+            if type(card) is Creature: # ดูว่าไพ่เป็นชนิด Creature
+                value = card.attack * card.defense
+                if self.mana_curve[card.cost] &amp;gt; 0:
+                    value += 100 # ถ้า curve ยังไม่เต็มให้เลือกตาม curve ก่อน โดยเพิ่ม value
+                if value &amp;gt; max_value: # เลือกไพ่ที่มี value มากสุด
+                    max_value = value
+                    card_no = i
+        self.mana_curve[draft_list[card_no].cost]-=1
+        print('PICK {}'.format(card_no))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;battle-parse&quot;&gt;Battle Parse&lt;/h3&gt;
+
+&lt;p&gt;โดยผมจะ summon creatures ก่อน แล้วจึงโจมตีฝั่งตรงข้าม&lt;/p&gt;
+
+&lt;p&gt;โดยจะทำเป็น action list ดังนี้&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;    def useItem(self): # ผมยังไม่ได้ทำให้ใช้ item ได้เลยว่างไว้ก่อน
+        return []
+
+    def play(self):
+        action_list = []
+        action_list += self.summon()
+        action_list += self.useItem()
+        action_list += self.creatureAttack()
+        print(';'.join(action_list)) #  actions จะแบ่งด้วย ;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;summon&quot;&gt;Summon&lt;/h3&gt;
+
+&lt;p&gt;ต่อมาเป็นการเรียก Creature จากบนมือ โดยผมจะเลือกตัวที่มานามากที่สุดก่อน&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;def summon(self):
+        mana=self.player_mana
+        action_list = []
+        boards_count = len(self.boards)
+        creature_on_hand = filter(lambda x: type(x) is Creature ,self.hands) # filter เฉพาะ Creature ที่อยู่บนมือ
+        for c in sorted(creature_on_hand, key=lambda x: x.cost, reverse=True): # เรียงตาม มานา
+            if boards_count &amp;lt; 6: # เช็คถ้าบอร์ดยังไม่เต็ม
+                if c.cost&amp;lt;=mana: # เช็คว่ายังเหลือมานายังพอเรียก
+                    mana-=c.cost
+                    action_list.append(&quot;SUMMON {}&quot;.format(c.instance_id))
+                    if c.charge: # ถ้ามี charge ability จะสามารถตีได้เลย ผมเลยใส่ในบอร์ด
+                        self.boards.append(c)
+                    boards_count += 1
+        return action_list # return action list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;attack&quot;&gt;Attack&lt;/h3&gt;
+
+&lt;p&gt;ในการโจมตีของ creature ผมจะสร้าง rules ลำดับความสำคัญให้มันว่าจะต้องทำอะไรก่อน โดยผมจะสร้าง Rule Class โดยจะใส่ lambda functions ให้กับมันดังนี้&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;mySort  - เรียง creatures ของเรา&lt;/li&gt;
+  &lt;li&gt;myFilter - filter creatures ของเรา&lt;/li&gt;
+  &lt;li&gt;opSort - เรียง creatures ของคู่ต่อสู้&lt;/li&gt;
+  &lt;li&gt;opFilter - filter creatures ของคู่ต่อสู้&lt;/li&gt;
+  &lt;li&gt;rule - กฏเพื่อให้เข้าเงื่อนไข&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;rule-class&quot;&gt;Rule Class&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;class AttackRule:
+    def __init__(self, mySort, myFilter, opSort, opFilter, rule):
+        self.__dict__.update(l for l in locals().items() if l[0] != 'self')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;creature-attack&quot;&gt;Creature Attack&lt;/h3&gt;
+
+&lt;p&gt;ผมจะ simulate เพื่อให้ creature โจมตี crature ฝั่งตรงข้ามก่อนตามเงื่อนไขที่กำหนด จากนั้นถ้าเข้าเงื่อนไขจึงเก็บ action และบันทึกค่าว่าโจมตีจริงๆ&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;def creatureAttack(self):
+        action_list = []
+
+        attack_rules=[
+            # โจมตี taunt creature ให้ได้คุ้มค่า
+            AttackRule(lambda my: -my.defense, lambda my: my.action,
+            lambda op: -op.attack, lambda op: op.guard==1,
+            lambda my, op: my.live and op.live==0),
+            # โจมตี taunt creature โดยที่ของเรายังไม่ตาย
+            AttackRule(lambda my: -my.attack, lambda my: my.action,
+            lambda op: -op.attack, lambda op: op.guard==1,
+            lambda my, op:  my.live),
+            # โจมตี taunt creature ไม่ว่ายังไงก็ตาม
+            AttackRule(lambda my: -my.attack, lambda my: my.action,
+            lambda op: -op.attack, lambda op: op.guard==1,
+            lambda my, op: True),
+            # โจมตีโดยที่ creature ฝั่งตรงข้ามตาย แต่ฝั่งเราไม่ตาย
+            AttackRule(lambda my: my.attack, lambda my: my.action,
+            lambda op: -op.attack, lambda op: True,
+            lambda my, op: my.live and op.live==0),
+            # โจมตีโดยที่ creature ฝั่งตรงข้ามตาย
+            AttackRule(lambda my: my.attack, lambda my: my.action,
+            lambda op: -op.attack, lambda op: True,
+            lambda my, op: op.live==0), # and self.player_health &amp;lt; self.op.player_health
+        ]
+
+        for attack_rule in attack_rules:# loop ทุกๆ rules
+            # sort และ filter creatures ตาม rule ที่กำหนด
+            for my_c in sorted(filter(attack_rule.myFilter, self.boards), key=attack_rule.mySort):
+                for op_c in sorted(filter(attack_rule.opFilter, self.op.boards), key=attack_rule.opSort):
+                    my_c_temp = deepcopy(my_c) # deep copy เพื่อ simulate ว่าถ้าตีผลจะเป็นยังไง
+                    op_c_temp = deepcopy(op_c)
+                    my_c_temp.attackTarget(op_c_temp)
+                    if attack_rule.rule(my_c_temp, op_c_temp): # ถ้าลองโจมตีแล้วเข้าเงื่อนไขให้ทำการบันทึก action
+                        my_c = my_c_temp
+                        op_c = op_c_temp
+                        action_list.append(&quot;ATTACK {} {} Pika!&quot;.format(my_c.instance_id, op_c.instance_id))
+                        my_c.action = 0 # เมื่อโจมตีแล้วจะตีไม่ได้อีก
+                        if not my_c.live:
+                            self.boards.remove(my_c) # ถ้าตายจำออกจากบอร์ด
+                        if not op_c.live:
+                            self.op.boards.remove(op_c)
+                        break
+
+        # สั่งให้ตีฮีโร่ฝั่งตรงข้ามเมื่อไม่เข้าเงื่อนไขข้างบน
+        for my_c in self.boards:
+            if my_c.action:
+                action_list.append(&quot;ATTACK {} {} Pikachu!!&quot;.format(my_c.instance_id, -1))
+                my_c.action = 0
+
+        return action_list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;game-loops-and-input&quot;&gt;Game loops and Input&lt;/h3&gt;
+
+&lt;p&gt;main ของ Bot ใช้เพื่ออัพเดตค่าต่างๆของเกมโดยผู้เล่นจะสลับฝั่งกันเล่นและอัพเดตค่าผ่านทาง input, output&lt;/p&gt;
+
+&lt;p&gt;โดย Bot Game ใน Codingame นั้นจะประมวลผลเกมเป็น loop ดังนี้&lt;/p&gt;
+
+&lt;p&gt;game ประมวลผล&lt;/p&gt;
+
+&lt;p&gt;player 1 รับค่า และ ประมวลผล&lt;/p&gt;
+
+&lt;p&gt;player 1 ส่งค่า&lt;/p&gt;
+
+&lt;p&gt;game ประมวลผล&lt;/p&gt;
+
+&lt;p&gt;player 2 รับค่า และ ประมวลผล&lt;/p&gt;
+
+&lt;p&gt;player 2 ส่งค่า&lt;/p&gt;
+
+&lt;p&gt;เป็น loop จนกว่าจะจบเกม&lt;/p&gt;
+
+&lt;h3 id=&quot;main&quot;&gt;Main&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;my_player = Player()
+op_player = Player()
+my_player.setEnemy(op_player)
+while True:
+    player_health, player_mana, player_deck, player_rune = [int(j) for j in input().split()]
+    my_player.update(player_health, player_mana, player_deck, player_rune) # อัพเดตค่าของ player ทุกๆเทริน
+    player_health, player_mana, player_deck, player_rune = [int(j) for j in input().split()]
+    op_player.update(player_health, player_mana, player_deck, player_rune)
+
+    opponent_hand = int(input())
+    card_count = int(input())
+    draft_list = []
+    for i in range(card_count):
+        # Input card และ map แปลง input ที่เป็นตัวเลขให้เป็น Int
+        card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw = map(lambda x: int(x) if x[-1].isdigit() else x,input().split())
+        if card_type!=0: # เช็คว่าเป็นไพ่ชนิดใด
+            card = Item(card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw)
+        else:
+            card = Creature(card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw)
+        if my_player.player_mana==0:
+            draft_list.append(card)
+        elif location==0: # เช็คว่ายู่บนมือของเรา
+            my_player.addHand(card)
+        elif location==1: # เช็คว่ายู่บนสนามของเรา
+            my_player.addBoard(card)
+        elif location==-1: # เช็คว่ายู่บนสนามของคู่แข่ง
+            op_player.addBoard(card)
+
+    if my_player.player_mana==0: # ถ้ามานาเท่ากับ 0 แสดงว่าเป็น draft parse
+        my_player.draft(draft_list)
+    else:
+        my_player.play()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;full-code&quot;&gt;Full Code&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Python&quot;&gt;import sys
+from copy import deepcopy
+
+def log(*args,**kwargs):
+    print(*args,**kwargs, file=sys.stderr)
+
+class AttackRule:
+    def __init__(self, mySort, myFilter, opSort, opFilter, rule):
+        self.__dict__.update(l for l in locals().items() if l[0] != 'self')
+
+class Player:
+    def __init__(self):
+        self.mana_curve = [0, 7, 6, 5, 4, 3, 0, 0, 0, 0, 0, 0, 0]
+    def setEnemy(self, player):
+        self.op = player
+    def update(self, player_health, player_mana, player_deck, player_rune):
+        self.__dict__.update(l for l in locals().items() if l[0] != 'self')
+        self.hands = []
+        self.boards = []
+    def addHand(self, card):
+        self.hands.append(card)
+    def addBoard(self, card):
+        self.boards.append(card)
+
+    def draft(self, draft_list):
+        max_value = 0
+        card_no=0
+        for i, card in enumerate(draft_list):
+            if type(card) is Creature: #todo add item pick
+                value = card.attack * card.defense
+                if self.mana_curve[card.cost] &amp;gt; 0:
+                    value += 100
+                if value &amp;gt; max_value:
+                    max_value = value
+                    card_no = i
+        self.mana_curve[draft_list[card_no].cost]-=1
+        print('PICK {}'.format(card_no))
+
+    def summon(self): # to do make mana zero
+        mana=self.player_mana
+        action_list = []
+        boards_count = len(self.boards)
+        creature_on_hand = filter(lambda x: type(x) is Creature ,self.hands)
+        for c in sorted(creature_on_hand, key=lambda x: x.cost, reverse=True):
+            if boards_count &amp;lt; 6 or 1: # to do need to check summon again after trade
+                if c.cost&amp;lt;=mana:
+                    mana-=c.cost
+                    action_list.append(&quot;SUMMON {}&quot;.format(c.instance_id))
+                    if c.charge:
+                        self.boards.append(c)
+                    boards_count += 1
+        return action_list
+
+    def creatureAttack(self):
+        action_list = []
+
+        attack_rules=[
+            # trade taunt value
+            AttackRule(lambda my: -my.defense, lambda my: my.action,
+            lambda op: -op.attack, lambda op: op.guard==1,
+            lambda my, op: my.live and op.live==0),
+            # attack taunt and survive
+            AttackRule(lambda my: -my.attack, lambda my: my.action,
+            lambda op: -op.attack, lambda op: op.guard==1,
+            lambda my, op:  my.live),
+            # attack taunt
+            AttackRule(lambda my: -my.attack, lambda my: my.action,
+            lambda op: -op.attack, lambda op: op.guard==1,
+            lambda my, op: True),
+            # trade lethal
+            AttackRule(lambda my: my.defense, lambda my: my.action,
+            lambda op: -op.attack, lambda op: op.lethal==1,
+            lambda my, op: op.live==0),
+            # trade value
+            AttackRule(lambda my: my.attack, lambda my: my.action,
+            lambda op: -op.attack, lambda op: True,
+            lambda my, op: my.live and op.live==0),
+            # trade equal
+            AttackRule(lambda my: my.attack, lambda my: my.action,
+            lambda op: -op.attack, lambda op: True,
+            lambda my, op: op.live==0), # and self.player_health &amp;lt; self.op.player_health
+        ]
+
+        for attack_rule in attack_rules:
+            for my_c in sorted(filter(attack_rule.myFilter, self.boards), key=attack_rule.mySort):
+                for op_c in sorted(filter(attack_rule.opFilter, self.op.boards), key=attack_rule.opSort):
+                    my_c_temp = deepcopy(my_c)
+                    op_c_temp = deepcopy(op_c)
+                    my_c_temp.attackTarget(op_c_temp)
+                    if attack_rule.rule(my_c_temp, op_c_temp):
+                        my_c = my_c_temp
+                        op_c = op_c_temp
+                        action_list.append(&quot;ATTACK {} {} Pika!&quot;.format(my_c.instance_id, op_c.instance_id))
+                        my_c.action = 0
+                        if not my_c.live:
+                            self.boards.remove(my_c)
+                        if not op_c.live:
+                            self.op.boards.remove(op_c)
+                        break
+        # go face
+        for my_c in self.boards:
+            if my_c.action:
+                action_list.append(&quot;ATTACK {} {} Pikachu!!&quot;.format(my_c.instance_id, -1))
+                my_c.action = 0
+
+        return action_list
+
+    def useItem(self):# item red target op minion
+        return []
+
+    def play(self):
+        action_list = []
+        action_list += self.summon()
+        action_list += self.useItem()
+        action_list += self.creatureAttack()
+        print(';'.join(action_list))
+
+class Card:
+    def __init__(self, card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw):
+        self.__dict__.update(l for l in locals().items() if l[0] != 'self')
+        self.action = 1
+        self.shield = 1 if 'W' in abilities else 0
+        self.lethal = 1 if 'L' in abilities else 0
+        self.guard = 1 if 'G' in abilities else 0
+        self.charge = 1 if 'C' in abilities else 0
+        self.drain = 1 if 'D' in abilities else 0
+        self.breakthrough = 1 if 'B'in abilities else 0
+        self.live = 1
+    def __hash__(self):
+         return hash(self.instance_id)
+    def __eq__(self, other):
+        return (
+            self.__class__ == other.__class__ and
+            self.instance_id == other.instance_id
+        )
+
+class Item(Card):
+    def use(self, target):
+        pass
+
+class Creature(Card):
+    def attackTarget(self, target): # attack op creature
+        self.action = 0
+        if self.shield: # damage to self
+            self.shield = 0
+        else:
+            self.defense -= target.attack
+            if self.defense &amp;lt;=0 or (target.lethal and type(target) is Creature):
+                self.live = 0
+        if target.shield: # damage to target
+            target.shield = 0
+        else:
+            target.defense -= self.attack
+            if target.defense &amp;lt;=0 or (self.lethal and type(target) is Creature):
+                target.live = 0
+
+my_player = Player()
+op_player = Player()
+my_player.setEnemy(op_player)
+# op_player.setEnemy(my_player)
+while True:
+    player_health, player_mana, player_deck, player_rune = [int(j) for j in input().split()]
+    my_player.update(player_health, player_mana, player_deck, player_rune)
+    player_health, player_mana, player_deck, player_rune = [int(j) for j in input().split()]
+    op_player.update(player_health, player_mana, player_deck, player_rune)
+
+    opponent_hand = int(input())
+    card_count = int(input())
+    draft_list = []
+    for i in range(card_count):
+        card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw = map(lambda x: int(x) if x[-1].isdigit() else x,input().split())
+        if card_type!=0:
+            card = Item(card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw)
+        else:
+            card = Creature(card_number, instance_id, location, card_type, cost, attack, defense, abilities, my_health_change, opponent_health_change, card_draw)
+        if my_player.player_mana==0:
+            draft_list.append(card)
+        elif location==0:
+            my_player.addHand(card)
+        elif location==1:
+            my_player.addBoard(card)
+        elif location==-1:
+            op_player.addBoard(card)
+
+    if my_player.player_mana==0:
+        my_player.draft(draft_list)
+    else:
+        my_player.play()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;การเขียนอาจะจะเข้าใจยากไปหน่อย สามารถติชมกันได้ครับ&lt;/p&gt;
+</description>
+        <pubDate>Sun, 05 Aug 2018 19:30:54 +0700</pubDate>
+        <link>https://ntsd.me/legends-of-code-and-magic-play-bot-programming-with-basic-algorithms/</link>
+        <guid isPermaLink="true">https://ntsd.me/legends-of-code-and-magic-play-bot-programming-with-basic-algorithms/</guid>
+        
+        <category>Artificial Intelligence</category>
+        
+        <category>Programming</category>
+        
+        <category>Python</category>
+        
+        
+        <category>Programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Welcome to my blog</title>
+        <description>&lt;h2 id=&quot;hello-everyone&quot;&gt;Hello Everyone&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This is my blog.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Hope you like it.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/CbCPL3ECwTM&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Thu, 26 Jul 2018 22:14:54 +0700</pubDate>
+        <link>https://ntsd.me/welcome-to-my-blog/</link>
+        <guid isPermaLink="true">https://ntsd.me/welcome-to-my-blog/</guid>
+        
+        <category>General</category>
+        
+        
+        <category>General</category>
+        
+      </item>
+    
+  </channel>
+</rss>
