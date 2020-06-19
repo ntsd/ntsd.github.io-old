@@ -44,7 +44,10 @@ module.exports = function(grunt) {
                     ]
                 },
                 files: {
-                    "css/<%= pkg.name %>.min.css": "less/<%= pkg.name %>.less",
+                    "css/<%= pkg.name %>.min.css": [
+                        "css/bootstrap.min.css",
+                        "less/<%= pkg.name %>.less"
+                    ],
                     "css/prism.min.css": "css/prism.css"
                 }
             }

@@ -22,10 +22,10 @@ const PRECACHE_LIST = [
   "./js/ntsd-blog.min.js",
   "./js/snackbar.min.js",
   "./js/prism.min.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js",
+  // "https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js",
   // CSS
   "./css/ntsd-blog.min.css",
-  "./css/bootstrap.min.css",
+  // "./css/bootstrap.min.css",
   "./css/prism.min.css",
   // Images
   "./img/post-bg-os-metro.jpg",
