@@ -5,9 +5,127 @@
     <description>A Software Engineer</description>
     <link>https://ntsd.me/</link>
     <atom:link href="https://ntsd.me/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 19 Jun 2020 07:11:06 +0700</pubDate>
-    <lastBuildDate>Fri, 19 Jun 2020 07:11:06 +0700</lastBuildDate>
+    <pubDate>Sun, 28 Jun 2020 13:02:19 +0700</pubDate>
+    <lastBuildDate>Sun, 28 Jun 2020 13:02:19 +0700</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
+    
+      <item>
+        <title>Speed testing and compare free static web hosting (Netlify vs Github Page vs Fast.io)</title>
+        <description>&lt;p&gt;I did create a website from Jekyll and I’m looking for static web hosting to store it. What’s the fastest and lowest latency for free web hosting\? Here is a topic that I testing about it.&lt;/p&gt;
+
+&lt;h2 id=&quot;free-static-web-hosting&quot;&gt;Free Static Web Hosting&lt;/h2&gt;
+
+&lt;p&gt;I’ll deploy the site to a different web hosting to check what’s the best. My choices are following here.&lt;/p&gt;
+
+&lt;h3 id=&quot;github-page&quot;&gt;Github Page&lt;/h3&gt;
+
+&lt;p&gt;Github Page is a free web hosting that supports to build Jekyll static web. It standalone running in Github repository so you can’t use it with Gitlab or other git platforms.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/github-page-panel.png&quot; alt=&quot;Github Page Panel&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;netlify&quot;&gt;Netlify&lt;/h3&gt;
+
+&lt;p&gt;Netlify also a free web hosting but there’s a build limit for free user Netlify is supporting a lot of Static web generators.
+Netlify also allows to use their DNS for a faster routes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/netlify-panel.png&quot; alt=&quot;Netlify Panel&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;fastio&quot;&gt;Fast.io&lt;/h3&gt;
+
+&lt;p&gt;Fast.io is super fast file hosting. but I use it as a static web storage. Fast.io provide many features such as Auto minify, Mirage (help speed up loading depend on device), Polish (automate compress image), Scrape Shield (protect site from scraping).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/fast.io-panel.png&quot; alt=&quot;Fast.io Panel&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;testing-tools&quot;&gt;Testing Tools&lt;/h2&gt;
+
+&lt;p&gt;Because of every hosting have Global CDN and The result can be difference in difference tools so I need to test every host on every tools for the best estimate result as I can.&lt;/p&gt;
+
+&lt;h3 id=&quot;dotcom-monitor-website-speed-test&quot;&gt;Dotcom-Monitor website speed test&lt;/h3&gt;
+
+&lt;p&gt;Dotcom-Monitor allow to test website multiple locations worldwide. I think this is the best tool testing because it has testing server around the world.&lt;/p&gt;
+
+&lt;p&gt;Site: &lt;a href=&quot;https://www.dotcom-tools.com/website-speed-test.aspx&quot;&gt;https://www.dotcom-tools.com/website-speed-test.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;config-locations&quot;&gt;Config locations&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/dotcom-monitor-config.png&quot; alt=&quot;Dotcom-Monitor config&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;dotcom-monitor-github-page-result&quot;&gt;Dotcom-Monitor Github Page Result&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/dotcom-monitor-github.png&quot; alt=&quot;Dotcom-Monitor Github Page Result&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;dotcom-monitor-netlify-result&quot;&gt;Dotcom-Monitor Netlify Result&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/dotcom-monitor-netlify.png&quot; alt=&quot;Dotcom-Monitor Netlify Result&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;dotcom-monitor-fastio-result&quot;&gt;Dotcom-Monitor Fast.io Result&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/dotcom-monitor-imfast.png&quot; alt=&quot;Dotcom-Monitor Fast.io Result&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;google-pagespeed-insights&quot;&gt;Google PageSpeed Insights&lt;/h3&gt;
+
+&lt;p&gt;Google PageSpeed Insights will analyze a web page. It can simulate screen size, 3G/4G mobile connection, and CPU speed the check that your site is working well on mobile devices. it can generate suggestions to make the page faster. but there’s no server location config so we don’t know the location of the testing server.&lt;/p&gt;
+
+&lt;p&gt;Site: &lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot;&gt;https://developers.google.com/speed/pagespeed/insights/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/pagespeed-insights-panel.png&quot; alt=&quot;Google PageSpeed Insights&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;pagespeed-insights-github-page-result&quot;&gt;PageSpeed Insights Github Page Result&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/pagespeed-insights-github-mobile.png&quot; alt=&quot;PageSpeed Insights Github Page Mobile Result&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/pagespeed-insights-github-desktop.png&quot; alt=&quot;PageSpeed Insights Github Page Desktop Result&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;pagespeed-insights-netlify-result&quot;&gt;PageSpeed Insights Netlify Result&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/pagespeed-insights-netlify-mobile.png&quot; alt=&quot;PageSpeed Insights Netlify Mobile Result&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/pagespeed-insights-netlify-desktop.png&quot; alt=&quot;PageSpeed Insights Netlify Desktop Result&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;pagespeed-insights-fastio-result&quot;&gt;PageSpeed Insights Fast.io Result&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/pagespeed-insights-imfast-mobile.png&quot; alt=&quot;PageSpeed Insights Fast.io Mobile Result&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/pagespeed-insights-imfast-desktop.png&quot; alt=&quot;PageSpeed Insights Fast.io Desktop Result&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;gtmetrix&quot;&gt;GTmetrix&lt;/h3&gt;
+
+&lt;p&gt;GTmetrix is a testing tool that has rich features and comparison graphs to show you what site is loading faster.&lt;/p&gt;
+
+&lt;p&gt;Site: &lt;a href=&quot;https://gtmetrix.com/&quot;&gt;https://gtmetrix.com/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/gtmetrix-panel.png&quot; alt=&quot;GTmetrix&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To compare these site I’ll set the server location to Australia because It’s closet to my country.&lt;/p&gt;
+
+&lt;h3 id=&quot;gtmetrix-results&quot;&gt;GTmetrix Results&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/gtmetrix-compare-1.png&quot; alt=&quot;GTmetrix Compare&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/gtmetrix-compare-4.png&quot; alt=&quot;GTmetrix Compare&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/in-post/2020-6-28-speed-test-free-static-web-hosting/gtmetrix-compare-5.png&quot; alt=&quot;GTmetrix Compare&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;After tests all hosting services with all tools. I think Fast.io is clearly the winner as performance static file hosting. This test might not the optimal test because I haven’t tuned the web enough as you see Fast.io minify and compress feature can still reduce data size. For Netlify, I forgot to set response headers and cache policy and Github Page still can’t config header response. By the way, Fast.io is just a static hosting service you can’t build your static site on it like Github Page or Netlify so You need to build before push to the git.&lt;/p&gt;
+
+&lt;p&gt;For the rich features, CICD, and build function, I think Netlify is still the best for me.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 30 May 2020 22:14:54 +0700</pubDate>
+        <link>https://ntsd.me/speed-testing-free-static-web-hosting/</link>
+        <guid isPermaLink="true">https://ntsd.me/speed-testing-free-static-web-hosting/</guid>
+        
+        <category>Hosting</category>
+        
+        <category>Website</category>
+        
+        <category>Web Performance</category>
+        
+        
+        <category>Hosting</category>
+        
+      </item>
     
       <item>
         <title>Improve TypeScript code quality with Google TypeScript Style Guide</title>
