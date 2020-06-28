@@ -10,11 +10,12 @@ tags:
     - Website
     - Web Performance
 published: true
+catalog: true
 ---
 
 I did create a website from Jekyll and I'm looking for static web hosting to store it. What's the fastest and lowest latency for free web hosting\? Here is a topic that I testing about it.
 
-## Free Static Web Hosting
+## Static Web Hosting
 
 I'll deploy the site to a different web hosting to check what's the best. My choices are following here.
 
