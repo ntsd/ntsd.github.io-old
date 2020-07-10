@@ -11,3 +11,12 @@
   minify = true
 [build.processing.images]
   compress = true
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+[[headers]]
+  for = "*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
