@@ -6,6 +6,7 @@
 
 .side-catalog {
     &.fixed{
+        display: block;
         position: fixed;
         top: 0;
     }
@@ -23,11 +24,10 @@
         margin-right: 5px;
         bottom: 1px;
     }
-    display: block;
+    display: none;
     overflow: auto;
     height: 100%;
     padding-bottom: 40px;
-    // width: 195px;
     .catalog-body{
         position: relative;
         list-style: none;
@@ -40,8 +40,7 @@
             position: relative;
             list-style: none;
             a{
-                padding-left: 10px;
-                // max-width: 180px;
+                padding-left: 10px; 
                 display: inline-block;
                 vertical-align: middle;
                 height: 30px;
@@ -71,6 +70,10 @@
             border-radius: 4px;
             background-color: #F5F5F5;
         }
+    }
+
+    .shareon>* {
+        display: block;
     }
 }
 

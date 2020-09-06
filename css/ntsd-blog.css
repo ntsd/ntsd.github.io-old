@@ -41,12 +41,13 @@
   padding: 0px;
 }
 .side-catalog {
-  display: block;
+  display: none;
   overflow: auto;
   height: 100%;
   padding-bottom: 40px;
 }
 .side-catalog.fixed {
+  display: block;
   position: fixed;
   top: 0;
 }
@@ -110,6 +111,9 @@
 }
 .side-catalog .catalog-body .active a {
   color: #0085a1 !important;
+}
+.side-catalog .shareon > * {
+  display: block;
 }
 @media (max-width: 1200px) {
   .side-catalog {
