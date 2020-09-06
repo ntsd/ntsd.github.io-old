@@ -54,10 +54,29 @@ layout: default
     <div class="container">
         <div class="row">
 
+            <!-- Left Side Catalog Container -->
+            {% if page.catalog %}
+            <div class="
+                col-lg-1
+                col-md-1
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <div class="shareon" data-url="{{site.url}}{{page.url}}">
+                        <a class="facebook"></a>
+                        <a class="linkedin"></a>
+                        <a class="messenger"></a>
+                        <a class="twitter"></a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
             <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
+                col-lg-9
+                col-md-10
                 post-container">
 
                 <!-- Multi-Lingual -->
@@ -110,10 +129,11 @@ layout: default
                 {% endif %}
             </div>  
 
-            <!-- Side Catalog Container -->
+            <!-- Right Side Catalog Container -->
             {% if page.catalog %}
             <div class="
-                col-lg-2 col-lg-offset-0
+                col-lg-2
+                col-md-1
                 visible-lg-block
                 sidebar-container
                 catalog-container">
@@ -125,8 +145,9 @@ layout: default
                 </div>
             </div>
             {% endif %}
-
-            <!-- Sidebar Container -->
+        </div>
+        <!-- Bottom Container -->
+        <div class="row">
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
@@ -153,14 +174,30 @@ layout: default
     </div>
 </article>
 
-<!-- async load function -->
+<!-- async load function async(url, callback, delay) -->
 <script>
-    function async(u, c) {
-      var d = document, t = 'script',
+    function async(u, c, t) {
+        function l() {
+            var d = document, s = 'script',
+                o = d.createElement(s),
+                e = d.getElementsByTagName(s)[0];
+            o.src = u;
+            if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+            e.parentNode.insertBefore(o, e);
+        }
+        if (t) {
+            setTimeout(l, t);
+        }
+        else {
+            l();
+        }
+    }
+    function asyncStyle(u) {
+      var d = document, t = "link",
           o = d.createElement(t),
           s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      o.href = u;
+      o.rel="stylesheet";
       s.parentNode.insertBefore(o, s);
     }
 </script>
@@ -211,3 +248,11 @@ layout: default
     }
 </style>
 {% endif %}
+
+<!-- Shared Button -->
+<script>
+    async("https://cdn.jsdelivr.net/npm/shareon@1/dist/shareon.min.js", () => {
+        shareon();
+    }, 5000);
+    asyncStyle("https://cdn.jsdelivr.net/npm/shareon@1/dist/shareon.min.css");
+</script>

@@ -18,8 +18,6 @@ catalog: false
                         {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
                         </time>
                         <a class="title" href="{{ post.url | prepend: site.baseurl }}" style="margin-right: 5px">{{ post.title }}</a>
-
-                        {% include tag.html %}
                     </li>
                     {% endif %}
                 {% endfor %}
