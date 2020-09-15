@@ -15,7 +15,7 @@ catalog: false
                     {% if post.url %}
                     <li>
                         <time>
-                        {{ post.date | date:"%F" }} {{ post.date | date: "%a" }}.
+                        {{ post.date | date:"%F" }}
                         </time>
                         <a class="title" href="{{ post.url | prepend: site.baseurl }}" style="margin-right: 5px">{{ post.title }}</a>
                     </li>
