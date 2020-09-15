@@ -62,14 +62,6 @@ layout: default
                 visible-lg-block
                 sidebar-container
                 catalog-container">
-                <div class="side-catalog">
-                    <div class="shareon" data-url="{{site.url}}{{page.url}}">
-                        <a class="facebook"></a>
-                        <a class="linkedin"></a>
-                        <a class="messenger"></a>
-                        <a class="twitter"></a>
-                    </div>
-                </div>
             </div>
             {% endif %}
 
@@ -220,7 +212,7 @@ layout: default
 <!-- Facebook comments -->
 {% if site.facebook_comments %}
 <script>
-    async("https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId={{site.facebook_app_id}}")
+    async("https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId={{site.facebook_app_id}}", ()=>{}, 5000)
 </script>
 {% endif %}
 
@@ -248,11 +240,3 @@ layout: default
     }
 </style>
 {% endif %}
-
-<!-- Shared Button -->
-<script>
-    async("https://cdn.jsdelivr.net/npm/shareon@1/dist/shareon.min.js", () => {
-        shareon();
-    }, 5000);
-    asyncStyle("https://cdn.jsdelivr.net/npm/shareon@1/dist/shareon.min.css");
-</script>

@@ -5,7 +5,7 @@
   background: #ffffff;
 }
 
-#timeline .header {
+#timeline .timeline-header {
   text-align: center;
   position: relative;
   z-index: 1;
@@ -13,17 +13,17 @@
   width: 100%;
   /* background-image: linear-gradient(to bottom, #6fc7d4 0%, #39ACBD 100%); */
 }
-#timeline .header .master-head {
+#timeline .timeline-header .master-head {
   padding: 7% 30px;
 }
-#timeline .header .page-title {
+#timeline .timeline-header .page-title {
   font-size: 40px;
   font-family: "Space Mono", "Arial", sans-serif;
   margin-bottom: 30px;
   line-height: 1em;
   color: #FFF;
 }
-#timeline .header .page-description {
+#timeline .timeline-header .page-description {
   margin: 30px auto;
   max-width: 600px;
   font-size: 18px;
@@ -263,7 +263,7 @@
   }
 }
 @media only screen and (max-width: 700px) {
-  #timeline .header .page-title {
+  #timeline .timeline-header .page-title {
     font-size: 40px;
   }
   #timeline .post-wrapper .timeline-post {
