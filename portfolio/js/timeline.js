@@ -82,6 +82,8 @@
             postOffset = post.offset().top;
 
           if (scrollSplit > postOffset) {
+            stemWrapper.show();
+
             post.addClass("post-active");
 
             var color = post.data("stem-color")
@@ -97,6 +99,8 @@
             }
 
             return false;
+          } else {
+            stemWrapper.hide();
           }
         });
       }, 20);
