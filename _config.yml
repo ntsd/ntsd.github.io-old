@@ -19,7 +19,7 @@ future: true # Publish posts or collection documents with a future date.
 RSS: false
 github_username: ntsd
 # twitter_username: ntsd_me
-facebook_username: jo.ntsd
+# facebook_username: jo.ntsd
 linkedin_username: ntsd
 # github_btn: ntsd.github.io # Github repository name
 
