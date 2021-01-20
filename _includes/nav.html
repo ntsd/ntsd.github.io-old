@@ -1,69 +1,96 @@
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="{{ site.baseurl }}/">Home</a>
-                    </li>
-                    {% for page in site.pages %}{% if page.title %}
-                    <li>
-                        <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                    </li>
-                    {% endif %}{% endfor %}
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ site.baseurl }}/">{{ site.title }}</a>
     </div>
-    <!-- /.container -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="{{ site.baseurl }}/">Home</a>
+          </li>
+          {% for page in site.pages %}{% if page.title %}
+          <li>
+            <a href="{{ page.url | prepend: site.baseurl }}"
+              >{{ page.title }}</a
+            >
+          </li>
+          {% endif %}{% endfor %}
+          <li>
+            <a
+              href="https://webring.wonderful.software#ntsd.me"
+              title="วงแหวนเว็บ"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 416 416"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M53 128.8l-16-8.2a192 192 0 1094.7-88.9l7.1 16.6A174 174 0 1153 128.8z"
+                  fill="currentColor"
+                />
+                <path
+                  d="M94.7 92.3L82 126.5 62.6 95.7l-36.4-1.4 23.3-28-9.9-35.1 33.9 13.5 30.3-20.3-2.4 36.4L130 83.3l-35.3 9z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
 </nav>
 <script>
-    var $body = document.body;
+  var $body = document.body;
 
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
+  var $toggle = document.querySelector(".navbar-toggle");
+  var $navbar = document.querySelector("#huxblog_navbar");
+  var $collapse = document.querySelector(".navbar-collapse");
 
-    var __HuxNav__ = {
-        close: function(){
-            $navbar.className = " ";
-            setTimeout(function() {
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px";
-                }
-            }, 400);
-        },
-        open: function() {
-            $collapse.style.height = "auto";
-            $navbar.className += " in";
+  var __HuxNav__ = {
+    close: function () {
+      $navbar.className = " ";
+      setTimeout(function () {
+        if ($navbar.className.indexOf("in") < 0) {
+          $collapse.style.height = "0px";
         }
-    };
+      }, 400);
+    },
+    open: function () {
+      $collapse.style.height = "auto";
+      $navbar.className += " in";
+    },
+  };
 
-    $toggle.addEventListener('click', function(e) {
-        if ($navbar.className.indexOf('in') > 0) {
-            __HuxNav__.close();
-        } else{
-            __HuxNav__.open();
-        }
-    });
+  $toggle.addEventListener("click", function (e) {
+    if ($navbar.className.indexOf("in") > 0) {
+      __HuxNav__.close();
+    } else {
+      __HuxNav__.open();
+    }
+  });
 
-    document.addEventListener('click', function(e){
-        if(e.target == $toggle) return;
-        if(e.target.className == 'icon-bar') return;
-        __HuxNav__.close();
-    });
+  document.addEventListener("click", function (e) {
+    if (e.target == $toggle) return;
+    if (e.target.className == "icon-bar") return;
+    __HuxNav__.close();
+  });
 </script>
