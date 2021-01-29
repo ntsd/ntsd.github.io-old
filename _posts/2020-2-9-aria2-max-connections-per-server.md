@@ -16,7 +16,7 @@ tags:
 published: true
 ---
 
-There's maximum 16 connection hard code in aria2 so when I want to split more connection I need to edit a line of code and recompile it
+There's a maximum number 16 connections hard code in aria2 so when I want to add more connections I need to edit a line of code and recompile it
 
 ## Edit max connections per server
 
@@ -42,7 +42,7 @@ Install following packages.
 - autopoint
 - libtool
 
-You can install by run this command.
+You can install all of it by running this command.
 
 ``` bash
 brew install gettext automake autoconf libtool libxml2 cppunit
@@ -72,17 +72,17 @@ Generate configs.
 autoreconf -i
 ```
 
-Run config you that you just create.
+Run config that you just create.
 
 ``` bash
 ./configure
 ```
 
-I'll just using the default configuration.
+I'll just use the default configuration.
 
-If you want more details of it you can just copy steps from homebrew script here <https://github.com/Homebrew/homebrew-core/blob/master/Formula/aria2.rb>.
+If you want more details of it you can just copy steps from the homebrew script here <https://github.com/Homebrew/homebrew-core/blob/master/Formula/aria2.rb>.
 
-Generate make file.
+Use make file to compile the code
 
 ``` bash
 make
@@ -100,7 +100,7 @@ Run make install to generate the binary file.
 make install
 ```
 
-Then you'll get new aria2c binary file complied in `/usr/local/bin/` directory.
+Then you'll get a new aria2c binary file complied in `/usr/local/bin/` directory.
 
 You can check by the command.
 
@@ -128,13 +128,13 @@ Basic Options
 
 -x, --max-connection-per-server=\<NUM>
 
-- maximum number connections to one server.
+- maximum number of connections to one server.
 
 You'll see the number of connections is 64.
 
 ![the number of connections is 64](/img/in-post/2020-2-9-aria2-max-connections-per-server/aria.png)
 
-Done, Now you can use the binary file and unlock aria 2 connections limit.
+Done, Now you can use the binary file and unlock the aria 2 connections limit.
 
 ## references
 
