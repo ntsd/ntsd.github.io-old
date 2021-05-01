@@ -5,7 +5,7 @@ header-img: data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox
 email: jo06942@gmail.com
 description: "A Software Engineer"
 keyword: "Full-Stack Developer, Programming, Machine Learning, IoT"
-url: "https://ntsd.me" # your host, for absolute URL
+url: "https://ntsd.dev" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Build settings
@@ -58,12 +58,12 @@ twitter:
   card: summary
 facebook: 
   app_id: 523337598616322
-  publisher: ntsd.me
+  publisher: ntsd.dev
   admins: jo.ntsd
 social:
   name: Jirawat Boonkumnerd
   links:
-    - https://web.facebook.com/ntsd.me
+    - https://web.facebook.com/ntsd.dev
     - https://github.com/ntsd
     - https://www.linkedin.com/in/ntsd
 
@@ -84,7 +84,7 @@ disqus_username: "ntsd-github-io"
 
 # Google Analytics
 # ga_track_id: 'UA-166826202-1' # Format: UA-xxxxxx-xx
-# ga_domain: ntsd.me
+# ga_domain: ntsd.dev
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.

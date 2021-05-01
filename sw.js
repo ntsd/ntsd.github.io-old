@@ -34,7 +34,7 @@ const PRECACHE_LIST = [
 const HOSTNAME_WHITELIST = [
   self.location.hostname,
   "ntsd.github.io",
-  "ntsd.me",
+  "ntsd.dev",
   "cdnjs.cloudflare.com"
 ]
 const DEPRECATED_CACHES = ['precache-v1', 'runtime', 'main-precache-v1', 'main-runtime']
