@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Index types in PostgreSQL"
+title: "Explain index types in PostgreSQL"
 date: 2021-7-10
-subtitle: "explain index types in PostgreSQL which one should use"
+subtitle: "Explain index types in PostgreSQL how it work and compare between Hash and B-Tree index"
 author: "ntsd"
 catalog: true
 categories:
@@ -61,7 +61,7 @@ EXPLAIN SELECT * FROM persons WHERE last_name='doe';
 
 The query will hit `last_name_idx` index and the index will return all addresses to all rows which last_name is 'doe' instantly.
 
-![hash query result 1](/img/in-post/2021-7-10-postgresql-index-types/hash-query-1.png)
+![hash  query by column](/img/in-post/2021-7-10-postgresql-index-types/hash-query-1.png)
 
 Example 2. When query by multi columns
 
@@ -71,7 +71,7 @@ EXPLAIN SELECT * FROM persons WHERE first_name='john' AND last_name='doe';
 
 The query will using `first_name_idx` index and `last_name_idx` index. I have no idea why it checks `last_name_idx` first. I tried to swap where condition but the plan still the same.
 
-![hash query result 2](/img/in-post/2021-7-10-postgresql-index-types/hash-query-2.png)
+![hash query by multi columns](/img/in-post/2021-7-10-postgresql-index-types/hash-query-2.png)
 
 ## B-Tree index
 
@@ -119,7 +119,7 @@ EXPLAIN SELECT * FROM employees ORDER BY salary;
 
 the query will using index `salary_idx` to order all employees.
 
-![B-Tree query result 1](/img/in-post/2021-7-10-postgresql-index-types/btree-query-1.png)
+![B-Tree query all ordering by index](/img/in-post/2021-7-10-postgresql-index-types/btree-query-1.png)
 
 Example 2. When query all ordering by composite index
 
@@ -129,7 +129,7 @@ EXPLAIN SELECT * FROM employees ORDER BY age;
 
 the query will use index `age_salary_idx` to order all employees. This proves that the multi-columns index can also order by one field.
 
-![B-Tree query result 2](/img/in-post/2021-7-10-postgresql-index-types/btree-query-2.png)
+![B-Tree query all ordering by composite index](/img/in-post/2021-7-10-postgresql-index-types/btree-query-2.png)
 
 Example 3. When query by a column using index
 
@@ -139,7 +139,7 @@ EXPLAIN SELECT * FROM employees WHERE salary = 3000;
 
 As the query plan after the index hit still needs to bitmap Heap scan after and it took 4.20..13.67 cost which means startup cost is 4.2 and the total cost is 13.67. that is why the b-tree index is not O(1).
 
-![B-Tree query result 3](/img/in-post/2021-7-10-postgresql-index-types/btree-query-3.png)
+![B-Tree query by a column using index](/img/in-post/2021-7-10-postgresql-index-types/btree-query-3.png)
 
 Example 4. When query by multiple column using composite index
 
@@ -149,7 +149,7 @@ EXPLAIN SELECT * FROM employees WHERE age = 25 AND salary = 3000;
 
 This is a bit surprising. when query exactly multi-columns to the composite index after it hit the index it will return the result instantly. This is probably O(1) in this situation.
 
-![B-Tree query result 4](/img/in-post/2021-7-10-postgresql-index-types/btree-query-4.png)
+![B-Tree query by multiple column using composite index](/img/in-post/2021-7-10-postgresql-index-types/btree-query-4.png)
 
 ## Conclusion
 
