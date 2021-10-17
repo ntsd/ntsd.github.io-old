@@ -2,15 +2,19 @@
   "name": "Jirawat Boonkumnerd",
   "short_name": "NTSD Blog",
   "description": "A Software Engineer",
-  "icons": [{
-    "src": "icons/icon-min.svg",
-    "sizes": "128x128",
-    "type": "image/svg+xml"
-  }, {
-    "src": "icons/icon-min.svg",
-    "sizes": "512x512",
-    "type": "image/svg+xml"
-  }],
+  "icons": [
+    {
+      "src": "icons/icon-min.svg",
+      "sizes": "128x128",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
   "background_color": "#fff",
   "theme_color": "#000",
   "start_url": "/",
