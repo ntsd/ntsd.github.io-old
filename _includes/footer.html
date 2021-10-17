@@ -40,7 +40,7 @@
 {% endif %}
 
 <!-- async load function -->
-<script>
+<script nonce="ydAaYqmhT5">
   function async(u, c) {
     var d = document,
       t = "script",
@@ -84,7 +84,7 @@
     https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+bash+c+cpp+css-extras+graphql+java+json+python+regex+scss+typescript+yaml&plugins=inline-color+toolbar+copy-to-clipboard    
 -->
 {% if page.collection == "posts" %}
-<script>
+<script nonce="ydAaYqmhT5">
   async("{{ '/js/prism.min.js' | prepend: site.baseurl }}");
   asyncStyle("{{ '/css/prism.min.css' | prepend: site.baseurl }}");
 </script>
@@ -92,7 +92,7 @@
 
 <!-- jquery.tagcloud.js -->
 {% if page.name == "tags.html" %}
-<script>
+<script nonce="ydAaYqmhT5">
   /* only load tagcloud.js in tag.html */
   async(
     '{{ "/js/jquery.tagcloud.min.js" | prepend: site.baseurl }}',
@@ -117,7 +117,7 @@
 
 <!-- Google Analytics -->
 {% if site.ga_track_id %}
-<script>
+<script nonce="ydAaYqmhT5">
   var _gaId = "{{ site.ga_track_id }}";
   var _gaDomain = "{{ site.ga_domain }}";
 
@@ -148,7 +148,7 @@
 
 <!-- Side Catalog -->
 {% if page.catalog %}
-<script type="text/javascript">
+<script type="text/javascript" nonce="ydAaYqmhT5">
   function generateCatalog(selector) {
     /* interop with multilangual */
     if ("{{ page.multilingual }}" == "true") {
@@ -216,7 +216,7 @@
 <!-- Multi-Lingual -->
 {% if page.multilingual %}
 <!-- Handle Language Change -->
-<script type="text/javascript">
+<script type="text/javascript" nonce="ydAaYqmhT5">
   /* get nodes */
   var $th = document.querySelector(".th");
   var $en = document.querySelector(".en");

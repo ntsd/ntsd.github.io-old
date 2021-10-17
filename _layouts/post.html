@@ -167,7 +167,7 @@ layout: default
 </article>
 
 <!-- async load function async(url, callback, delay) -->
-<script>
+<script nonce="ydAaYqmhT5">
     function async(u, c, t) {
         function l() {
             var d = document, s = 'script',
@@ -195,7 +195,7 @@ layout: default
 </script>
 
 {% if site.disqus_username %}
-<script type="text/javascript">
+<script type="text/javascript" nonce="ydAaYqmhT5">
     var disqus_config = function () {
     this.page.url = '{{site.url}}{{page.url}}';
     this.page.identifier = '{{page.id}}';
@@ -211,14 +211,14 @@ layout: default
 
 <!-- Facebook comments -->
 {% if site.facebook_comments %}
-<script>
+<script nonce="ydAaYqmhT5">
     async("https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId={{site.facebook_app_id}}", ()=>{}, 5000)
 </script>
 {% endif %}
 
 {% if site.anchorjs %}
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
+<script nonce="ydAaYqmhT5">
     async("https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
         anchors.options = {
           visible: 'always',
