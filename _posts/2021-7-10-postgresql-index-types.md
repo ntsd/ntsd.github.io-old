@@ -34,14 +34,10 @@ CREATE TABLE persons (
 CREATE INDEX first_name_idx ON persons USING hash (first_name);
 CREATE INDEX last_name_idx ON persons USING hash (last_name);
 
-INSERT INTO persons VALUES
-    (1, 'john', 'doe');
-INSERT INTO persons VALUES
-    (2, 'jane', 'doe');
-INSERT INTO persons VALUES
-    (3, 'jack', 'doe');
-INSERT INTO persons VALUES
-    (4, 'john', 'connor');
+INSERT INTO persons VALUES (1, 'john', 'doe');
+INSERT INTO persons VALUES (2, 'jane', 'doe');
+INSERT INTO persons VALUES (3, 'jack', 'doe');
+INSERT INTO persons VALUES (4, 'john', 'connor');
 ```
 
 persons table
@@ -92,14 +88,10 @@ CREATE TABLE employees (
 CREATE INDEX salary_idx ON employees USING btree (salary);
 CREATE INDEX age_salary_idx ON employees USING btree (age, salary);
 
-INSERT INTO employees VALUES
-    (1, 'john', 3000, 25);
-INSERT INTO employees VALUES
-    (2, 'jane', 1000, 30);
-INSERT INTO employees VALUES
-    (3, 'jack', 2000, 40);
-INSERT INTO employees VALUES
-    (4, 'jill', 5000, 50);
+INSERT INTO employees VALUES (1, 'john', 3000, 25);
+INSERT INTO employees VALUES (2, 'jane', 1000, 30);
+INSERT INTO employees VALUES (3, 'jack', 2000, 40);
+INSERT INTO employees VALUES (4, 'jill', 5000, 50);
 ```
 
 employees table
