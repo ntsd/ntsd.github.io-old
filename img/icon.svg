@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="82.478485mm"
+   height="83.640152mm"
+   viewBox="0 0 82.478485 83.640152"
+   version="1.1"
+   id="svg37416"
+   sodipodi:docname="icon.svg"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview37418"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.68328423"
+     inkscape:cx="264.16532"
+     inkscape:cy="37.319755"
+     inkscape:window-width="1920"
+     inkscape:window-height="947"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs37413" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-35.237289,-89.835732)">
+    <ellipse
+       style="fill:#000000;stroke-width:0.256559"
+       id="path37464"
+       ry="40.658405"
+       rx="39.883961"
+       cy="132.04303"
+       cx="76.282921" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:70.5577px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.367488"
+       x="53.074821"
+       y="156.57542"
+       id="text38590"
+       transform="scale(1.0275857,0.97315484)"><tspan
+         sodipodi:role="line"
+         id="tspan38588"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:70.5577px;font-family:'Brush Script MT';-inkscape-font-specification:'Brush Script MT';fill:#ffffff;stroke-width:0.367488"
+         x="53.074821"
+         y="156.57542">N</tspan></text>
+  </g>
+</svg>

@@ -3,13 +3,13 @@
   "short_name": "NTSD Blog",
   "description": "A Software Engineer",
   "icons": [{
-    "src": "icons/128.png",
+    "src": "icons/icon-min.svg",
     "sizes": "128x128",
-    "type": "image/png"
+    "type": "image/svg+xml"
   }, {
-    "src": "icons/512.png",
+    "src": "icons/icon-min.svg",
     "sizes": "512x512",
-    "type": "image/png"
+    "type": "image/svg+xml"
   }],
   "background_color": "#fff",
   "theme_color": "#000",
