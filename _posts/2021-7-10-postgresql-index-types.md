@@ -18,7 +18,7 @@ Postgres provides many index types such as B-tree, hash, GiST, and GIN. This art
 
 ## Hash index
 
-Hash index is probably the fastest and the simplest index with O(1) the data will store in hashmap structure. for example when you query and the key index hit the hash map will return address to data storage is instantly. Hash index in Postgres doesn't support composite or multi-columns index and Hash index don't have ability for ordering or select between range, but B-tree index can make the job.
+Hash index is probably the fastest and the simplest index with O(1) the data will store in hashmap structure. for example when you query and the key index hit the hash map will return address to data storage is instantly. Hash index in Postgres doesn't support composite or multi-columns index and Hash index don't have ability for ordering or select between range, Unlike B-tree index it can do the job.
 
 ### Examples
 
