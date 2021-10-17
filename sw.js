@@ -20,7 +20,6 @@ const PRECACHE_LIST = [
   "./js/jquery.nav.min.js",
   "./js/jquery.tagcloud.min.js",
   "./js/ntsd-blog.min.js",
-  "./js/snackbar.min.js",
   "./js/prism.min.js",
   // "https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js",
   // CSS

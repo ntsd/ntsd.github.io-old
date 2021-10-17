@@ -17,7 +17,6 @@ module.exports = function(grunt) {
                 files: {
                     'js/<%= pkg.name %>.min.js': ['js/<%= pkg.name %>.js'],
                     'js/sw-registration.min.js': ['js/sw-registration.js'],
-                    'js/snackbar.min.js': ['js/snackbar.js'],
                     'js/jquery.nav.min.js': ['js/jquery.nav.js'],
                     'js/jquery.tagcloud.min.js': ['js/jquery.tagcloud.js'],
                     'sw.min.js': ['sw.js']

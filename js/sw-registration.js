@@ -16,10 +16,6 @@ function handleRegistration(registration){
         console.log('SW is updated');
       } else {
         console.log('A Visit without previous SW');
-        createSnackbar({
-          message: 'App ready for offline use.',
-          duration: 5000
-        })
       }
     };
   }
