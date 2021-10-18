@@ -4,9 +4,9 @@
   "description": "A Software Engineer",
   "icons": [
     {
-      "src": "icons/icon-min.svg",
+      "src": "icons/128.png",
       "sizes": "128x128",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
