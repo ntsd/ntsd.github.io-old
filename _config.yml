@@ -91,7 +91,7 @@ facebook_comments: false
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "<h4>@ntsd</h4><h4>Jirawat Boonkumnerd</h4> A Software Engineer"
+sidebar-about-description: "<h4>Jirawat Boonkumnerd</h4> A Software Engineer"
 # sidebar-avatar: /img/me.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
