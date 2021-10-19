@@ -119,6 +119,21 @@ layout: default
                 </div>
                 <!-- disqus 评论框 end -->
                 {% endif %}
+
+                {% if site.giscus %}
+                <script src="https://giscus.app/client.js"
+                    data-repo="ntsd/ntsd.github.io"
+                    data-repo-id="MDEwOlJlcG9zaXRvcnkyNDYwNjU3MDI="
+                    data-category="General"
+                    data-category-id="DIC_kwDODqqqJs4B_e5q"
+                    data-mapping="pathname"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-theme="light"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+                {% endif %}
             </div>  
 
             <!-- Right Side Catalog Container -->
