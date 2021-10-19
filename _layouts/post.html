@@ -121,6 +121,7 @@ layout: default
                 {% endif %}
 
                 {% if site.giscus %}
+                <div class="comment giscus"></div>
                 <script src="https://giscus.app/client.js"
                     data-repo="ntsd/ntsd.github.io"
                     data-repo-id="MDEwOlJlcG9zaXRvcnkyNDYwNjU3MDI="
@@ -131,7 +132,7 @@ layout: default
                     data-emit-metadata="0"
                     data-theme="light"
                     crossorigin="anonymous"
-                    async>
+                    defer>
                 </script>
                 {% endif %}
             </div>  
@@ -182,7 +183,7 @@ layout: default
 </article>
 
 <!-- async load function async(url, callback, delay) -->
-<script nonce="ydAaYqmhT5">
+<script>
     function async(u, c, t) {
         function l() {
             var d = document, s = 'script',
@@ -209,8 +210,18 @@ layout: default
     }
 </script>
 
+<!-- {% if site.giscus %}
+<script>
+    setTimeout(function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//{{site.disqus_username}}.disqus.com/embed.js';
+        (d.head || d.body).appendChild(s);
+    }, 5000);
+</script>
+{% endif %} -->
+
 {% if site.disqus_username %}
-<script type="text/javascript" nonce="ydAaYqmhT5">
+<script>
     var disqus_config = function () {
     this.page.url = '{{site.url}}{{page.url}}';
     this.page.identifier = '{{page.id}}';
@@ -226,15 +237,15 @@ layout: default
 
 <!-- Facebook comments -->
 {% if site.facebook_comments %}
-<script nonce="ydAaYqmhT5">
+<script>
     async("https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId={{site.facebook_app_id}}", ()=>{}, 5000)
 </script>
 {% endif %}
 
 {% if site.anchorjs %}
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script nonce="ydAaYqmhT5">
-    async("https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js", function(){
         anchors.options = {
           visible: 'always',
           placement: 'right',
