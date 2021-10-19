@@ -39,36 +39,6 @@
 ></script>
 {% endif %}
 
-<!-- async load function -->
-<script>
-  function async(u, c) {
-    var d = document,
-      t = "script",
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.src = u;
-    if (c) {
-      o.addEventListener(
-        "load",
-        function (e) {
-          c(null, e);
-        },
-        false
-      );
-    }
-    s.parentNode.insertBefore(o, s);
-  }
-  function asyncStyle(u) {
-    var d = document,
-      t = "link",
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0];
-    o.href = u;
-    o.rel = "stylesheet";
-    s.parentNode.insertBefore(o, s);
-  }
-</script>
-
 <!-- jQuery -->
 <script src="{{ '/js/jquery.min.js' | prepend: site.baseurl }}"></script>
 
@@ -208,7 +178,7 @@
       end: null,
       scrollChange: null,
       padding: 80,
-    });
+    }, 3000);
   });
 </script>
 {% endif %}

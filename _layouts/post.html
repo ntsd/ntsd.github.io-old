@@ -122,18 +122,6 @@ layout: default
 
                 {% if site.giscus %}
                 <div class="comment giscus"></div>
-                <script src="https://giscus.app/client.js"
-                    data-repo="ntsd/ntsd.github.io"
-                    data-repo-id="MDEwOlJlcG9zaXRvcnkyNDYwNjU3MDI="
-                    data-category="General"
-                    data-category-id="DIC_kwDODqqqJs4B_e5q"
-                    data-mapping="pathname"
-                    data-reactions-enabled="1"
-                    data-emit-metadata="0"
-                    data-theme="light"
-                    crossorigin="anonymous"
-                    defer>
-                </script>
                 {% endif %}
             </div>  
 
@@ -182,43 +170,36 @@ layout: default
     </div>
 </article>
 
-<!-- async load function async(url, callback, delay) -->
-<script>
-    function async(u, c, t) {
-        function l() {
-            var d = document, s = 'script',
-                o = d.createElement(s),
-                e = d.getElementsByTagName(s)[0];
-            o.src = u;
-            if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-            e.parentNode.insertBefore(o, e);
-        }
-        if (t) {
-            setTimeout(l, t);
-        }
-        else {
-            l();
-        }
-    }
-    function asyncStyle(u) {
-      var d = document, t = "link",
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.href = u;
-      o.rel="stylesheet";
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-
-<!-- {% if site.giscus %}
+{% if site.giscus %}
+<!-- <script src="https://giscus.app/client.js"
+                    data-repo="ntsd/ntsd.github.io"
+                    data-repo-id="MDEwOlJlcG9zaXRvcnkyNDYwNjU3MDI="
+                    data-category="General"
+                    data-category-id="DIC_kwDODqqqJs4B_e5q"
+                    data-mapping="pathname"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-theme="light"
+                    crossorigin="anonymous"
+                    defer>
+</script> -->
 <script>
     setTimeout(function() {
         var d = document, s = d.createElement('script');
-        s.src = '//{{site.disqus_username}}.disqus.com/embed.js';
+        s.src = ' https://giscus.app/client.js';
+        s.setAttribute('data-repo', 'ntsd/ntsd.github.io');
+        s.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkyNDYwNjU3MDI');
+        s.setAttribute('data-category', 'General');
+        s.setAttribute('data-category-id', 'DIC_kwDODqqqJs4B_e5q');
+        s.setAttribute('data-mapping', 'pathname');
+        s.setAttribute('data-reactions-enabled', '1');
+        s.setAttribute('data-emit-metadata', '0');
+        s.setAttribute('data-theme', 'light');
+        s.setAttribute('crossorigin', 'anonymous');
         (d.head || d.body).appendChild(s);
-    }, 5000);
+    }, 3000);
 </script>
-{% endif %} -->
+{% endif %}
 
 {% if site.disqus_username %}
 <script>
@@ -231,14 +212,14 @@ layout: default
         s.src = '//{{site.disqus_username}}.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
-    }, 5000);
+    }, 3000);
 </script>
 {% endif %}
 
 <!-- Facebook comments -->
 {% if site.facebook_comments %}
 <script>
-    async("https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId={{site.facebook_app_id}}", ()=>{}, 5000)
+    async("https://connect.facebook.net/en_US/sdk.js#xfbml=1&autoLogAppEvents=1&version=v6.0&appId={{site.facebook_app_id}}", ()=>{}, 3000)
 </script>
 {% endif %}
 

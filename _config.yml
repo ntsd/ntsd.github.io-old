@@ -56,7 +56,7 @@ logo: /pwa/icons/512.png
 twitter:
   username: ntsd_me
   card: summary
-facebook: 
+facebook:
   app_id: 523337598616322
   publisher: ntsd.dev
   admins: jo.ntsd
@@ -91,7 +91,7 @@ facebook_comments: false
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "<h4>Jirawat Boonkumnerd (ntsd)</h4> A Software Engineer"
+sidebar-about-description: "<h4>@ntsd</h4><h4>Jirawat Boonkumnerd</h4> A Software Engineer"
 # sidebar-avatar: /img/me.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
@@ -104,7 +104,8 @@ service-worker: true
 
 # Quotes quotes will show when description or subtitle is null
 show_quotes: false
-quotes: [
+quotes:
+  [
     "“Choose a job that you love and you will never have to work a day in your life” – Confucius",
     "“I have not failed. I’ve just found 10,000 ways that won’t work.” – Thomas Edison",
     "“Never before in history has innovation offered promise of so much to so many in so short a time.” – Bill Gates",
@@ -122,5 +123,5 @@ quotes: [
     "“Any time is a good time to start a company.” - Ron Conway",
     "“Nothing works better than just improving your product.” - Joel Spolsky",
     "“Your most unhappy customers are your greatest source of learning.” - Bill Gates",
-    "“Life is too short to hang out with people who aren’t resourceful.” - Jeff Bezos"
-]
+    "“Life is too short to hang out with people who aren’t resourceful.” - Jeff Bezos",
+  ]

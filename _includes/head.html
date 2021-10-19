@@ -44,4 +44,41 @@
 
   {% if page.header_import %} {% include_relative {{ page.header_import }} %} {%
   endif %}
+
+  <!-- async load function async(url, callback, delay) -->
+  <script>
+    function async(u, c, t) {
+      function l() {
+        var d = document,
+          s = "script",
+          o = d.createElement(s),
+          e = d.getElementsByTagName(s)[0];
+        o.src = u;
+        if (c) {
+          o.addEventListener(
+            "load",
+            function (e) {
+              c(null, e);
+            },
+            false
+          );
+        }
+        e.parentNode.insertBefore(o, e);
+      }
+      if (t) {
+        setTimeout(l, t);
+      } else {
+        l();
+      }
+    }
+    function asyncStyle(u) {
+      var d = document,
+        t = "link",
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+      o.href = u;
+      o.rel = "stylesheet";
+      s.parentNode.insertBefore(o, s);
+    }
+  </script>
 </head>
