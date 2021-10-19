@@ -127,8 +127,8 @@ layout: default
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
-                <hr class="hidden-sm hidden-xs">
 
+                <hr class="hidden-sm hidden-xs" style="visibility: hidden;">
                 <!-- Facebook comments -->
                 {% if site.facebook_comments %}
                 <div class="comment">
@@ -152,7 +152,8 @@ layout: default
 
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
-                <h4><a href="/tags/">FEATURED TAGS</a></h4>
+                <hr class="hidden-sm hidden-xs">
+                <h3><a href="/tags/">FEATURED TAGS</a></h3>
                 <div class="tags">
                     {% for tag in site.tags %}
                         {% if tag[1].size > site.featured-condition-size %}
@@ -224,13 +225,13 @@ layout: default
 {% if site.anchorjs %}
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js", function(){
+    async("https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js", function(){
         anchors.options = {
           visible: 'always',
           placement: 'right',
           icon: '#'
         };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+        anchors.add('.post-container h1, .post-container h2, .post-container h3');
     }, 5000)
 </script>
 <style>
