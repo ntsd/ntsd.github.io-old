@@ -13,6 +13,8 @@ published: true
 catalog: true
 ---
 
+Edit: Since Fast.io Archive and Cloudflare Page come I did tested it and it worked well so now I moved to Cloudflare Page.
+
 I did create a website from Jekyll and I'm looking for static web hosting to store it. What's the fastest and lowest latency for free web hosting\? Here is a topic that I testing about it.
 
 ## Static Web Hosting

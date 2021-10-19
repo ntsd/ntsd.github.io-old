@@ -21,7 +21,6 @@ const PRECACHE_LIST = [
   "./js/jquery.tagcloud.min.js",
   "./js/ntsd-blog.min.js",
   "./js/prism.min.js",
-  // "https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js",
   // CSS
   "./css/ntsd-blog.min.css",
   // "./css/bootstrap.min.css",
@@ -29,6 +28,11 @@ const PRECACHE_LIST = [
   // Images
   "./img/post-bg-os-metro.jpg",
   "./img/404-bg.jpg",
+  // External
+  "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.3.1/anchor.min.js",
+  "https://giscus.app/client.js",
+  "https://giscus.app/js/iframeResizer.min.js"
 ]
 const HOSTNAME_WHITELIST = [
   self.location.hostname,

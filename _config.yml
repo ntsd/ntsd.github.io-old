@@ -43,6 +43,13 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-lazy-load-image
+
+# Lazyload all images https://github.com/kenchan0130/jekyll-lazy-load-image
+lazy_load_image:
+  src_attr_name: src
+  additional_attrs:
+    "loading": "lazy"
 
 # Seo Tag setting
 # document: https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
