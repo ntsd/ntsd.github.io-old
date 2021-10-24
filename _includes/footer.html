@@ -35,7 +35,7 @@
 {% if site.service-worker %}
 <script
   src="{{ '/js/sw-registration.min.js' | prepend: site.baseurl }}"
-  defer
+  async
 ></script>
 {% endif %}
 

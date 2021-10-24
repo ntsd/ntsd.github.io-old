@@ -31,15 +31,15 @@
   />
 
   <!-- Web App Manifest -->
-  <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json" defer />
+  <link rel="manifest" href="{{ site.baseurl }}/pwa/manifest.json" async />
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="{{ site.baseurl }}/img/icon-min.svg" defer />
+  <link rel="shortcut icon" href="{{ site.baseurl }}/img/icon-min.svg" async />
   <!-- apple-touch-icon -->
   <link
     rel="apple-touch-icon"
     href="{{ site.baseurl }}/img/icon-min.svg"
-    defer
+    async
   />
 
   {% if page.header_import %} {% include_relative {{ page.header_import }} %} {%
@@ -54,6 +54,7 @@
           o = d.createElement(s),
           e = d.getElementsByTagName(s)[0];
         o.src = u;
+        o.async = true;
         if (c) {
           o.addEventListener(
             "load",
@@ -77,6 +78,7 @@
         o = d.createElement(t),
         s = d.getElementsByTagName(t)[0];
       o.href = u;
+      o.async = true;
       o.rel = "stylesheet";
       s.parentNode.insertBefore(o, s);
     }
